@@ -1,6 +1,4 @@
 '''
-
-
 @author: george
 '''
 
@@ -40,6 +38,20 @@ maecVocabs={'ActionObjectAssociationTypeVocab-1.0':['input','output','side-effec
             'instance','family','class'],'CapabilityObjectiveRelationshipTypeVocab-1.0':['child of','parent of','incorporates','icorporatedby'],'CommonCapabilityPropertiesVocab-1.0':[
             'encryption algorithm','protocol used'],'MalwareCapabilityVocab-1.0':['command and control','remote machine manipulation','privilege escalation','data theft','spying',
             'secondary operation','anti-detection','anti-code analysis','infection/propagation','anti-behavioral analysis','integrity violation','data exfiltration','probing',
-            'anti-removal','security degradation','availability violation','destruction','fraud','persistence','machine access/control']}
+            'anti-removal','security degradation','availability violation','destruction','fraud','persistence','machine access/control'],'MalwareLabelVocab-1.0':['adware',
+            'appender','backdoor','boot sector virus','bot','clicker','companion virus','cavity filler','data diddler','downloader','dropper file','file infector virus','fork bomb',
+            'greyware','implant','infector','keylogger','kleptographic worm','macro virus','malcode','mass-mailer','metamorphic virus','mid-infector','mobile code','multipartite virus',
+            'password stealer','polymorphic virus','premium dialer/smser','prepender','ransomware','rat','rogue anti-malware','rootkit','shellcode','spaghetti packer','spyware',
+            'trojan horse','variant','virus','wabbit','web bug','wiper','worm','zip bomb'],'AntiBehavioralAnalysisPropertiesVocab-1.0':['targeted vm','targeted sandbox'],
+            'AntiBehavioralAnalysisStrategicObjectivesVocab-1.0':['anti-vm','anti-sandbox'],'AntiBehavioralAnalysisTacticalObjectivesVocab-1.0':['detect vm environment',
+            'overload sandbox','prevent execution in sandbox','detect sandbox environment','prevent execution in vm'],'AntiCodeAnalysisStrategicObjjectiveVocab-1.0':['anti-debugging',
+            'code obfuscation','anti-disassembly'],'AntiCodeAnalysisTacticalObjectiveVocab-1.0':['transform control flow','restructure arrays','detect debugging','prevent debugging',
+            'defeat flow-oriented (recursive traversal) disassemblers','defeat linear disassemblers','obfuscate instructions','obfuscate imports','defeat call graph generation',
+            'obfuscate runtime code'],'AntiDetectionStrategicObjectivesVocab-1.0':['security software evasion','hide executing code','self-modification','anti-memory forensics',
+            'hide non-executing code','hide malware artifacts'],'AntiDetectionTacticalObjectivesVocab-1.0':['hide open network ports','execute before/external to','kernel hypervisor',
+            'encrypt self','hide processes','hide network traffic','change/add content','execute stealthy code','hide registry artifacts','hide userspace libraries','hide arbitrary virtual memory',
+            'execute non-main cpu code','feed misinformation during physical memory acquisition','prevent physical memory acquisition','prevent native api hooking','obfuscate artifact properties',
+            'hide kernel modules','hide code in file','hide services','hide file system artifacts','hide threads'],'AntiRemovalStrategicObjectivesVocab-1.0':['prevent malware artifact access',
+            'prevent malware artifact deletion']}
 maecBundle={'maecVocabs':maecVocabs} 
 
