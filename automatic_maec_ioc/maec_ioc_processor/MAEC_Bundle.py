@@ -52,6 +52,37 @@ maecVocabs={'ActionObjectAssociationTypeVocab-1.0':['input','output','side-effec
             'encrypt self','hide processes','hide network traffic','change/add content','execute stealthy code','hide registry artifacts','hide userspace libraries','hide arbitrary virtual memory',
             'execute non-main cpu code','feed misinformation during physical memory acquisition','prevent physical memory acquisition','prevent native api hooking','obfuscate artifact properties',
             'hide kernel modules','hide code in file','hide services','hide file system artifacts','hide threads'],'AntiRemovalStrategicObjectivesVocab-1.0':['prevent malware artifact access',
-            'prevent malware artifact deletion']}
+            'prevent malware artifact deletion'],'AntiRemovalTacticalObjevtivesVocab-1.0':['prevent registry deletion','prevent api unhooking','prevent file access','prevent memory access',
+            'prevent registry  access','prevent file deletion'],'AvailabilityViolationPropertiesVocab-1.0':['cryptocurrency type'],'AvailabilityViolationStrategicObjectivesVocab-1.0':
+            ['compromise data availability','compromise system availability','cosume system resources'],'AvailabilityViolationTacticalObjectivesVocab-1.0':['denial of service',
+            'compromise local system availability','crack passwords','mine of cryptocurrency','compromise access to information assets'],'CommandandControlPropertiesVocab-1.0':
+            ['frequency'],'CommandandControlStrategicObjectivesVocab-1.0':['determine c2 server','receive data from c2 server','send data to c2 server'],'CommandandControlTacticalObjectivesVocab-1.0':
+            ['check for payload','validate data','control malware via remote command','send system information','send heartbeat data','generate c2 domain name(s)','update configuration'],
+            'DataExfiltrationPropertiesVocab-1.0':['archive type','file type'],'DataExfiltrationStrategicObjectivesVocab-1.0':['perform data exfiltration','obfuscate data for exfiltration',
+            'stage data for exfiltration'],'DataExfiltrationTacticalObjectivesVocab-1.0':['exfiltrate via covert channel','exfiltrate via fax','exfiltrate via physical media',
+            'encrypt data','exfiltrate via network','hide data','package data','exfiltrate via  dumpster dive','move data to staging server','exfiltrate via voip/phone'],'DataTheftPropertiesVocab-1.0':
+            ['targeted application','targeted website'],'DataTheftStrategicObjectivesVocab-1.0':['steal stored information','steal user data','steal system information',
+            'steal authentication credentials'],'DataTheftTacticalObjectivesVocab-1.0':['steal dialed phone numbers','steal email data','steal referrer urls','steal cryptocurrency data',
+            'steal pki software certificate','steal browser cache','steal serial numbers','steal sms database','steal cookie','steal password hash','steal make/model','steal documents',
+            'steal network address','steal open port','steal images','steal browser history','steal web/network credential','steal pki key','steal contact list data','steal database content'],
+            'DestructionPropertiesVocab-1.0':['erasurescope'],'DestructionStrategicObjectivesVocab-1.0':['destroy physical entity','destroy virtual entity'],'DestructiontacticalObjectivesVocab-1.0':
+            ['erase data','destroy firmware','destroy hardware'],'FraudStrategicObjectivesVocab-1.0':['perform premium rate fraud','perform click fraud'],'FraudTacticalObjectivesVocab-1.0':
+            ['access premium service'],'InfectionPropagationPropertiesVocab-1.0':['scope','infection targeting','autonomy','targeted file type','targeted file architecture type',
+            'file infection type'],'InfectionPropagationStrategicObjectivesVocab-1.0':['prevent duplicate infection','infect file','infect remote machine'],'InfectionPropagationTacticalObjectivesVocab-1.0':
+            ['identify file','perfrom autonomous remote infection','identify target machine(s)','perform social-engineering based remote infection','inventory victims','write code into files',
+            'modify file'],'IntegrityViolationStrategicObjectivesVocab-1.0':['compromise system operational integrity','compromise user data integrity','annoy user','compromise network operational integrity',
+            'compromise system data integrity'],'IntegrityViolationTacticalObjectivesVocab-1.0':['subvert system','corrupt system data','annoy local system user','intercept/manipulate network traffic',
+            'annoy remote user','corrupt user data'],'MachineAccessControlPropertiesVocab-1.0':['backdoor type'],'MachineAccessControlStrategicObjectivesVocab-1.0':['control local machine','install backdoor'],
+            'MachineAccessControlTacticalObjectivesVocab-1.0':['control machine via remote command'],'PersistencePropertiesVocab-1.0':['scope'],'PersistenceStrategicObjectivesVocab-1.0':
+            ['persist to re-infect system','gather information for improvement','ensure compatibility','persist to continuously execute on system'],'PersistenceTacticalObjectivesVocab-1.0':
+            ['reinstantiate self after initial detection','limit application type/version','persist after os install/reinstall','drop/retrieve debug log file','persist independent of hard disk/os changes',
+            'persist after system reboot'],'PrivilegeEscalationPropertiesVocab-1.0':['user privilege escalation type'],'PrivilegeEscalationStrategicObjectivesVocab-1.0':['impersonate user',
+            'escalate user privilege'],'PrivilegeEscalationTacticalObjectivesVocab-1.0':['elevate cpu mode'],'ProbingStrategicObjectivesVocab-1.0':['probe host configuration','probe network configuration'],
+            'ProbingTacticalObjectivesVocab-1.0':['identify os','check for proxy','check for firewall','check for network drives','map local network','inventory system applications',
+            'check language','check for internet connectivity'],'RemoteMachineManipulationStrategicObjectivesVocab-1.0':['access remote machine','search for remote machine'],
+            'RemoteMachineManipulationTacticalObjectivesVocab-1.0':['compromise remote machine'],'SecondaryOperationPropertiesVocab-1.0':['trigger type'],'SecondaryOperationStrategicObjectivesVocab-1.0':
+            ['patch operating system file(s)','remove traces of infection','log activity','lay dormant','install other components','suicide exit'],'SecondaryOperationTacticalObjectivesVocab-1.0':
+            ['install secondary module','install secondary malware','install legitimate software','remove self','remove system artifacts'],'SecurityDegradationPropertiesVocab-1.0':
+            ['targeted program']}
 maecBundle={'maecVocabs':maecVocabs} 
 
