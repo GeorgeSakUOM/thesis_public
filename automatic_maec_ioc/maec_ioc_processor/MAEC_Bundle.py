@@ -83,6 +83,17 @@ maecVocabs={'ActionObjectAssociationTypeVocab-1.0':['input','output','side-effec
             'RemoteMachineManipulationTacticalObjectivesVocab-1.0':['compromise remote machine'],'SecondaryOperationPropertiesVocab-1.0':['trigger type'],'SecondaryOperationStrategicObjectivesVocab-1.0':
             ['patch operating system file(s)','remove traces of infection','log activity','lay dormant','install other components','suicide exit'],'SecondaryOperationTacticalObjectivesVocab-1.0':
             ['install secondary module','install secondary malware','install legitimate software','remove self','remove system artifacts'],'SecurityDegradationPropertiesVocab-1.0':
-            ['targeted program']}
+            ['targeted program'],'SecurityDegradationStrategicObjectivesVocab-1.0':['disable server provider security features','degrade security programs','disable system updates',
+            'disable os security features','disable [host-based or os] access controls'],'SecurityDegradationTacticalObjectivesVocab-1.0':['stop execution of security program','disable firewall',
+            'disable access right checking','disable kernel patching protection','prevent access to security  websites','remove sms warning messages','modify security program configuration',
+            'prevent security program from running','disable system update services/daemons','disable system service pack/patch installation','disable system file overwrite protection',
+            'disable privilege limiting','gather security program info','disable os security alerts','disable user account control'],'SpyingStrategicObjectivesVocab-1.0':['capture system input peripheral data',
+            'capture system state data','capture system interface data','capture system output peripheral data'],'SpyingTacticalObjectivesVocab-1.0':['capture system screenshot','capture camera input',
+            'capture file system','capture printer output','capture gps data','capture keyboard input','capture mouse input','capture microphone input','capture system network traffic',
+            'capture touchscreen input','capture system memory'],'MalwareConfigurationParameterVocab-1.0':['magic number','id','group id','mutex','filename','installation path'],'MalwareDevelopmentToolVocab-1.0':
+            ['builder','compiler','linker','packer','crypter','protector'],'MalwareSubjectRelationshipTypeVocab-1.1':['downloads','downloaded by','drops','dropped by','extracts','extracted from',
+            'direct descendant of','direct ancestor of','memory image of','contained in memory image','disk image of','contained in disk image','network traffic capture of','contained in network traffic capture',
+            'packed version of','unpacked version of','installs','installed by','64-bit version of','32-bit version of','encrypted version of','decrypted version of'],'GroupinRelationshipTypeVocab-1.0':
+            ['same malware family','clustered together','observed together','part of intrusion set','same malware toolkit']}
 maecBundle={'maecVocabs':maecVocabs} 
 
