@@ -6,7 +6,7 @@ import os, logging
 from configmanager import ConfigurationManager
 
 global LOG_PATH,ERROR_FILENAME,FORMAT,DATEFORMAT,WARNING_FILENAME,DEBUG_FILENAME,CRITICAL_FILENAME,INFO_FILENAME
-#All variables should be initialized from config files  
+ 
 LOG_PATH = ConfigurationManager.readLogConfig(variable = 'log_path')
 ERROR_FILENAME = ConfigurationManager.readLogConfig(variable = 'error_filename')
 WARNING_FILENAME = ConfigurationManager.readLogConfig(variable = 'warning_filename')

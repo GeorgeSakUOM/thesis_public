@@ -1,4 +1,4 @@
-from server_client.guiClient import GuiClient
+from server.guiClient import GuiClient
 gui=GuiClient()
 
 print 'Hello world'

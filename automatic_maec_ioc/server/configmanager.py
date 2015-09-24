@@ -23,3 +23,11 @@ class ConfigurationManager():
         var = config.get(section, variable)
         return var 
     
+    @staticmethod
+    def readServerConfig(variable='',filepath='',filename='server.conf',section='Server'):
+        config = ConfigParser.RawConfigParser()
+        pathConf =  os.path.abspath(os.path.join(os.path.dirname(__file__),"../conf"))
+        filepath = os.path.join(pathConf,filename)
+        config.read(filepath)
+        var = config.get(section, variable)
+        return var 

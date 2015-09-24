@@ -3,22 +3,23 @@ from socket import *
 from os import listdir
 from os.path import isfile,join
 from logger import Logger
-
+from configmanager import ConfigurationManager
 
 #Define and initialize global variables // Global variables should be initialized from configuration file 
-global FILENUMBER, DBFILENAME, JSONFILES
-ANALYSIS_PATH ='../analysis_hub'
-FILENUMBER = 0  
-DBFILENAME ='cuckoo_results_'
+global FILENUMBER, DBFILENAME, JSONFILES,ADDRESS,PORT_NUMBERS
+ANALYSIS_PATH = ConfigurationManager.readServerConfig(variable='analysis_path')
+FILENUMBER = int(ConfigurationManager.readServerConfig(variable='filenumber'))  
+DBFILENAME = ConfigurationManager.readServerConfig(variable = 'dbfilename')
+ADDRESS = ConfigurationManager.readServerConfig(variable = 'address')
+PORT_NUMBER = int(ConfigurationManager.readServerConfig(variable='port_number'))
 JSONFILES = []
-
 
 class IOCServer():
     '''
     IOCServer responses to request for IoCs and also it receives data from analysis and creates IoCs 
     '''
 
-    def __init__(self, adress='localhost' ,port=10000):
+    def __init__(self, adress=ADDRESS ,port=PORT_NUMBER):
         '''
         Constructor
         '''
