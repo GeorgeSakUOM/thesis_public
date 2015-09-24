@@ -1,19 +1,25 @@
 '''
 @author: george
 '''
-import ConfigParser 
+import ConfigParser ,os
 
-class ConfigurationManager(ConfigParser):
+class ConfigurationManager():
     '''
     Configuration Manager imports and manipulates all conf files
     '''
     
-    def __init__(self, params):
+    def __init__(self):
         '''
         Constructor
         '''
         
-    
-    def readConfig(self):
-        pass
+        
+    @staticmethod
+    def readLogConfig(variable='',filepath='',filename='log.conf',section='Logging'):
+        config = ConfigParser.RawConfigParser()
+        pathConf =  os.path.abspath(os.path.join(os.path.dirname(__file__),"../conf"))
+        filepath = os.path.join(pathConf,filename)
+        config.read(filepath)
+        var = config.get(section, variable)
+        return var 
     

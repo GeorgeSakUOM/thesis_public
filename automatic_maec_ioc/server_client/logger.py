@@ -3,18 +3,18 @@
 
 '''
 import os, logging
+from configmanager import ConfigurationManager
 
-
-global LOG_PATH,ERROR_FILE_NAME,FORMAT,DATEFORMAT
+global LOG_PATH,ERROR_FILENAME,FORMAT,DATEFORMAT,WARNING_FILENAME,DEBUG_FILENAME,CRITICAL_FILENAME,INFO_FILENAME
 #All variables should be initialized from config files  
-LOG_PATH = '../log'
-ERROR_FILENAME = 'error.log'
-WARNING_FILENAME = 'warning.log'
-DEBUG_FILENAME = 'debug.log'
-CRITICAL_FILENAME = 'critical_error.log'
-INFO_FILENAME = 'info.log'
-FORMAT ="%(levelname)s:%(name)s:%(asctime)s:%(message)s"
-DATEFORMAT ='%d-%m-%Y %I:%M:%S %p'
+LOG_PATH = ConfigurationManager.readLogConfig(variable = 'log_path')
+ERROR_FILENAME = ConfigurationManager.readLogConfig(variable = 'error_filename')
+WARNING_FILENAME = ConfigurationManager.readLogConfig(variable = 'warning_filename')
+DEBUG_FILENAME = ConfigurationManager.readLogConfig(variable = 'debug_filename')
+CRITICAL_FILENAME = ConfigurationManager.readLogConfig(variable = 'critical_filename')
+INFO_FILENAME = ConfigurationManager.readLogConfig(variable = 'info_filename')
+FORMAT =ConfigurationManager.readLogConfig(variable = 'format')
+DATEFORMAT =ConfigurationManager.readLogConfig(variable = 'dateformat')
 
 class Logger():
     '''
