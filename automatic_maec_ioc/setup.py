@@ -36,6 +36,21 @@ if __name__ == '__main__':
         with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','server.conf')), 'w') as configfile:
             config.write(configfile)
             configfile.close()
+        config.remove_section('Server')
+        #Initialize configuration file of MAEC
+        print('Initialize configuration file of MAEC')
+        config.add_section('maec')
+        config.set('maec', 'MAEC_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec")))
+        config.set('maec', 'MAEC_PATH_BUNDLES', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec","bundles")))
+        config.set('maec', 'MAEC_PATH_PACKAGES', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec","packages")))
+        config.set('maec', 'MAEC_PATH_PACKAGES', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec","containers")))
+        # Writing configuration file to 'maec.conf'
+        print("Writing configuration file to 'maec.conf'")        
+        with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','maec.conf')), 'w') as configfile:
+            config.write(configfile)
+            configfile.close()
         print('Configuration Completed successfully')
+        
+        
     except Exception, e :
         print e

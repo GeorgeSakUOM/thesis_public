@@ -2,6 +2,9 @@
 @author: george
 '''
 from cuckooResultsHandler import CuckooResultsHandler
+
+BUNDLES_PATH = 
+
 '''
 from cybox.core import AssociatedObjects, AssociatedObject, Object, AssociationType
 from cybox.common import Hash, HashList, VocabString
