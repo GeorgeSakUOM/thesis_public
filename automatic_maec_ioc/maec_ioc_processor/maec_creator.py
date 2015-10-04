@@ -2,9 +2,14 @@
 @author: george
 '''
 from cuckooResultsHandler import CuckooResultsHandler
+from common.configmanager import ConfigurationManager
+from maec_bundle import import MAECBundle
+from maec_container import MAECContainer
+from maec_package import MAECPackage 
 
-BUNDLES_PATH = 
-
+BUNDLES_PATH = ConfigurationManager.readmaecConfig(variable='maec_path_bundles')
+PACKAGES_PATH = ConfigurationManager.readmaecConfig(variable='maec_path_packages')
+CONTAINERS_PATH = ConfigurationManager.readmaecConfig(variable='maec_path_containers')
 '''
 from cybox.core import AssociatedObjects, AssociatedObject, Object, AssociationType
 from cybox.common import Hash, HashList, VocabString
@@ -29,4 +34,6 @@ class MAECCreator():
     
            
 if __name__=='__main__':
-    pass
+    print(BUNDLES_PATH)
+    print(CONTAINERS_PATH)
+    print(PACKAGES_PATH)

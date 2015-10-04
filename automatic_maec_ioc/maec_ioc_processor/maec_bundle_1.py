@@ -1,7 +1,6 @@
 '''
 @author: george
 '''
-
 maecVocabs={'ActionObjectAssociationTypeVocab-1.0':['input','output','side-effect'],'DebuggingActionNameVocab-1.0':['check for remote debugger','check for kernel debugger'],
             'DeviceDriverActionNameVocab-1.1':['load and call driver','load driver','unload driver','emulate driver'],'DirectoryActionNameVocab-1.1':['create directory',
             'delete directory','monitor directory','hide directory'],'DiskActionNameVocab-1.1':['get disk type','get disk attributes','mount disk','unmount disk','emulate disk'

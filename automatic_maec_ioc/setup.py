@@ -43,7 +43,7 @@ if __name__ == '__main__':
         config.set('maec', 'MAEC_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec")))
         config.set('maec', 'MAEC_PATH_BUNDLES', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec","bundles")))
         config.set('maec', 'MAEC_PATH_PACKAGES', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec","packages")))
-        config.set('maec', 'MAEC_PATH_PACKAGES', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec","containers")))
+        config.set('maec', 'MAEC_PATH_CONTAINERS', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec","containers")))
         # Writing configuration file to 'maec.conf'
         print("Writing configuration file to 'maec.conf'")        
         with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','maec.conf')), 'w') as configfile:

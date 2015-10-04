@@ -2,8 +2,8 @@ import  json, os
 from socket import *
 from os import listdir
 from os.path import isfile,join
-from logger import Logger
-from configmanager import ConfigurationManager
+from common.logger import Logger
+from common.configmanager import ConfigurationManager
 
 #Define and initialize global variables // Global variables should be initialized from configuration file 
 global FILENUMBER, DBFILENAME, JSONFILES,ADDRESS,PORT_NUMBERS
