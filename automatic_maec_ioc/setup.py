@@ -40,10 +40,17 @@ if __name__ == '__main__':
         #Initialize configuration file of MAEC
         print('Initialize configuration file of MAEC')
         config.add_section('maec')
-        config.set('maec', 'MAEC_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec")))
-        config.set('maec', 'MAEC_PATH_BUNDLES', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec","bundles")))
-        config.set('maec', 'MAEC_PATH_PACKAGES', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec","packages")))
-        config.set('maec', 'MAEC_PATH_CONTAINERS', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec","containers")))
+        config.set('maec', 'MAEC_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec_results")))
+        config.set('maec', 'MAEC_PATH_BUNDLES', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec_results","bundles")))
+        config.set('maec', 'MAEC_PATH_PACKAGES', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec_results","packages")))
+        config.set('maec', 'MAEC_PATH_CONTAINERS', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec_results","containers")))
+        config.add_section('xml_schema')
+        config.set('xml_schema', 'XML_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas")))
+        config.set('xml_schema', 'CYBOX_DV_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","cybox_default_vocabularies.xsd")))
+        config.set('xml_schema', 'BUNDLE_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","maec_bundle_schema.xsd")))
+        config.set('xml_schema', 'CONTAINER_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","maec_container_schema.xsd")))
+        config.set('xml_schema', 'PACKAGE_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","maec_package_schema.xsd")))
+        config.set('xml_schema', 'MAEC_DV_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","maec_default_vocabularies.xsd")))
         # Writing configuration file to 'maec.conf'
         print("Writing configuration file to 'maec.conf'")        
         with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','maec.conf')), 'w') as configfile:

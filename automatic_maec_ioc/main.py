@@ -1,16 +1,11 @@
 '''
-
 @author: george
 '''
-
-import json, os, errno, logging, ConfigParser,sys
-global FILENUMBER, DBFILENAME
-from common.logger import Logger
-from common.configmanager import ConfigurationManager
-
-patth='../log'
-pconf ='../conf'
+from maec.bundle.bundle import Bundle
 
 if __name__ == '__main__':
     
-    print ConfigurationManager.readmaecConfig(variable='maec_path_bundles')
+    te =Bundle()
+    print(te.id_)
+    #print(sys.path)
+    

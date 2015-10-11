@@ -40,4 +40,12 @@ class ConfigurationManager():
         config.read(filepath)
         var = config.get(section, variable)
         return var 
-    
+
+    @staticmethod
+    def readxmlConfig(variable='',filepath='',filename='maec.conf',section='xml_schema'):
+        config = ConfigParser.RawConfigParser()
+        pathConf =  os.path.abspath(os.path.join(os.path.dirname(__file__),"../conf"))
+        filepath = os.path.join(pathConf,filename)
+        config.read(filepath)
+        var = config.get(section, variable)
+        return var 

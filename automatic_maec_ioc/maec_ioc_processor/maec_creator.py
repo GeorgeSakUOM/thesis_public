@@ -1,9 +1,8 @@
 '''
 @author: george
 '''
-from cuckooResultsHandler import CuckooResultsHandler
 from common.configmanager import ConfigurationManager
-from maec_bundle import import MAECBundle
+from maec_bundle import MAECBundle
 from maec_container import MAECContainer
 from maec_package import MAECPackage 
 
@@ -22,16 +21,19 @@ import maec.utils
 '''
 testing imports
 '''
-import json
 
 class MAECCreator():
     '''
-    classdocs
+    Creates any type of maec product(bundle,package,container)
     '''
 
-    def __init__(self, results):
-        self.handler = CuckooResultsHandler(results)
-    
+    def __init__(self, results,bundles_path =BUNDLES_PATH,packages_path=PACKAGES_PATH,containers_path =CONTAINERS_PATH):
+        self.bundles_path =bundles_path
+        self.packages_path = packages_path
+        self.containers_path = containers_path
+        self.bundle = MAECBundle(results)
+        self.container = MAECContainer
+        self.package = MAECPackage
            
 if __name__=='__main__':
     print(BUNDLES_PATH)

@@ -94,5 +94,12 @@ maecVocabs={'ActionObjectAssociationTypeVocab-1.0':['input','output','side-effec
             'direct descendant of','direct ancestor of','memory image of','contained in memory image','disk image of','contained in disk image','network traffic capture of','contained in network traffic capture',
             'packed version of','unpacked version of','installs','installed by','64-bit version of','32-bit version of','encrypted version of','decrypted version of'],'GroupinRelationshipTypeVocab-1.0':
             ['same malware family','clustered together','observed together','part of intrusion set','same malware toolkit']}
+
+maecEnumFiles={'BundleContentTypeEnum':'BundleContentTypeEnum.xml','ActionImplementationTypeEnum':'ActionImplementationTypeEnum.xml','MalwareCapabilityEnum':'MalwareCapabilityEnum.xml',
+               'ObjectStateEnum':'ObjectStateEnum.xml'}
+
+
 maecBundle={'maecVocabs':maecVocabs} 
+
+
 
