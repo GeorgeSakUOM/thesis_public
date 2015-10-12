@@ -3,7 +3,7 @@
 '''
 from cuckooResultsHandler import CuckooResultsHandler
 from maec.bundle.bundle import Bundle
-from maec.utils.idgen import IDGenerator
+from mixbox.idgen import IDGenerator
 from cybox.utils.nsparser import Namespace
 from maec.bundle.av_classification import AVClassification 
 from cybox.core import Object

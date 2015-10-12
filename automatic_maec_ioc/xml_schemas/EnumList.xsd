@@ -9,5 +9,8 @@
 	<xs:element name="MalwareCapabilityEnum" type="EnumList" />	
 	<xs:element name="ActionImplementationTypeEnum" type="EnumList" />
 	<xs:element name="MalwareLabelEnum" type="EnumList" />	
-	<xs:element name="ObjectStateEnum" type="EnumList" />		
+	<xs:element name="ObjectStateEnum" type="EnumList" />
+	<xs:element name="DataTypeEnum" type="EnumList" />
+	<xs:element name="EffectTypeEnum" type="EnumList" />
+	<xs:element name="ObjectRelationshipEnum" type="EnumList" />
 </xs:schema>

@@ -9,6 +9,9 @@ from maec_package import MAECPackage
 BUNDLES_PATH = ConfigurationManager.readmaecConfig(variable='maec_path_bundles')
 PACKAGES_PATH = ConfigurationManager.readmaecConfig(variable='maec_path_packages')
 CONTAINERS_PATH = ConfigurationManager.readmaecConfig(variable='maec_path_containers')
+from maec_bundle import MAECBundle
+from maec_package import MAECPackage
+from maec_container import MAECContainer
 '''
 from cybox.core import AssociatedObjects, AssociatedObject, Object, AssociationType
 from cybox.common import Hash, HashList, VocabString
@@ -32,8 +35,9 @@ class MAECCreator():
         self.packages_path = packages_path
         self.containers_path = containers_path
         self.bundle = MAECBundle(results)
-        self.container = MAECContainer
-        self.package = MAECPackage
+        self.container = MAECContainer()
+        self.package = MAECPackage()
+
            
 if __name__=='__main__':
     print(BUNDLES_PATH)

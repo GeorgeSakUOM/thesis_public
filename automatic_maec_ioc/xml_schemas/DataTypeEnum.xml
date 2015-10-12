@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataTypeEnum xmlns="http://www.w3schools.com"
+ 						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						xsi:schemaLocation="http://www.w3schools.com" file="EnumList.xsd" >
+    <enum>string</enum>
+    <enum>int</enum>
+    <enum>float</enum>
+    <enum>date</enum>
+    <enum>positiveInteger</enum>
+    <enum>unsignedInt</enum>
+    <enum>dateTime</enum>
+    <enum>time</enum>
+    <enum>boolean</enum>
+    <enum>name</enum>
+    <enum>long</enum>
+    <enum>unsignedLong</enum>
+    <enum>duration</enum>
+    <enum>double</enum>
+    <enum>nonNegativeInteger</enum>
+    <enum>hexBinary</enum>
+    <enum>anyURI</enum>
+    <enum>base64Binary</enum>
+    <enum>IPv4 Address</enum>
+    <enum>IPv6 Address</enum>
+    <enum>Host Name</enum>
+    <enum>MAC Address</enum>
+    <enum>Domain Name</enum>
+    <enum>URI</enum>
+    <enum>TimeZone</enum>
+    <enum>Octal</enum>
+    <enum>Binary</enum>
+    <enum>BinHex</enum>
+    <enum>Subnet Mask</enum>
+   	<enum>UUID/GUID</enum>
+    <enum>Collection</enum>
+    <enum>CVE ID</enum>
+    <enum>CWE ID</enum>
+    <enum>CAPEC ID</enum>
+    <enum>CCE ID</enum>
+    <enum>CPE Name</enum>
+</DataTypeEnum>
