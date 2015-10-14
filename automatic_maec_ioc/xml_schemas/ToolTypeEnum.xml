@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ToolTypeEnum xmlns="http://www.w3schools.com"
+ 						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						xsi:schemaLocation="http://www.w3schools.com" file="EnumList.xsd" >
+	<enum>NIDS</enum>
+	<enum>NIPS</enum>
+	<enum>HIDS</enum>
+	<enum>HIPS</enum>
+	<enum>Firewall</enum>
+	<enum>Router</enum>
+	<enum>Proxy</enum>
+	<enum>Gateway</enum>
+	<enum>CSNMP/MIBs</enum>
+    <enum>A/V</enum>
+    <enum>DBMS Monitor</enum>
+    <enum>Vulnerability Scanner</enum>
+    <enum>Configuration Scanner</enum>
+    <enum>Asset Scanner</enum>
+    <enum>SIM</enum>
+    <enum>SEM</enum>
+</ToolTypeEnum>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HashNameEnum xmlns="http://www.w3schools.com"
+ 						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						xsi:schemaLocation="http://www.w3schools.com" file="EnumList.xsd" >
+	<enum>MD5</enum>
+	<enum>MD6</enum>
+	<enum>SHA1</enum>
+	<enum>SHA224</enum>
+	<enum>SHA256</enum>
+	<enum>SHA384</enum>
+	<enum>SHA512</enum>
+	<enum>SSDEEP</enum>
+</HashNameEnum>

@@ -13,4 +13,7 @@
 	<xs:element name="DataTypeEnum" type="EnumList" />
 	<xs:element name="EffectTypeEnum" type="EnumList" />
 	<xs:element name="ObjectRelationshipEnum" type="EnumList" />
+	<xs:element name="InformationSourceTypeEnum" type="EnumList" />
+	<xs:element name="ToolTypeEnum" type="EnumList" />
+	<xs:element name="HashNameEnum" type="EnumList" />
 </xs:schema>

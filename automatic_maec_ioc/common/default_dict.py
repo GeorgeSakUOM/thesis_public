@@ -96,7 +96,8 @@ maecVocabs={'ActionObjectAssociationTypeVocab-1.0':['input','output','side-effec
             ['same malware family','clustered together','observed together','part of intrusion set','same malware toolkit']}
 
 maecEnumFiles={'BundleContentTypeEnum':'BundleContentTypeEnum.xml','ActionImplementationTypeEnum':'ActionImplementationTypeEnum.xml','MalwareCapabilityEnum':'MalwareCapabilityEnum.xml',
-               'ObjectStateEnum':'ObjectStateEnum.xml','DataTypeEnum':'DataTypeEnum.xml','EffectTypeEnum':'EffectTypeEnum.xml','ObjectRelationshipEnum':'ObjectRelationshipEnum.xml'}
+               'ObjectStateEnum':'ObjectStateEnum.xml','DataTypeEnum':'DataTypeEnum.xml','EffectTypeEnum':'EffectTypeEnum.xml','ObjectRelationshipEnum':'ObjectRelationshipEnum.xml',
+               'InformationSourceTypeEnum':'InformationSourceTypeEnum.xml','ToolTypeEnum':'ToolTypeEnum.xml','HashNameEnum':'HashNameEnum.xml'}
 
 
 maecBundle={'maecVocabs':maecVocabs} 
