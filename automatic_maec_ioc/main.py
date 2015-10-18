@@ -1,4 +1,4 @@
-import sys
+import sys,pprint
 # Import the required bindings
 import maec.bindings.maec_bundle as bundle_binding
 import cybox.bindings.cybox_core as cybox_core_binding
@@ -34,6 +34,8 @@ a.set_Associated_Objects(as_objects)
 action_list = bundle_binding.ActionListType()
 action_list.add_Action(a)
 b.set_Actions(action_list)
-
+pp =pprint.PrettyPrinter()
 # Output the Bundle to stdout
-b.export(sys.stdout, 0)
+f =open('tes','a')
+
+b.export(f.write, 0)
