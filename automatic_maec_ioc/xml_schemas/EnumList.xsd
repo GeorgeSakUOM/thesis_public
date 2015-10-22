@@ -16,4 +16,5 @@
 	<xs:element name="InformationSourceTypeEnum" type="EnumList" />
 	<xs:element name="ToolTypeEnum" type="EnumList" />
 	<xs:element name="HashNameEnum" type="EnumList" />
+	<xs:element name="ActionArgumentNameEnum" type="EnumList"/>
 </xs:schema>

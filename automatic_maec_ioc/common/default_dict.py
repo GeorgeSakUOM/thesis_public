@@ -97,7 +97,7 @@ maecVocabs={'ActionObjectAssociationTypeVocab-1.0':['input','output','side-effec
 
 maecEnumFiles={'BundleContentTypeEnum':'BundleContentTypeEnum.xml','ActionImplementationTypeEnum':'ActionImplementationTypeEnum.xml','MalwareCapabilityEnum':'MalwareCapabilityEnum.xml',
                'ObjectStateEnum':'ObjectStateEnum.xml','DataTypeEnum':'DataTypeEnum.xml','EffectTypeEnum':'EffectTypeEnum.xml','ObjectRelationshipEnum':'ObjectRelationshipEnum.xml',
-               'InformationSourceTypeEnum':'InformationSourceTypeEnum.xml','ToolTypeEnum':'ToolTypeEnum.xml','HashNameEnum':'HashNameEnum.xml'}
+               'InformationSourceTypeEnum':'InformationSourceTypeEnum.xml','ToolTypeEnum':'ToolTypeEnum.xml','HashNameEnum':'HashNameEnum.xml','ActionArgumentNameEnum':'ActionArgumentNameEnum.xml'}
 
 
 maecBundle={'maecVocabs':maecVocabs} 

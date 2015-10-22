@@ -1,4 +1,2 @@
-from server.guiClient import GuiClient
-gui=GuiClient()
-
-print 'Hello world'
+import datetime
+print(datetime.datetime.now())
