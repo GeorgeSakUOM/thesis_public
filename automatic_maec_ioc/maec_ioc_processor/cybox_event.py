@@ -19,7 +19,7 @@ from mixbox.idgen import IDGenerator, set_id_method,set_id_namespace,create_id
 
 
 
-from cybox.core import Event,Actions, ActionRelationship
+from cybox.core import Event,Actions, ActionRelationship, Frequency
 from cybox_action import CyboxAction
 
 class CyboxEvent(Event):
@@ -36,11 +36,28 @@ class CyboxEvent(Event):
         self.observation_method = observation_method
         self.idref =idref
         self.frequency = frequency
-        self.event =event
+        self.event =[]
+        if isinstance(event,CyboxEvent):
+            self.event.append(event)
         self.description =description
         self._namespace =namespace
 
+    def addevent(self,event):
+        if isinstance(event,CyboxEvent):
+            self.event.append(event)
 
+    def addfrequnecy(self,rate=None,scale=None,trend=None,units=None):
+        self.frequency= Frequency()
+        self.frequency.rate =rate
+        self.frequency.scale=scale
+        self.frequency.trend=trend
+        self.frequency.units=units
+
+    def addtype(self,type):
+        self.type_=type
+
+    def adddescription(self,description):
+        self.description =description
 
     def addaction(self,action):
         if isinstance(action,CyboxAction ):
@@ -548,7 +565,18 @@ if __name__=='__main__':
 
     ex1.addobservationmethod(contributors=[dmcon1,dmcon2],tools=[tool1,tool2],information_source_type='Application Logs',tool_type='NIPS',description='Use of Cuckoo sandbox',time=dst,platform= pl,
                           system=syst1,instance=inst1,name='testing cuckoo method',sighting_count=15,source_type='Comm Logs')
-
-
+    ###################################################################################################################
+    #Add type in event
+    ex1.addtype(type='Registry Ops')
+    ###################################################################################################################
+    #Add description
+    ex1.adddescription('Event example description')
+    ###################################################################################################################
+    #Add frequency
+    ex1.addfrequnecy(rate=15,scale=18,trend=7,units=19)
+    ###################################################################################################################
+    #Add event
+    ex2 = CyboxEvent(description='Example event2 description')
+    ex1.addevent(ex2)
     #Printing results
     print(ex1.to_xml())
