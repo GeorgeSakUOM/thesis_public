@@ -259,7 +259,7 @@ class CyboxAction(Action):
             os_obj.environment_variable_list = EnvironmentVariableList()
             for envar in environment_variable_list:
                 os_obj.environment_variable_list.append(envar)
-        os_obj.install_date = Date().__init__(value=install_date)
+        os_obj.install_date = Date(value=install_date)
         os_obj.patch_level= patch_level
         os_obj.platform = platform # for platform creation should use creatediscoverymethodplatform
         return os_obj
@@ -492,10 +492,15 @@ if __name__ == '__main__':
     nwl = ex.creatediscoverymethodsystemnetworkinterface(adapter='NET1234',description='Net adapt test',
                                                          dhcp_lease_expires=datetime.datetime.now() ,dhcp_lease_obtained=datetime.datetime.now(),mac='12345678',dhcp_server_list=[dhcp1,dhcp2],
                                                          ip_lst=[ip1,ip2],ip_gateway_lst=[ipgw1,ipgw2])
+    pl1 = ex.creatediscoverymethodplatform(description='testing platform for os',identifiers=[ident1,ident2])
+    evl3 =  ex.creatediscoverymethodEnvVar(name='Env1',value='13')
+    evl4 =  ex.creatediscoverymethodEnvVar(name='Env2',value='14')
+
+    os1 = ex.creatediscoverymethodsystemos(platform=pl1,build_number='testbuildnumber',install_date=datetime.datetime.now(),patch_level='top',environment_variable_list=[evl3,evl4])
 
     syst1 = ex.creatediscoverymethodsystem(available_physical_memory=12234343,bios_info=systbios,date=datetime.datetime.now(),hostname='uom@labs',local_time=datetime.datetime.now(),
                                            system_time=time.time(),uptime=datetime.datetime.now(),username='george',network_interface_list=[nwl],processor='Intel pentium',timezone_dst='UTC',
-                                           timezone_standard='UTC',total_physical_memory=555555555555)
+                                           timezone_standard='UTC',total_physical_memory=555555555555,os=os1)
 
 
     cpl = ex.creatediscoverymethodinstancechildpidlist([23,56,78])
