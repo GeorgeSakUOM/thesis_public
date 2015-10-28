@@ -30,7 +30,7 @@ class CyboxEvent(Event):
         if id is None and idref is None:
             if namespace is not None:
                 set_id_namespace(namespace)
-            self.id_ = create_id()
+            self.id_ = create_id(prefix='event')
         self.actions = Actions()
         self.type_= type
         self.observation_method = observation_method

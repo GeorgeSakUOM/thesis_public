@@ -36,7 +36,7 @@ class CyboxAction(Action):
         if id is None and idref is None:
             if namespace is not None:
                 set_id_namespace(namespace)
-            self.id_ = create_id()
+            self.id_ = create_id(prefix='action')
         self.action_arguments = action_arguments
         self.action_aliases = action_aliases
         self.discovery_method = discovery_method

@@ -5,7 +5,7 @@ from cybox.objects.file_object import File
 
 class CyboxObject(Object):
 
-    def __init__(self,objecttype =File):
+    def __init__(self,objecttype=File):
         self._objecttype = objecttype()
 
     @property
@@ -15,6 +15,8 @@ class CyboxObject(Object):
     @objecttype.setter
     def objecttype(self,value):
         self._objecttype = value
+
+
 
     def to_xml(self):
         return self.objecttype.to_xml()

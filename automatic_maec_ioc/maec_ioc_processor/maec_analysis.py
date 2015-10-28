@@ -21,7 +21,7 @@ class MaecAnalysis(Analysis):
         if id is None:
             if namespace is not None:
                 set_id_namespace(namespace)
-            self.id_ = create_id()
+            self.id_ = create_id(prefix='analysis')
 
         self.ordinal_position=ordinal_position
         self.start_datetime=start_datetime
