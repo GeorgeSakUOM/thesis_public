@@ -3,14 +3,13 @@
 '''
 from common.configmanager import ConfigurationManager
 from maec_bundle import MAECBundle
-from maec_container import MAECContainer
-from maec_package import MAECPackage 
+from maec_ioc_processor.maec_package import MAECPackage
 
 BUNDLES_PATH = ConfigurationManager.readmaecConfig(variable='maec_path_bundles')
 PACKAGES_PATH = ConfigurationManager.readmaecConfig(variable='maec_path_packages')
 CONTAINERS_PATH = ConfigurationManager.readmaecConfig(variable='maec_path_containers')
 from maec_bundle import MAECBundle
-from maec_package import MAECPackage
+from maec_ioc_processor.maec_package import MAECPackage
 from maec_container import MAECContainer
 '''
 from cybox.core import AssociatedObjects, AssociatedObject, Object, AssociationType

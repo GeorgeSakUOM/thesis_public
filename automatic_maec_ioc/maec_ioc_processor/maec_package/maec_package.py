@@ -1,7 +1,9 @@
 from maec.package import Package,GroupingRelationship, ClusteringMetadata,ClusteringAlgorithmParameters,ClusterComposition,ClusterEdgeNodePair
 from mixbox.idgen import set_id_namespace,set_id_method,IDGenerator
-from maec_malware_subject import MaecMalwareSubject
 from cybox.common import VocabString
+
+from maec_ioc_processor.maec_package.maec_malware_subject import MaecMalwareSubject
+
 
 class MaecPackage(Package):
 

@@ -48,13 +48,13 @@ class MaecAnalysis(Analysis):
         if isinstance(analysis_environment,AnalysisEnvironment):
             self.analysis_environment=analysis_environment
 
-    def addtype(self,type=None):
+    def add_type(self,type=None):
         self.type_=type
 
-    def addmethod(self,method=None):
+    def add_method(self,method=None):
         self.method =method
 
-    def addordinalposition(self,ordinal_position=None):
+    def add_ordinal_position(self,ordinal_position=None):
         self.ordinal_position=ordinal_position
 
     def addanalysisdatesinfo(self,start_datetime=None,complete_datetime=None,lastupdate_datetime=None):
@@ -298,13 +298,13 @@ if __name__=='__main__':
     an_ex = MaecAnalysis(namespace=Namespace('testnamespace','totest','testschemalocation'))
     ####################################################################################################################
     #Add type
-    an_ex.addtype('triage')
+    an_ex.add_type('triage')
     ####################################################################################################################
     #Add method
-    an_ex.addmethod(method='dynamic')
+    an_ex.add_method(method='dynamic')
     ####################################################################################################################
     #Add Ordinal Position
-    an_ex.addordinalposition(ordinal_position=15)
+    an_ex.add_ordinal_position(ordinal_position=15)
     ####################################################################################################################
     #Add analysis dates info
     import datetime
