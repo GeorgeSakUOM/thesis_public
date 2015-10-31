@@ -1,5 +1,5 @@
 from maec.bundle import Bundle,AVClassification,ProcessTree,ProcessTreeNode,Capability,CapabilityProperty,CapabilityObjective,CapabilityObjectiveReference,CapabilityObjectiveRelationship, \
-    CapabilityReference,CapabilityRelationship,AssociatedCode
+    CapabilityReference,CapabilityRelationship,AssociatedCode,ObjectList
 
 from maec.bundle.behavior_reference import BehaviorReference
 from maec.bundle.behavior import Behavior,BehaviorPurpose,Exploit,CVEVulnerability,PlatformList,BehavioralActions,BehavioralAction,BehavioralActionEquivalenceReference,BehavioralActionReference
@@ -15,7 +15,9 @@ from cybox.common.platform_specification import PlatformIdentifier,PlatformSpeci
 from cybox.common.structured_text import StructuredText
 from cybox.objects.code_object import Code,TargetedPlatforms,CodeSegmentXOR
 from cybox.common.digitalsignature import DigitalSignature,DigitalSignatureList
-from maec.bundle.malware_action import MalwareAction,ActionImplementation,APICall
+from maec.bundle.candidate_indicator import CandidateIndicator,MalwareEntity,CandidateIndicatorComposition
+from maec.bundle.object_reference import ObjectReference
+from cybox.common import VocabString
 
 class MaecBundle(Bundle):
 
@@ -25,6 +27,44 @@ class MaecBundle(Bundle):
             set_id_namespace(namespace)
         super(MaecBundle,self).__init__(id =id,defined_subject=defined_subject,schema_version=schema_version,content_type=content_type,malware_instance_object=malware_instance_object)
         self.timestamp = timestamp
+
+    def create_candidate_indicator(self,id=None,creation_datetime=None,lastupdate_datetime=None,version=None, importance=None,numeric_importance=None,author=None,description=None,
+                                   malware_entity=None,composition=None):
+        candidate_indicator = CandidateIndicator(id=id)
+        candidate_indicator.creation_datetime = creation_datetime
+        candidate_indicator.lastupdate_datetime = lastupdate_datetime
+        candidate_indicator.version = version
+        candidate_indicator.importance =importance
+        candidate_indicator.numeric_importance = numeric_importance
+        candidate_indicator.author = author
+        candidate_indicator.description = description
+        candidate_indicator.malware_entity = malware_entity
+        candidate_indicator.composition = composition
+        return candidate_indicator
+
+    def create_candidate_indicator_malware_entity(self,type=None,name=None,description=None):
+        malware_entity = MalwareEntity()
+        malware_entity.type_ = type
+        malware_entity.name =name
+        malware_entity.description = description
+        return malware_entity
+
+    def create_candidate_indicator_composition(self,action_reference_list=None,behavior_reference_list=None,object_reference_list=None,sub_composition=None):
+        composition = CandidateIndicatorComposition()
+        if action_reference_list is not None:
+            composition.action_reference =[]
+            for reference in action_reference_list:
+                composition.action_reference.append(ActionReference(action_id=reference))
+        if behavior_reference_list is not None:
+            composition.behavior_reference =[]
+            for reference in behavior_reference_list:
+                composition.behavior_reference.append(BehaviorReference(behavior_idref=reference))
+        if object_reference_list is not None:
+            composition.object_reference=[]
+            for reference in object_reference_list:
+                composition.object_reference.append(ObjectReference(object_idref=reference))
+        composition.sub_composition = sub_composition
+        return composition
 
     def add_content_type(self,content_type):
         self.content_type =content_type
@@ -384,6 +424,21 @@ if __name__ =='__main__':
     act = MaecBundleAction()
     act.add_action_name('Create Hidden File')
     mb.add_action(action=act)
+    ####################################################################################################################
+    #Add object
+    from maec_ioc_processor.cybox.cybox_object import CyboxObject
+    obj = CyboxObject()
+    obj.objecttype.file_name='Test obj name'
+    mb.add_object(object=obj.objecttype)
+    ####################################################################################################################
+    #Add candidate indicator
+    comp = mb.create_candidate_indicator_composition(action_reference_list=['ar11','ar22'],behavior_reference_list=['br11','br22'],object_reference_list=['or11','or22'])
+    composition = mb.create_candidate_indicator_composition(action_reference_list=['ar1','ar2','ar3'],behavior_reference_list=['br1','br2','br3'],object_reference_list=['or1','or2','or3'],
+                                                            sub_composition=comp)
+    mal_ent = mb.create_candidate_indicator_malware_entity(type='family',name='Malware entity test name',description='Malware entity description')
+    can_ind = mb.create_candidate_indicator(creation_datetime=datetime.datetime.now(),lastupdate_datetime=datetime.datetime.now(),version='2.1',importance='high',numeric_importance=5,
+                                            author='Test author',description="Test candidate indicator description",malware_entity=mal_ent,composition=composition)
+    mb.add_candidate_indicator(candidate_indicator=can_ind)
     #Printing results
     print(mb.to_xml())
     #print(capability.to_xml())
