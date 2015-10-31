@@ -1,13 +1,21 @@
 from maec.bundle import Bundle,AVClassification,ProcessTree,ProcessTreeNode,Capability,CapabilityProperty,CapabilityObjective,CapabilityObjectiveReference,CapabilityObjectiveRelationship, \
-    CapabilityReference,CapabilityRelationship
+    CapabilityReference,CapabilityRelationship,AssociatedCode
 
 from maec.bundle.behavior_reference import BehaviorReference
+from maec.bundle.behavior import Behavior,BehaviorPurpose,Exploit,CVEVulnerability,PlatformList,BehavioralActions,BehavioralAction,BehavioralActionEquivalenceReference,BehavioralActionReference
 from mixbox.idgen import set_id_method,set_id_namespace,IDGenerator
 from cybox.core import ActionReference
 from cybox.objects.process_object import ChildPIDList,ArgumentList,PortList,NetworkConnectionList
-from cybox.common import EnvironmentVariableList, Duration,DateTime,ExtractedFeatures
+from cybox.common import EnvironmentVariableList, Duration,DateTime
+from cybox.common.extracted_features import ExtractedFeatures,Imports,Functions,ExtractedStrings,CodeSnippets
+from cybox.common.extracted_string import ExtractedString
 from cybox.objects.port_object import Port
 from cybox.objects.network_connection_object import NetworkConnection
+from cybox.common.platform_specification import PlatformIdentifier,PlatformSpecification
+from cybox.common.structured_text import StructuredText
+from cybox.objects.code_object import Code,TargetedPlatforms,CodeSegmentXOR
+from cybox.common.digitalsignature import DigitalSignature,DigitalSignatureList
+from maec.bundle.malware_action import MalwareAction,ActionImplementation,APICall
 
 class MaecBundle(Bundle):
 
@@ -151,6 +159,138 @@ class MaecBundle(Bundle):
     def create_behavior_reference(self,behavior_idref=None):
         return BehaviorReference(behavior_idref=behavior_idref)
 
+    def create_behavior(self,id=None,description=None,ordinal_position=None,status=None,duration=None,behavior_purpose=None,discovery_method=None,action=None,action_equivalence_reference=None,
+                        action_reference=None,associated_code=None):
+        behavior = Behavior(id=id,description=description)
+        behavior.ordinal_position = ordinal_position
+        behavior.status = status
+        behavior.duration = duration
+        if isinstance(behavior_purpose,BehaviorPurpose):
+            behavior.purpose = behavior_purpose
+        behavior.discovery_method = discovery_method
+        if action is not None or action_equivalence_reference is not None or action_reference is not None:
+            behavior.action_composition= BehavioralActions()
+            behavior.action_composition.action= action
+            behavior.action_composition.action_reference= action_reference
+            behavior.action_composition.action_equivalence_reference = action_equivalence_reference
+        if associated_code is not None:
+            behavior.associated_code = AssociatedCode()
+            for code in associated_code:
+                if isinstance(code,Code):
+                    behavior.associated_code.append(code)
+        return behavior
+
+    def create_behavior_associated_code(self,type=None,description=None,purpose=None,code_language=None,targeted_platforms=None,processor_family=None,discovery_method=None,
+                                        start_address=None,code_segment=None,code_segment_xor=None,xor_pattern=None,digital_signatures=None,extracted_features=None):
+        code = Code()
+        code.type_ =type
+        code.description = StructuredText(description)
+        code.purpose = purpose
+        code.code_language = code_language
+        if targeted_platforms is not None:
+            code.targeted_platforms =TargetedPlatforms()
+            for platform in targeted_platforms:
+                code.targeted_platforms.append(platform)
+        code.processor_family = processor_family
+        code.discovery_method =discovery_method
+        code.start_address = start_address
+        code.code_segment = code_segment
+        if code_segment_xor is not None:
+            code.code_segment_xor = CodeSegmentXOR(value=code_segment_xor)
+            code.code_segment_xor.xor_pattern= xor_pattern
+        if digital_signatures is not None:
+            code.digital_signatures = DigitalSignatureList()
+            for signature in digital_signatures:
+                code.digital_signatures.append(signature)
+        code.extracted_features = extracted_features
+        return code
+
+    def create_behavior_associated_code_digital_signature(self,signature_verified=None,signature_exists=None,certificate_subject=None,certificate_issuer=None,
+                                                          signature_description=None):
+        signature = DigitalSignature()
+        signature.signature_verified = signature_verified
+        signature.signature_exists = signature_exists
+        signature.certificate_subject = certificate_subject
+        signature.certificate_issuer = certificate_issuer
+        signature.signature_description = signature_description
+        return signature
+
+    def create_behavior_associated_code_extracted_feautures(self,functions=None,imports=None,codesnippets=None,extractedstrings=None):
+        extft = ExtractedFeatures()
+        if functions is not None and (all(isinstance(x,str ) for x in functions)):
+            extft.functions = Functions()
+            for func in functions:
+                extft.functions.append(func)
+
+        if imports is not None and (all(isinstance(x,str ) for x in imports)):
+            extft.imports = Imports()
+            for imp in imports:
+                extft.imports.append(imp)
+
+        if codesnippets is not None and (all(isinstance(x,str ) for x in codesnippets)):
+            extft.code_snippets = CodeSnippets()
+            for codsn in codesnippets:
+                code = Code()
+                code.code_segment=codsn
+                extft.code_snippets.append(code)
+
+        if extractedstrings is not None and (all(isinstance(x,str ) for x in extractedstrings)):
+            extft.strings = ExtractedStrings()
+            for exstr in extractedstrings:
+                extracted_string = ExtractedString(string_value=exstr)
+                extft.strings.append(extracted_string)
+        return extft
+
+    def create_behavior_action(self,behavioral_ordering):
+        action = BehavioralAction()
+        action.behavioral_ordering = behavioral_ordering
+        return action
+
+    def create_behavior_action_reference(self,action_id=None,behavioral_ordering=None):
+        action_reference = BehavioralActionReference()
+        action_reference.behavioral_ordering = behavioral_ordering
+        action_reference.action_id = action_id
+        return action_reference
+
+    def create_behavior_action_equivalence_reference(self,behavioral_ordering,action_equivalence_idref):
+        action_equivalence_reference = BehavioralActionEquivalenceReference()
+        action_equivalence_reference.behavioral_ordering = behavioral_ordering
+        action_equivalence_reference.action_equivalence_idref = action_equivalence_idref
+        return action_equivalence_reference
+
+    def create_behavior_purpose(self,description=None,known_vulnerability=None,cve_description=None,cve_id=None,cwe_id=None,targeted_platforms=None):
+        cve = CVEVulnerability()
+        cve.description = cve_description
+        cve.cve_id = cve_id
+        vulnerability_exploit=Exploit()
+        vulnerability_exploit.known_vulnerability = known_vulnerability
+        vulnerability_exploit.cve = cve
+        vulnerability_exploit.cwe_id =cwe_id
+        if targeted_platforms is not None:
+            vulnerability_exploit.targeted_platforms = PlatformList()
+            for platform in targeted_platforms:
+                vulnerability_exploit.targeted_platforms.append(platform)
+        behavior_purpose = BehaviorPurpose()
+        behavior_purpose.description = description
+        behavior_purpose.vulnerability_exploit=vulnerability_exploit
+        return behavior_purpose
+
+    def create_behavior_targeted_platform(self,description=None,identifiers=None):
+        platform = PlatformSpecification()
+        if description is not None:
+            platform.description= StructuredText(value=description)
+        if not identifiers is None:
+            for identifier in identifiers:
+                platform.identifiers.append(identifier)
+        return platform
+
+    def create_behavior_targeted_platform_identifier(self,system=None,system_ref =None):
+        identifier = PlatformIdentifier()
+        identifier.system =system
+        identifier.system_ref =system_ref
+        return identifier
+
+
 if __name__ =='__main__':
     #Testing example
     from mixbox.namespaces import Namespace
@@ -183,7 +323,7 @@ if __name__ =='__main__':
     node4 = mb.create_process_tree_node(pid=4444,ordinal_position=5)
     root_process = mb.create_process_tree_node(pid =1234,parent_action_idref='Test parent action idref',ordinal_position=1,spawned_processes=[node1,node2],injected_processes=[node3,node4],
                                                initiated_actions=[ar1,ar2],name='Test process name',creation_time=datetime.datetime.now(),argument_list=['Arg1','Arg2'],kernel_time=10000,
-                                               start_time=datetime.datetime.now(),user_time=datetime.datetime.now())
+                                               start_time=datetime.datetime.now(),user_time=datetime.datetime.now(),extracted_features=None)
     tree = mb.create_process_tree(root_process=root_process)
     mb.add_process_tree(process_tree=tree)
     ####################################################################################################################
@@ -212,7 +352,38 @@ if __name__ =='__main__':
     mb.add_capability(capability=capability)
     ####################################################################################################################
     #Add behavior
+    ident1 = mb.create_behavior_targeted_platform_identifier(system='win',system_ref='Test system ref 2')
+    platform1 = mb.create_behavior_targeted_platform(description='Platform 1',identifiers=[ident1])
+    ident2 = mb.create_behavior_targeted_platform_identifier(system='unix',system_ref='Test system ref 2')
+    platform2 = mb.create_behavior_targeted_platform(description='Platform 2',identifiers=[ident2])
+    purpose = mb.create_behavior_purpose(description='Test  purpose description',known_vulnerability='true',cve_description='CVE test description',cve_id='12345',cwe_id=[12,34,56],
+                                         targeted_platforms=[platform1,platform2])
+    action=mb.create_behavior_action(behavioral_ordering=1)
+    action_reference= mb.create_behavior_action_reference(behavioral_ordering=2,action_id='Test action id 1')
+    action_equivalence_reference= mb.create_behavior_action_equivalence_reference(behavioral_ordering=3,action_equivalence_idref='equiv idref 1')
+    from maec_ioc_processor.cybox.cybox_discovery_method import CyboxDiscoveryMethod
+    dm = CyboxDiscoveryMethod()
+    dm.add_discovery_method_name(name='Test behavior discovey method name')
+    extrfeat1 = mb.create_behavior_associated_code_extracted_feautures(functions=['extr feaut fun 1'],imports=['extr feat imp 1'],codesnippets=['code1 snip'],extractedstrings=['extstring 1'])
+    digsign1 = mb.create_behavior_associated_code_digital_signature(signature_description='Test signature description 1',signature_exists=True,signature_verified=True,certificate_subject='Test certificate subject 1')
+    digsign2 = mb.create_behavior_associated_code_digital_signature(signature_description='Test signature description 2',signature_exists=True,signature_verified=True,certificate_subject='Test certificate subject 2')
+    ident3 = mb.create_behavior_targeted_platform_identifier(system='win',system_ref='Test system ref 3')
+    platform3 = mb.create_behavior_targeted_platform(description='Platform 3',identifiers=[ident3])
+    dm1 = CyboxDiscoveryMethod()
+    dm1.add_discovery_method_name(name = 'Code discovey method')
+    code = mb.create_behavior_associated_code(type='Test type code',description='Test description',purpose='Test code purpose',code_language='Test code language',
+                                              targeted_platforms=[platform3],processor_family=['amd','i386'],discovery_method=dm1,start_address=hex(12355),code_segment='Test code segment',
+                                              code_segment_xor='Test xor segment',xor_pattern=hex(11111),digital_signatures=[digsign1,digsign2],extracted_features=extrfeat1)
+
+    behavior = mb.create_behavior(description='Test behavior description',ordinal_position=3,status='Success',duration=10000,behavior_purpose=purpose,discovery_method=dm,action=action,
+                                  action_reference=action_reference, action_equivalence_reference=action_equivalence_reference,associated_code=[code])
+    mb.add_behavior(behavior=behavior)
     ####################################################################################################################
+    #Add action
+    from maec_ioc_processor.maec_bundle.maec_bundle_action import MaecBundleAction
+    act = MaecBundleAction()
+    act.add_action_name('Create Hidden File')
+    mb.add_action(action=act)
     #Printing results
     print(mb.to_xml())
     #print(capability.to_xml())
