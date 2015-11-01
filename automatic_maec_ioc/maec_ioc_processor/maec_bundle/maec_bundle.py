@@ -1,5 +1,6 @@
 from maec.bundle import Bundle,AVClassification,ProcessTree,ProcessTreeNode,Capability,CapabilityProperty,CapabilityObjective,CapabilityObjectiveReference,CapabilityObjectiveRelationship, \
-    CapabilityReference,CapabilityRelationship,AssociatedCode,ObjectList
+    CapabilityReference,CapabilityRelationship,AssociatedCode,BehaviorCollection,ObjectCollection,ActionCollection,Collections,ActionCollectionList,BehaviorCollectionList,ObjectCollectionList, \
+    CandidateIndicatorCollectionList,CandidateIndicatorCollection
 
 from maec.bundle.behavior_reference import BehaviorReference
 from maec.bundle.behavior import Behavior,BehaviorPurpose,Exploit,CVEVulnerability,PlatformList,BehavioralActions,BehavioralAction,BehavioralActionEquivalenceReference,BehavioralActionReference
@@ -17,7 +18,8 @@ from cybox.objects.code_object import Code,TargetedPlatforms,CodeSegmentXOR
 from cybox.common.digitalsignature import DigitalSignature,DigitalSignatureList
 from maec.bundle.candidate_indicator import CandidateIndicator,MalwareEntity,CandidateIndicatorComposition
 from maec.bundle.object_reference import ObjectReference
-from cybox.common import VocabString
+from maec_bundle_action import MaecBundleAction
+from maec_ioc_processor.cybox.cybox_object import CyboxObject
 
 class MaecBundle(Bundle):
 
@@ -27,6 +29,11 @@ class MaecBundle(Bundle):
             set_id_namespace(namespace)
         super(MaecBundle,self).__init__(id =id,defined_subject=defined_subject,schema_version=schema_version,content_type=content_type,malware_instance_object=malware_instance_object)
         self.timestamp = timestamp
+        self.collections = Collections()
+        self.collections.action_collections = ActionCollectionList()
+        self.collections.behavior_collections = BehaviorCollectionList()
+        self.collections.object_collections = ObjectCollectionList()
+        self.collections.candidate_indicator_collections = CandidateIndicatorCollectionList()
 
     def create_candidate_indicator(self,id=None,creation_datetime=None,lastupdate_datetime=None,version=None, importance=None,numeric_importance=None,author=None,description=None,
                                    malware_entity=None,composition=None):
@@ -330,6 +337,58 @@ class MaecBundle(Bundle):
         identifier.system_ref =system_ref
         return identifier
 
+    def create_behavior_collection(self,id= None,name=None,affinity_degree=None,affinity_type=None,description=None,behavior_list=None):
+        collection =  BehaviorCollection(id=id,name=name)
+        collection.affinity_degree=affinity_degree
+        collection.description = description
+        collection.affinity_type = affinity_type
+        for behavior in behavior_list:
+            if isinstance(behavior,Behavior):
+                collection.add_behavior(behavior)
+        return collection
+
+    def add_named_behavior_collection_1(self,behavior_collection):
+        self.collections.behavior_collections.append(behavior_collection)
+
+    def create_action_collection(self,id= None,name=None,affinity_degree=None,affinity_type=None,description=None,action_list=None):
+        collection =  ActionCollection(id=id,name=name)
+        collection.affinity_degree=affinity_degree
+        collection.description = description
+        collection.affinity_type = affinity_type
+        for action in action_list:
+            if isinstance(action,MaecBundleAction):
+                collection.add_action(action)
+        return collection
+
+    def add_named_action_collection_1(self,action_collection):
+        self.collections.action_collections.append(action_collection)
+
+    def create_object_collection(self,id= None,name=None,affinity_degree=None,affinity_type=None,description=None,object_list=None):
+        collection =  ObjectCollection(id=id,name=name)
+        collection.affinity_degree=affinity_degree
+        collection.description = description
+        collection.affinity_type = affinity_type
+        for object in object_list:
+            if isinstance(object,CyboxObject):
+                collection.add_object(object.objecttype)
+        return collection
+
+    def add_named_object_collection_1(self,object_collection):
+        self.collections.object_collections.append(object_collection)
+
+    def create_candidate_indicator_collection(self,id= None,name=None,affinity_degree=None,affinity_type=None,description=None,candidate_indicator_list=None):
+        collection =  CandidateIndicatorCollection(id=id,name=name)
+        collection.affinity_degree=affinity_degree
+        collection.description = description
+        collection.affinity_type = affinity_type
+        for candidate_indicator in candidate_indicator_list:
+            if isinstance(candidate_indicator,CandidateIndicator):
+                collection.add_candidate_indicator(candidate_indicator)
+        return collection
+
+    def add_named_candidate_indicator_collection_1(self,candidate_indicator_collection):
+        self.collections.candidate_indicator_collections.append(candidate_indicator_collection)
+
 
 if __name__ =='__main__':
     #Testing example
@@ -341,7 +400,6 @@ if __name__ =='__main__':
     mb.add_content_type(content_type='dynamic analysis tool output')
     #Add malware instance object attribute
     ####################################################################################################################
-    from maec_ioc_processor.cybox.cybox_object import CyboxObject
     co = CyboxObject()
     co.objecttype.file_name='Test filename'
     mb.add_malware_instance_object_attribute(malware_instance_object=co.objecttype)
@@ -420,13 +478,11 @@ if __name__ =='__main__':
     mb.add_behavior(behavior=behavior)
     ####################################################################################################################
     #Add action
-    from maec_ioc_processor.maec_bundle.maec_bundle_action import MaecBundleAction
     act = MaecBundleAction()
     act.add_action_name('Create Hidden File')
     mb.add_action(action=act)
     ####################################################################################################################
     #Add object
-    from maec_ioc_processor.cybox.cybox_object import CyboxObject
     obj = CyboxObject()
     obj.objecttype.file_name='Test obj name'
     mb.add_object(object=obj.objecttype)
@@ -439,6 +495,53 @@ if __name__ =='__main__':
     can_ind = mb.create_candidate_indicator(creation_datetime=datetime.datetime.now(),lastupdate_datetime=datetime.datetime.now(),version='2.1',importance='high',numeric_importance=5,
                                             author='Test author',description="Test candidate indicator description",malware_entity=mal_ent,composition=composition)
     mb.add_candidate_indicator(candidate_indicator=can_ind)
+    ####################################################################################################################
+    #Add collections
+    #Add named behavior collection 1st way
+    beh1 = mb.create_behavior(description='Test behavior collection description 1',ordinal_position=1,status='Success')
+    beh2 = mb.create_behavior(description='Test behavior collection description 2',ordinal_position=2,status='Success')
+    beh_collection =  mb.create_behavior_collection(name='Test collection name 1',affinity_degree='high',affinity_type='Test affinity type',
+                                                    description='Test behavior collection descr',behavior_list=[beh1,beh2])
+    mb.add_named_behavior_collection_1(behavior_collection=beh_collection)
+    #Add named behavior collection 2nd way.bug in library
+    #testname='Test collection name 2'
+    #mb.add_named_behavior_collection(collection_name=testname)
+    #mb.add_behavior(behavior=beh1,behavior_collection_name=testname)
+    #Add named action collection 1st way
+    act1 = MaecBundleAction()
+    act1.add_action_name('Create Hidden File')
+    act2 = MaecBundleAction()
+    act2.add_action_name('Create Hidden File')
+    act_collection =  mb.create_action_collection(name='Test collection act name 1',affinity_degree='high',affinity_type='Test affinity type',
+                                                    description='Test action collection descr',action_list=[act1,act2])
+    mb.add_named_action_collection_1(act_collection)
+    #Add named action collection 2nd way
+    testname='Test action collection name 2'
+    mb.add_named_action_collection(testname)
+    mb.add_action(action=act1,action_collection_name=testname)
+    #Add named object collection 1st way
+    obj1 = CyboxObject()
+    obj1.objecttype.file_name='Test obj1 name'
+    obj2 = CyboxObject()
+    obj2.objecttype.file_name='Test obj2 name'
+    obj_collection =  mb.create_object_collection(name='Test collection obj name 1',affinity_degree='high',affinity_type='Test affinity type',
+                                                    description='Test object collection descr',object_list=[obj1,obj2])
+    mb.add_named_object_collection_1(obj_collection)
+    #Add named object collection 2nd way
+    testname='Test object collection name 2'
+    mb.add_named_object_collection(testname)
+    mb.add_object(object=obj1.objecttype,object_collection_name=testname)
+    #Add named candidate indicator collection 1st way
+    can_ind1 = mb.create_candidate_indicator(author='Test author 1')
+    can_ind2 = mb.create_candidate_indicator(author='Test author 2')
+    can_ind_collection = mb.create_candidate_indicator_collection(name='Test collection can ind name 1',affinity_degree='high',affinity_type='Test affinity type',
+                                                    description='Test can ind collection descr',candidate_indicator_list=[can_ind1,can_ind2])
+    mb.add_named_candidate_indicator_collection_1(can_ind_collection)
+    #Add named candidate indicator collection 2nd way.bug in library
+    #testname='Test can ind collection name 2'
+    #mb.add_named_candidate_indicator_collection(testname)
+    #mb.add_candidate_indicator(candidate_indicator=can_ind1,candidate_indicator_collection_name=testname)
+
     #Printing results
     print(mb.to_xml())
     #print(capability.to_xml())
