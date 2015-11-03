@@ -1,5 +1,5 @@
 __author__ = 'george'
-import os
+import os,json
 from xml.etree import ElementTree as ET
 
 
@@ -98,6 +98,18 @@ def run(source_path,schema_file_path,destination_directory):
             print(path)
         print('-------------------------------------------------------------')
 
+def write_file_names_to_a_dictionary(new_file_path,source_path):
+    with open(new_file_path,'w') as dfile:
+        data={}
+        for dirpath,dirname,files in os.walk(source_path):
+            for file in files:
+                data[file.split('.')[0]]=file
+                print(file.split('.')[0]+' : '+file)
+        print(str(data))
+        json.dump(data,dfile)
+
+
 if __name__=='__main__':
 
     run(source_path=SOURCE_PATH,schema_file_path=SCHEMA_FILE_PATH,destination_directory=DESTINATION_PATH)
+    write_file_names_to_a_dictionary('files_dictionary.json',DESTINATION_PATH)
