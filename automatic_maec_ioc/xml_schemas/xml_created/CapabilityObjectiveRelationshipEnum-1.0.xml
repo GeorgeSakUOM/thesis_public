@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CapabilityObjectiveRelationshipEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                         xmlns="http://www.w3schools.com"
+                                         xsi:schemaLocation="http://www.w3schools.com">
+    <enum>child of</enum>
+    <enum>parent of</enum>
+    <enum>incorporates</enum>
+    <enum>incorporated by</enum>
+</CapabilityObjectiveRelationshipEnum-1.0>

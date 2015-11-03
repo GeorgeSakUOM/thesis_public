@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CharacterEncodingEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                           xmlns="http://www.w3schools.com"
+                           xsi:schemaLocation="http://www.w3schools.com">
+    <enum>ASCII</enum>
+    <enum>UTF-8</enum>
+    <enum>UTF-16</enum>
+    <enum>UTF-32</enum>
+    <enum>Windows-1250</enum>
+    <enum>Windows-1251</enum>
+    <enum>Windows-1252</enum>
+    <enum>Windows-1253</enum>
+    <enum>Windows-1254</enum>
+    <enum>Windows-1255</enum>
+    <enum>Windows-1256</enum>
+    <enum>Windows-1257</enum>
+    <enum>Windows-1258</enum>
+</CharacterEncodingEnum-1.0>

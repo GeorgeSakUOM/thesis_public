@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ProcessMemoryActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                 xmlns="http://www.w3schools.com"
+                                 xsi:schemaLocation="http://www.w3schools.com">
+    <enum>allocate process virtual memory</enum>
+    <enum>free process virtual memory</enum>
+    <enum>modify process virtual memory protection</enum>
+    <enum>read from process memory</enum>
+    <enum>write to process memory</enum>
+    <enum>map file into process</enum>
+    <enum>unmap file from process</enum>
+    <enum>map library into process</enum>
+</ProcessMemoryActionNameEnum-1.0>

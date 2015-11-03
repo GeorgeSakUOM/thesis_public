@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InfectionPropagationTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                                xmlns="http://www.w3schools.com"
+                                                xsi:schemaLocation="http://www.w3schools.com">
+    <enum>identify file</enum>
+    <enum>perform autonomous remote infection</enum>
+    <enum>identify target machine(s)</enum>
+    <enum>perform social-engineering based remote infection</enum>
+    <enum>inventory victims</enum>
+    <enum>write code into file</enum>
+    <enum>modify file</enum>
+</InfectionPropagationTacticalObjectivesEnum-1.0>

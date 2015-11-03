@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TriggerFrequencyEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                      xmlns="http://www.w3schools.com"
+                      xsi:schemaLocation="http://www.w3schools.com">
+    <enum>TASK_TIME_TRIGGER_ONCE</enum>
+    <enum>TASK_EVENT_TRIGGER_ON_IDLE</enum>
+    <enum>TASK_EVENT_TRIGGER_AT_SYSTEMSTART</enum>
+    <enum>TASK_EVENT_TRIGGER_AT_LOGON</enum>
+    <enum>TASK_TIME_TRIGGER_DAILY</enum>
+    <enum>TASK_TIME_TRIGGER_WEEKLY</enum>
+    <enum>TASK_TIME_TRIGGER_MONTHLYDATE</enum>
+    <enum>TASK_TIME_TRIGGER_MONTHLYDOW</enum>
+</TriggerFrequencyEnum>

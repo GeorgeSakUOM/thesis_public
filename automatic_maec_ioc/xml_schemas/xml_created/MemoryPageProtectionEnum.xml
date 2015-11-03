@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<MemoryPageProtectionEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                          xmlns="http://www.w3schools.com"
+                          xsi:schemaLocation="http://www.w3schools.com">
+    <enum>PAGE_EXECUTE</enum>
+    <enum>PAGE_EXECUTE_READ</enum>
+    <enum>PAGE_EXECUTE_READWRITE</enum>
+    <enum>PAGE_EXECUTE_WRITECOPY</enum>
+    <enum>PAGE_NOACCESS</enum>
+    <enum>PAGE_READONLY</enum>
+    <enum>PAGE_READWRITE</enum>
+    <enum>PAGE_WRITECOPY</enum>
+</MemoryPageProtectionEnum>

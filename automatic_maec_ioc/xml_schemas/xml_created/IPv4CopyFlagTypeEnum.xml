@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IPv4CopyFlagTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                      xmlns="http://www.w3schools.com"
+                      xsi:schemaLocation="http://www.w3schools.com">
+    <enum>donotcopy(0)</enum>
+    <enum>copy(1)</enum>
+</IPv4CopyFlagTypeEnum>

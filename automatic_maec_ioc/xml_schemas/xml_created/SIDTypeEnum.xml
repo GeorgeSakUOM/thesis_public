@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SIDTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd" xmlns="http://www.w3schools.com"
+             xsi:schemaLocation="http://www.w3schools.com">
+    <enum>SidTypeUser</enum>
+    <enum>SidTypeGroup</enum>
+    <enum>SidTypeDomain</enum>
+    <enum>SidTypeAlias</enum>
+    <enum>SidTypeWellKnownGroup</enum>
+    <enum>SidTypeDeletedAccount</enum>
+    <enum>SidTypeInvalid</enum>
+    <enum>SidTypeUnknown</enum>
+    <enum>SidTypeComputer</enum>
+    <enum>SidTypeLabel</enum>
+</SIDTypeEnum>

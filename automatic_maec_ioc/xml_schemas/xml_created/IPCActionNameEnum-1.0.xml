@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IPCActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                       xmlns="http://www.w3schools.com"
+                       xsi:schemaLocation="http://www.w3schools.com">
+    <enum>create named pipe</enum>
+    <enum>delete named pipe</enum>
+    <enum>connect to named pipe</enum>
+    <enum>disconnect from named pipe</enum>
+    <enum>read from named pipe</enum>
+    <enum>write to named pipe</enum>
+    <enum>create mailslot</enum>
+    <enum>read from mailslot</enum>
+    <enum>write to mailslot</enum>
+</IPCActionNameEnum-1.0>

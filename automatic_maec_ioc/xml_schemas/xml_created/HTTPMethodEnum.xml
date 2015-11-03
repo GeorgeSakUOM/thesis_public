@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<HTTPMethodEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>GET</enum>
+    <enum>POST</enum>
+    <enum>HEAD</enum>
+    <enum>PUT</enum>
+</HTTPMethodEnum>

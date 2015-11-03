@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<BundleContentTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                       xmlns="http://www.w3schools.com"
+                       xsi:schemaLocation="http://www.w3schools.com">
+    <enum>dynamic analysis tool output</enum>
+    <enum>static analysis tool output</enum>
+    <enum>manual analysis output</enum>
+    <enum>extracted from subject</enum>
+    <enum>mixed</enum>
+    <enum>other</enum>
+</BundleContentTypeEnum>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<NetworkActionNameEnum-1.1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                           xmlns="http://www.w3schools.com"
+                           xsi:schemaLocation="http://www.w3schools.com">
+    <enum>open port</enum>
+    <enum>close port</enum>
+    <enum>connect to ip</enum>
+    <enum>disconnect from ip</enum>
+    <enum>connect to url</enum>
+    <enum>connect to socket address</enum>
+    <enum>download file</enum>
+    <enum>upload file</enum>
+    <enum>listen on port</enum>
+    <enum>send email message</enum>
+    <enum>send icmp request</enum>
+    <enum>send network packet</enum>
+    <enum>receive network packet</enum>
+</NetworkActionNameEnum-1.1>

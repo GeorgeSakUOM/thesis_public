@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WindowsVolumeAttributeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                            xmlns="http://www.w3schools.com"
+                            xsi:schemaLocation="http://www.w3schools.com">
+    <enum>ReadOnly</enum>
+    <enum>Hidden</enum>
+    <enum>NoDefaultDriveLetter</enum>
+    <enum>ShadowCopy</enum>
+</WindowsVolumeAttributeEnum>

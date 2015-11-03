@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PremisesTypeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                  xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Airport</enum>
+    <enum>Area</enum>
+    <enum>Building</enum>
+    <enum>Farm</enum>
+    <enum>Hospital</enum>
+    <enum>House</enum>
+    <enum>LandMark</enum>
+    <enum>LargeMailUser</enum>
+    <enum>Lot</enum>
+    <enum>RailwayStation</enum>
+    <enum>ShoppingComplex</enum>
+    <enum>University</enum>
+    <enum>Unit</enum>
+</PremisesTypeList>

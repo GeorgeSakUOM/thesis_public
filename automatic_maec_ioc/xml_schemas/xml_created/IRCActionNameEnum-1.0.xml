@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IRCActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                       xmlns="http://www.w3schools.com"
+                       xsi:schemaLocation="http://www.w3schools.com">
+    <enum>connect to irc server</enum>
+    <enum>disconnect from irc server</enum>
+    <enum>set irc nickname</enum>
+    <enum>join irc channel</enum>
+    <enum>leave irc channel</enum>
+    <enum>send irc private message</enum>
+    <enum>receive irc private message</enum>
+</IRCActionNameEnum-1.0>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AntiBehavioralAnalysisTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                                  xmlns="http://www.w3schools.com"
+                                                  xsi:schemaLocation="http://www.w3schools.com">
+    <enum>detect vm environment</enum>
+    <enum>overload sandbox</enum>
+    <enum>prevent execution in sandbox</enum>
+    <enum>detect sandbox environment</enum>
+    <enum>prevent execution in vm</enum>
+</AntiBehavioralAnalysisTacticalObjectivesEnum-1.0>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AddressFamilyTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                       xmlns="http://www.w3schools.com"
+                       xsi:schemaLocation="http://www.w3schools.com">
+    <enum>AF_UNSPEC</enum>
+    <enum>AF_INET</enum>
+    <enum>AF_IPX</enum>
+    <enum>AF_APPLETALK</enum>
+    <enum>AF_NETBIOS</enum>
+    <enum>AF_INET6</enum>
+    <enum>AF_IRDA</enum>
+    <enum>AF_BTH</enum>
+</AddressFamilyTypeEnum>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IANAAssignedIPNumbersTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                               xmlns="http://www.w3schools.com"
+                               xsi:schemaLocation="http://www.w3schools.com">
+    <enum>IPv6hopbyhop(0)</enum>
+    <enum>ICMP(1)</enum>
+    <enum>IGMP(2)</enum>
+    <enum>GGP(3)</enum>
+    <enum>IPv4Encapsulation(4)</enum>
+    <enum>ST(5)</enum>
+    <enum>TCP(6)</enum>
+    <enum>EGP(8)</enum>
+    <enum>IGRP(9)</enum>
+    <enum>NVP(11)</enum>
+    <enum>PUP(12)</enum>
+    <enum>ARGUS(13)</enum>
+    <enum>EMCON(14)</enum>
+    <enum>XNET(15)</enum>
+    <enum>UDP(17)</enum>
+    <enum>IPv6Encapsulation(41)</enum>
+    <enum>SDRP(42)</enum>
+    <enum>IPv6routingheader(43)</enum>
+    <enum>IPv6fragmentheader(44)</enum>
+    <enum>RSVP(46)</enum>
+    <enum>GRE(47)</enum>
+    <enum>encapsultaesecuritypayload_ESP(50)</enum>
+    <enum>authenticationheader_AH(51)</enum>
+    <enum>ICMPv6(58)</enum>
+    <enum>IPv6nonextheader(59)</enum>
+    <enum>IPv6destinationoptions(60)</enum>
+    <enum>mobilityheader(135)</enum>
+</IANAAssignedIPNumbersTypeEnum>

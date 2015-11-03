@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PersistenceTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                       xmlns="http://www.w3schools.com"
+                                       xsi:schemaLocation="http://www.w3schools.com">
+    <enum>reinstantiate self after initial detection</enum>
+    <enum>limit application type/version</enum>
+    <enum>persist after os install/reinstall</enum>
+    <enum>drop/retrieve debug log file</enum>
+    <enum>persist independent of hard disk/os changes</enum>
+    <enum>persist after system reboot</enum>
+</PersistenceTacticalObjectivesEnum-1.0>

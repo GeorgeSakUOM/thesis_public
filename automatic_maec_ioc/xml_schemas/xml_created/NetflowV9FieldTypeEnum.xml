@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<NetflowV9FieldTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                        xmlns="http://www.w3schools.com"
+                        xsi:schemaLocation="http://www.w3schools.com">
+    <enum>IN_BYTES(1)</enum>
+    <enum>IN_PKTS(2)</enum>
+    <enum>FLOWS(3)</enum>
+    <enum>PROTOCOL(4)</enum>
+    <enum>SRC_TOS(5)</enum>
+    <enum>TCP_FLAGS(6)</enum>
+    <enum>L4_SRC_PORT(7)</enum>
+    <enum>IPV4_SRC_ADDR(8)</enum>
+    <enum>SRC_MASK(9)</enum>
+    <enum>INPUT_SNMP(10)</enum>
+    <enum>L4_DST_PORT(11)</enum>
+    <enum>IPV4_DST_ADDR(12)</enum>
+    <enum>DST_MASK(13)</enum>
+    <enum>OUTPUT_SNMP(14)</enum>
+    <enum>IPV4_NEXT_HOP(15)</enum>
+    <enum>SRC_AS(16)</enum>
+    <enum>DST_AS(17)</enum>
+    <enum>BGP_IPV4_NEXT_HOP(18)</enum>
+    <enum>MUL_DST_PKTS(19)</enum>
+    <enum>MUL_DST_BYTES(20)</enum>
+</NetflowV9FieldTypeEnum>

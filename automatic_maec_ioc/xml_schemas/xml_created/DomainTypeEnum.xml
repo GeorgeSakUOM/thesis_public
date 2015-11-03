@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DomainTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>PF_LOCAL</enum>
+    <enum>PF_UNIX</enum>
+    <enum>PF_FILE</enum>
+    <enum>PF_INET</enum>
+    <enum>PF_AX25</enum>
+    <enum>PF_IPX</enum>
+    <enum>PF_INET6</enum>
+    <enum>PF_APPLETALK</enum>
+    <enum>PF_NETROM</enum>
+    <enum>PF_BRIDGE</enum>
+    <enum>PF_ATMPVC</enum>
+    <enum>PF_X25</enum>
+    <enum>PF_ROSE</enum>
+    <enum>PF_DECnet</enum>
+    <enum>PF_NETBEUI</enum>
+    <enum>PF_SECURITY</enum>
+    <enum>PF_KEY</enum>
+    <enum>PF_NETLINK</enum>
+    <enum>PF_ROUTE</enum>
+    <enum>PF_PACKET</enum>
+    <enum>PF_ASH</enum>
+    <enum>PF_ECONET</enum>
+    <enum>PF_ATMSVC</enum>
+    <enum>PF_SNA</enum>
+    <enum>PF_IRDA</enum>
+    <enum>PF_PPPOX</enum>
+    <enum>PF_WANPIPE</enum>
+    <enum>PF_BLUETOOTH</enum>
+</DomainTypeEnum>

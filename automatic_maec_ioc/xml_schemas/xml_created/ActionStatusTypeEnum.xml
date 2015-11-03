@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ActionStatusTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                      xmlns="http://www.w3schools.com"
+                      xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Success</enum>
+    <enum>Fail</enum>
+    <enum>Error</enum>
+    <enum>Complete/Finish</enum>
+    <enum>Pending</enum>
+    <enum>Ongoing</enum>
+    <enum>Unknown</enum>
+</ActionStatusTypeEnum>

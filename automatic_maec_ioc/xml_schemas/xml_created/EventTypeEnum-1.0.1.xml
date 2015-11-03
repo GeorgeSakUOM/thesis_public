@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<EventTypeEnum-1.0.1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                     xmlns="http://www.w3schools.com"
+                     xsi:schemaLocation="http://www.w3schools.com">
+    <enum>File Ops (CRUD)</enum>
+    <enum>Registry Ops</enum>
+    <enum>Memory Ops</enum>
+    <enum>Process Mgt</enum>
+    <enum>Thread Mgt</enum>
+    <enum>Service Mgt</enum>
+    <enum>Session Mgt</enum>
+    <enum>API Calls</enum>
+    <enum>Port Scan</enum>
+    <enum>IP Ops</enum>
+    <enum>DNS Lookup Ops</enum>
+    <enum>Socket Ops</enum>
+    <enum>IPC</enum>
+    <enum>Configuration Management</enum>
+    <enum>User/Password Mgt</enum>
+    <enum>Account Ops (App Layer)</enum>
+    <enum>HTTP Traffic</enum>
+    <enum>App Layer Traffic</enum>
+    <enum>Packet Traffic</enum>
+    <enum>Data Flow</enum>
+    <enum>Anomaly Events</enum>
+    <enum>Technical Compliance</enum>
+    <enum>Procedural Compliance</enum>
+    <enum>GUI/KVM</enum>
+    <enum>Autorun</enum>
+    <enum>USB/Media Detection</enum>
+    <enum>SQL</enum>
+    <enum>DHCP</enum>
+    <enum>Redirection</enum>
+    <enum>Authentication Ops</enum>
+    <enum>Authorization (ACL)</enum>
+    <enum>Privilege Ops</enum>
+    <enum>Basic System Ops</enum>
+    <enum>Signature Detection</enum>
+    <enum>Auto-update Ops</enum>
+    <enum>Application Logic</enum>
+    <enum>Email Ops</enum>
+</EventTypeEnum-1.0.1>

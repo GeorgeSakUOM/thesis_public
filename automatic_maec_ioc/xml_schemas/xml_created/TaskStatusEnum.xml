@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TaskStatusEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>SCHED_S_TASK_READY</enum>
+    <enum>SCHED_S_TASK_RUNNING</enum>
+    <enum>SCHED_S_TASK_NOT_SCHEDULED</enum>
+    <enum>SCHED_E_SERVICE_NOT_RUNNING</enum>
+    <enum>SCHED_E_UNSUPPORTED_ACCOUNT_OPTION</enum>
+    <enum>SCHED_E_UNKNOWN_OBJECT_VERSION</enum>
+    <enum>SCHED_E_NO_SECURITY_SERVICES</enum>
+    <enum>SCHED_E_ACCOUNT_DBASE_CORRUPT</enum>
+    <enum>SCHED_E_ACCOUNT_NAME_NOT_FOUND</enum>
+    <enum>SCHED_E_ACCOUNT_INFORMATION_NOT_SET</enum>
+    <enum>SCHED_E_INVALID_TASK</enum>
+    <enum>SCHED_E_CANNOT_OPEN_TASK</enum>
+    <enum>SCHED_E_SERVICE_NOT_INSTALLED</enum>
+    <enum>SCHED_E_TASK_NOT_RUNNING</enum>
+    <enum>SCHED_E_TASK_NOT_READY</enum>
+    <enum>SCHED_E_TRIGGER_NOT_FOUND</enum>
+    <enum>SCHED_S_EVENT_TRIGGER</enum>
+    <enum>SCHED_S_TASK_NO_VALID_TRIGGERS</enum>
+    <enum>SCHED_S_TASK_TERMINATED</enum>
+    <enum>SCHED_S_TASK_NO_MORE_RUNS</enum>
+    <enum>SCHED_S_TASK_HAS_NOT_RUN</enum>
+    <enum>SCHED_S_TASK_DISABLED</enum>
+    <enum>TASK_STATE_UNKNOWN</enum>
+    <enum>TASK_STATE_QUEUED</enum>
+</TaskStatusEnum>

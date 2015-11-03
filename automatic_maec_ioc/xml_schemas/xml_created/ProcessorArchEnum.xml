@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ProcessorArchEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                   xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>x86-32</enum>
+    <enum>x86-64</enum>
+    <enum>IA-64</enum>
+    <enum>PowerPC</enum>
+    <enum>ARM</enum>
+    <enum>Alpha</enum>
+    <enum>SPARC</enum>
+    <enum>z/Architecture</enum>
+    <enum>eSi-RISC</enum>
+    <enum>MIPS</enum>
+    <enum>Motorola 68k</enum>
+    <enum>Other</enum>
+</ProcessorArchEnum>

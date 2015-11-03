@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<RelationshipTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                      xmlns="http://www.w3schools.com"
+                      xsi:schemaLocation="http://www.w3schools.com">
+    <enum>relatedTo</enum>
+    <enum>isClassifiedAs</enum>
+    <enum>hosts</enum>
+    <enum>installed</enum>
+    <enum>isParentOf</enum>
+    <enum>causesToInstall</enum>
+    <enum>downloads</enum>
+    <enum>runs</enum>
+    <enum>usesCNC</enum>
+    <enum>isNameServerOf</enum>
+    <enum>resolvesTo</enum>
+    <enum>verifiedBy</enum>
+    <enum>isServerOfService</enum>
+    <enum>hasAssociatedConfiguration</enum>
+    <enum>operatedByEntity</enum>
+    <enum>downloadedFrom</enum>
+    <enum>contactedBy</enum>
+    <enum>partOfPackage</enum>
+    <enum>sourcedFrom</enum>
+    <enum>createdBy</enum>
+    <enum>hasSignature</enum>
+    <enum>hasTaggant</enum>
+</RelationshipTypeEnum>

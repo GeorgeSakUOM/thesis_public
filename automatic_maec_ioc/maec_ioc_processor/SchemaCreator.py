@@ -1,8 +1,7 @@
-'''
-Created on 2 Δεκ 2014
 
-@author: george
-'''
+
+
+
 
 class MyClass(object):
     '''
@@ -14,4 +13,3 @@ class MyClass(object):
         '''
         Constructor
         '''
-        

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<RegistryActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                            xmlns="http://www.w3schools.com"
+                            xsi:schemaLocation="http://www.w3schools.com">
+    <enum>create registry key</enum>
+    <enum>delete registry key</enum>
+    <enum>open registry key</enum>
+    <enum>close registry key</enum>
+    <enum>create registry key value</enum>
+    <enum>delete registry key value</enum>
+    <enum>enumerate registry key subkeys</enum>
+    <enum>enumerate registry key values</enum>
+    <enum>get registry key attributes</enum>
+    <enum>read registry key value</enum>
+    <enum>modify registry key value</enum>
+    <enum>modify registry key</enum>
+    <enum>monitor registry key</enum>
+</RegistryActionNameEnum-1.0>

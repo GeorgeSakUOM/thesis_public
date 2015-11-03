@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GUIActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                       xmlns="http://www.w3schools.com"
+                       xsi:schemaLocation="http://www.w3schools.com">
+    <enum>create window</enum>
+    <enum>kill window</enum>
+    <enum>create dialog box</enum>
+    <enum>enumerate windows</enum>
+    <enum>find window</enum>
+    <enum>hide window</enum>
+    <enum>show window</enum>
+</GUIActionNameEnum-1.0>

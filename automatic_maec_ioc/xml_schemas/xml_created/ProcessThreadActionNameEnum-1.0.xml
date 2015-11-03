@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ProcessThreadActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                 xmlns="http://www.w3schools.com"
+                                 xsi:schemaLocation="http://www.w3schools.com">
+    <enum>create thread</enum>
+    <enum>kill thread</enum>
+    <enum>create remote thread in process</enum>
+    <enum>enumerate threads</enum>
+    <enum>get thread username</enum>
+    <enum>impersonate process</enum>
+    <enum>revert thread to self</enum>
+    <enum>get thread context</enum>
+    <enum>set thread context</enum>
+    <enum>queue apc in thread</enum>
+</ProcessThreadActionNameEnum-1.0>

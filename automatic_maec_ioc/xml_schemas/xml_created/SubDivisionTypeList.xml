@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SubDivisionTypeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                     xmlns="http://www.w3schools.com"
+                     xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Department</enum>
+    <enum>Division</enum>
+    <enum>Branch</enum>
+    <enum>BusinessUnit</enum>
+    <enum>School</enum>
+    <enum>Section</enum>
+</SubDivisionTypeList>

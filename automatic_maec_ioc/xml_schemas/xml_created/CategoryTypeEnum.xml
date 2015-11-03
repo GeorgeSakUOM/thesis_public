@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CategoryTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                  xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>asn</enum>
+    <enum>atm</enum>
+    <enum>cidr</enum>
+    <enum>e-mail</enum>
+    <enum>mac</enum>
+    <enum>ipv4-addr</enum>
+    <enum>ipv4-net</enum>
+    <enum>ipv4-net-mask</enum>
+    <enum>ipv6-addr</enum>
+    <enum>ipv6-net</enum>
+    <enum>ipv6-net-mask</enum>
+</CategoryTypeEnum>

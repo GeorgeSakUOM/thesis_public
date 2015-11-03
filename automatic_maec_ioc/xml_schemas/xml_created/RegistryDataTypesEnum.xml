@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<RegistryDataTypesEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                       xmlns="http://www.w3schools.com"
+                       xsi:schemaLocation="http://www.w3schools.com">
+    <enum>REG_NONE</enum>
+    <enum>REG_SZ</enum>
+    <enum>REG_EXPAND_SZ</enum>
+    <enum>REG_BINARY</enum>
+    <enum>REG_DWORD</enum>
+    <enum>REG_DWORD_BIG_ENDIAN</enum>
+    <enum>REG_LINK</enum>
+    <enum>REG_MULTI_SZ</enum>
+    <enum>REG_RESOURCE_LIST</enum>
+    <enum>REG_FULL_RESOURCE_DESCRIPTOR</enum>
+    <enum>REG_RESOURCE_REQUIREMENTS_LIST</enum>
+    <enum>REG_QWORD</enum>
+    <enum>REG_INVALID_TYPE</enum>
+</RegistryDataTypesEnum>

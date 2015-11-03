@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AddressTypeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                 xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Airport</enum>
+    <enum>Business</enum>
+    <enum>CaravanPark</enum>
+    <enum>CommercialPark</enum>
+    <enum>CommunityDevelopment</enum>
+    <enum>EducationalInstitution</enum>
+    <enum>Entertainment</enum>
+    <enum>Hospital</enum>
+    <enum>Location</enum>
+    <enum>Marina</enum>
+    <enum>MilitaryBase</enum>
+    <enum>OverseasMilitary</enum>
+    <enum>Port</enum>
+    <enum>Primary</enum>
+    <enum>RecreationalPark</enum>
+    <enum>Resort</enum>
+    <enum>RetirementVillage</enum>
+    <enum>Rural</enum>
+    <enum>Secondary</enum>
+    <enum>ShoppingCentre</enum>
+    <enum>SportingCentre</enum>
+    <enum>Urban</enum>
+</AddressTypeList>

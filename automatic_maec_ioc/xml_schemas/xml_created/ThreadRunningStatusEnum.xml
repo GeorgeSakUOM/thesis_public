@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ThreadRunningStatusEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                         xmlns="http://www.w3schools.com"
+                         xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Initialized</enum>
+    <enum>Ready</enum>
+    <enum>Running</enum>
+    <enum>Standby</enum>
+    <enum>Terminated</enum>
+    <enum>Waiting</enum>
+    <enum>Transition</enum>
+    <enum>Unknown</enum>
+</ThreadRunningStatusEnum>

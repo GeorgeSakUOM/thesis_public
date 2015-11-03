@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TCPStateEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd" xmlns="http://www.w3schools.com"
+              xsi:schemaLocation="http://www.w3schools.com">
+    <enum>UNKNOWN</enum>
+    <enum>CLOSED</enum>
+    <enum>LISTENING</enum>
+    <enum>SYN_SENT</enum>
+    <enum>SYN_RECEIVED</enum>
+    <enum>ESTABLISHED</enum>
+    <enum>FIN_WAIT_1</enum>
+    <enum>FIN_WAIT_2</enum>
+    <enum>CLOSE_WAIT</enum>
+    <enum>CLOSING</enum>
+    <enum>LAST_ACK</enum>
+    <enum>TIME_WAIT</enum>
+    <enum>DELETING_TCB</enum>
+</TCPStateEnum>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PropertyTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                  xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>filename</enum>
+    <enum>filepath</enum>
+    <enum>locationUrl</enum>
+    <enum>isKernel</enum>
+    <enum>isParasitic</enum>
+    <enum>isStealth</enum>
+    <enum>isPolymorphic</enum>
+    <enum>isVirus</enum>
+    <enum>isNonReplicating</enum>
+    <enum>isDamaged</enum>
+    <enum>registryValueData</enum>
+    <enum>urlParameterString</enum>
+    <enum>postData</enum>
+    <enum>registrant</enum>
+    <enum>registrationDate</enum>
+    <enum>ownerAddress</enum>
+    <enum>adminContact</enum>
+    <enum>technicalContact</enum>
+    <enum>nameServer</enum>
+    <enum>countryCodeISO3166-2</enum>
+    <enum>countryCodeISO3166-3</enum>
+    <enum>countryCodeFIPS</enum>
+    <enum>city</enum>
+    <enum>region</enum>
+    <enum>isp</enum>
+    <enum>httpMethod</enum>
+    <enum>referrer</enum>
+    <enum>operatingSystem</enum>
+    <enum>userAgent</enum>
+    <enum>browser</enum>
+    <enum>comment</enum>
+</PropertyTypeEnum>

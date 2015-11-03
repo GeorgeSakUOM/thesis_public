@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                    xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Accept Socket Connection</enum>
+    <enum>Add Connection to Network Share</enum>
+    <enum>Add Network Share</enum>
+    <enum>Add System Call Hook</enum>
+    <enum>Add User</enum>
+    <enum>Add Windows Hook</enum>
+    <enum>Add Scheduled Task</enum>
+    <enum>Allocate Virtual Memory in Process</enum>
+    <enum>Bind Address to Socket</enum>
+    <enum>Change Service Configuration</enum>
+    <enum>Check for Remote Debugger</enum>
+    <enum>Close Port</enum>
+    <enum>Close Registry Key</enum>
+    <enum>Close Socket</enum>
+    <enum>Configure Service</enum>
+    <enum>Connect to IP</enum>
+    <enum>Connect to Named Pipe</enum>
+    <enum>Connect to Network Share</enum>
+    <enum>Connect to Socket</enum>
+    <enum>Connect to URL</enum>
+    <enum>Control Driver</enum>
+    <enum>Control Service</enum>
+    <enum>Copy File</enum>
+    <enum>Create Dialog Box</enum>
+    <enum>Create Directory</enum>
+    <enum>Create Event</enum>
+    <enum>Create File</enum>
+    <enum>Create File Alternate Data Stream</enum>
+    <enum>Create File Mapping</enum>
+    <enum>Create File Symbolic Link</enum>
+    <enum>Create Hidden File</enum>
+    <enum>Create Mailslot</enum>
+    <enum>Create Module</enum>
+    <enum>Create Mutex</enum>
+    <enum>Create Named Pipe</enum>
+    <enum>Create Process</enum>
+    <enum>Create Process as User</enum>
+    <enum>Create Registry Key</enum>
+    <enum>Create Registry Key Value</enum>
+    <enum>Create Remote Thread in Process</enum>
+    <enum>Create Service</enum>
+    <enum>Create Socket</enum>
+    <enum>Create Symbolic Link</enum>
+    <enum>Create Thread</enum>
+    <enum>Create Window</enum>
+    <enum>Delete Directory</enum>
+    <enum>Delete File</enum>
+    <enum>Delete Named Pipe</enum>
+    <enum>Delete Network Share</enum>
+    <enum>Delete Registry Key</enum>
+    <enum>Delete Registry Key Value</enum>
+    <enum>Delete Service</enum>
+    <enum>Delete User</enum>
+    <enum>Disconnect from Named Pipe</enum>
+    <enum>Disconnect from Network Share</enum>
+    <enum>Disconnect from Socket</enum>
+    <enum>Download File</enum>
+    <enum>Enumerate DLLs</enum>
+    <enum>Enumerate Network Shares</enum>
+    <enum>Enumerate Protocols</enum>
+    <enum>Enumerate Registry Key Subkeys</enum>
+    <enum>Enumerate Registry Key Values</enum>
+    <enum>Enumerate Threads in Process</enum>
+    <enum>Enumerate Processes</enum>
+    <enum>Enumerate Services</enum>
+    <enum>Enumerate System Handles</enum>
+    <enum>Enumerate Threads</enum>
+    <enum>Enumerate Users</enum>
+    <enum>Enumerate Windows</enum>
+    <enum>Find File</enum>
+    <enum>Find Window</enum>
+    <enum>Flush Process Instruction Cache</enum>
+    <enum>Free Library</enum>
+    <enum>Free Process Virtual Memory</enum>
+    <enum>Get Disk Free Space</enum>
+    <enum>Get Disk Type</enum>
+    <enum>Get Elapsed System Up Time</enum>
+    <enum>Get File Attributes</enum>
+    <enum>Get Function Address</enum>
+    <enum>Get System Global Flags</enum>
+    <enum>Get Host By Address</enum>
+    <enum>Get Host By Name</enum>
+    <enum>Get Host Name</enum>
+    <enum>Get Library File Name</enum>
+    <enum>Get Library Handle</enum>
+    <enum>Get NetBIOS Name</enum>
+    <enum>Get Process Current Directory</enum>
+    <enum>Get Process Environment Variable</enum>
+    <enum>Get Process Startup Information</enum>
+    <enum>Get Processes Snapshot</enum>
+    <enum>Get Registry Key Attributes</enum>
+    <enum>Get Service Status</enum>
+    <enum>Get System Global Flags</enum>
+    <enum>Get System Local Time</enum>
+    <enum>Get System Host Name</enum>
+    <enum>Get System NetBIOS Name</enum>
+    <enum>Get System Network Parameters</enum>
+    <enum>Get System Time</enum>
+    <enum>Get Thread Context</enum>
+    <enum>Get Thread Username</enum>
+    <enum>Get User Attributes</enum>
+    <enum>Get Username</enum>
+    <enum>Get Windows Directory</enum>
+    <enum>Get Windows System Directory</enum>
+    <enum>Get Windows Temporary Files Directory</enum>
+    <enum>Hide Window</enum>
+    <enum>Impersonate Process</enum>
+    <enum>Impersonate Thread</enum>
+    <enum>Inject Memory Page</enum>
+    <enum>Kill Process</enum>
+    <enum>Kill Thread</enum>
+    <enum>Kill Window</enum>
+    <enum>Listen on Port</enum>
+    <enum>Listen on Socket</enum>
+    <enum>Load and Call Driver</enum>
+    <enum>Load Driver</enum>
+    <enum>Load Library</enum>
+    <enum>Load Module</enum>
+    <enum>Lock File</enum>
+    <enum>Logon as User</enum>
+    <enum>Map File</enum>
+    <enum>Map Library</enum>
+    <enum>Map View of File</enum>
+    <enum>Modify File</enum>
+    <enum>Modify Named Pipe</enum>
+    <enum>Modify Process</enum>
+    <enum>Modify Service</enum>
+    <enum>Modify Registry Key</enum>
+    <enum>Modify Registry Key Value</enum>
+    <enum>Monitor Registry Key</enum>
+    <enum>Move File</enum>
+    <enum>Open File</enum>
+    <enum>Open File Mapping</enum>
+    <enum>Open Mutex</enum>
+    <enum>Open Port</enum>
+    <enum>Open Process</enum>
+    <enum>Open Registry Key</enum>
+    <enum>Open Service</enum>
+    <enum>Open Service Control Manager</enum>
+    <enum>Protect Virtual Memory</enum>
+    <enum>Query Disk Attributes</enum>
+    <enum>Query DNS</enum>
+    <enum>Query Process Virtual Memory</enum>
+    <enum>Queue APC in Thread</enum>
+    <enum>Read File</enum>
+    <enum>Read From Named Pipe</enum>
+    <enum>Read From Process Memory</enum>
+    <enum>Read Registry Key Value</enum>
+    <enum>Receive Data on Socket</enum>
+    <enum>Release Mutex</enum>
+    <enum>Rename File</enum>
+    <enum>Revert Thread to Self</enum>
+    <enum>Send Control Code to File</enum>
+    <enum>Send Control Code to Pipe</enum>
+    <enum>Send Control Code to Service</enum>
+    <enum>Send Data on Socket</enum>
+    <enum>Send Data to Address on Socket</enum>
+    <enum>Send DNS Query</enum>
+    <enum>Send Email Message</enum>
+    <enum>Send ICMP Request</enum>
+    <enum>Send Reverse DNS Query</enum>
+    <enum>Set File Attributes</enum>
+    <enum>Set NetBIOS Name</enum>
+    <enum>Set Process Current Directory</enum>
+    <enum>Set Process Environment Variable</enum>
+    <enum>Set System Global Flags</enum>
+    <enum>Set System Host Name</enum>
+    <enum>Set System Time</enum>
+    <enum>Set Thread Context</enum>
+    <enum>Show Window</enum>
+    <enum>Shutdown System</enum>
+    <enum>Sleep Process</enum>
+    <enum>Sleep System</enum>
+    <enum>Start Service</enum>
+    <enum>Unload Driver</enum>
+    <enum>Unlock File</enum>
+    <enum>Unmap File</enum>
+    <enum>Unload Module</enum>
+    <enum>Upload File</enum>
+    <enum>Write to File</enum>
+    <enum>Write to Process Virtual Memory</enum>
+</ActionNameEnum-1.0>

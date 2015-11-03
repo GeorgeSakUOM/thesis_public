@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<HTTPActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                        xmlns="http://www.w3schools.com"
+                        xsi:schemaLocation="http://www.w3schools.com">
+    <enum>send http get request</enum>
+    <enum>send http head request</enum>
+    <enum>send http post request</enum>
+    <enum>send http put request</enum>
+    <enum>send http delete request</enum>
+    <enum>send http trace request</enum>
+    <enum>send http options request</enum>
+    <enum>send http connect request</enum>
+    <enum>send http patch request</enum>
+    <enum>receive http response</enum>
+</HTTPActionNameEnum-1.0>

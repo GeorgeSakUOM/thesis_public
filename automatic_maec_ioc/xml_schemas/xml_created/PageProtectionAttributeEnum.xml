@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PageProtectionAttributeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                             xmlns="http://www.w3schools.com"
+                             xsi:schemaLocation="http://www.w3schools.com">
+    <enum>SEC_COMMIT</enum>
+    <enum>SEC_IMAGE</enum>
+    <enum>SEC_IMAGE_NO_EXECUTE</enum>
+    <enum>SEC_LARGE_PAGES</enum>
+    <enum>SEC_NOCACHE</enum>
+    <enum>SEC_RESERVE</enum>
+    <enum>SEC_WRITECOMBINE</enum>
+</PageProtectionAttributeEnum>

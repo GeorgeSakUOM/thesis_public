@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Layer7ProtocolEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                    xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>HTTP</enum>
+    <enum>HTTPS</enum>
+    <enum>FTP</enum>
+    <enum>SMTP</enum>
+    <enum>IRC</enum>
+    <enum>IDENT</enum>
+    <enum>DNS</enum>
+    <enum>TELNET</enum>
+    <enum>POP3</enum>
+    <enum>IMAP</enum>
+    <enum>SSH</enum>
+    <enum>SMB</enum>
+    <enum>ADC</enum>
+    <enum>AFP</enum>
+    <enum>BACNet</enum>
+    <enum>BitTorrent</enum>
+    <enum>BOOTP</enum>
+    <enum>Diameter</enum>
+    <enum>DICOM</enum>
+    <enum>DICT</enum>
+    <enum>DSM-CC</enum>
+    <enum>DSNP</enum>
+    <enum>DHCP</enum>
+    <enum>ED2K</enum>
+    <enum>Finger</enum>
+    <enum>Gnutella</enum>
+    <enum>Gopher</enum>
+    <enum>ISUP</enum>
+    <enum>LDAP</enum>
+    <enum>MIME</enum>
+    <enum>MSNP</enum>
+    <enum>MAP</enum>
+    <enum>NetBIOS</enum>
+    <enum>NNTP</enum>
+    <enum>NTP</enum>
+    <enum>NTCIP</enum>
+    <enum>RADIUS</enum>
+    <enum>RDP</enum>
+    <enum>rlogin</enum>
+    <enum>rsync</enum>
+    <enum>RTP</enum>
+    <enum>RTSP</enum>
+    <enum>SISNAPI</enum>
+    <enum>SIP</enum>
+    <enum>SNMP</enum>
+    <enum>STUN</enum>
+    <enum>TUP</enum>
+    <enum>TCAP</enum>
+    <enum>TFTP</enum>
+    <enum>WebDAV</enum>
+    <enum>XMPP</enum>
+    <enum>Modbus</enum>
+</Layer7ProtocolEnum>

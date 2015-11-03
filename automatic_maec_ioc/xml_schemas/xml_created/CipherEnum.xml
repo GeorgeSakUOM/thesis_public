@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CipherEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd" xmlns="http://www.w3schools.com"
+            xsi:schemaLocation="http://www.w3schools.com">
+    <enum>3DES</enum>
+    <enum>AES</enum>
+    <enum>Blowfish</enum>
+    <enum>CAST-128</enum>
+    <enum>CAST-256</enum>
+    <enum>DES</enum>
+    <enum>IDEA</enum>
+    <enum>Rijndael</enum>
+    <enum>RC5</enum>
+    <enum>Skipjack</enum>
+</CipherEnum>

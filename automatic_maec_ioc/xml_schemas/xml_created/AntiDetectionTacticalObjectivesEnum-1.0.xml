@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AntiDetectionTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                         xmlns="http://www.w3schools.com"
+                                         xsi:schemaLocation="http://www.w3schools.com">
+    <enum>hide open network ports</enum>
+    <enum>execute before/external to kernel/hypervisor</enum>
+    <enum>encrypt self</enum>
+    <enum>hide processes</enum>
+    <enum>hide network traffic</enum>
+    <enum>change/add content</enum>
+    <enum>execute stealthy code</enum>
+    <enum>hide registry artifacts</enum>
+    <enum>hide userspace libraries</enum>
+    <enum>hide arbitrary virtual memory</enum>
+    <enum>execute non-main cpu code</enum>
+    <enum>feed misinformation during physical memory acquisition</enum>
+    <enum>prevent physical memory acquisition</enum>
+    <enum>prevent native api hooking</enum>
+    <enum>obfuscate artifact properties</enum>
+    <enum>hide kernel modules</enum>
+    <enum>hide code in file</enum>
+    <enum>hide services</enum>
+    <enum>hide file system artifacts</enum>
+    <enum>hide threads</enum>
+</AntiDetectionTacticalObjectivesEnum-1.0>

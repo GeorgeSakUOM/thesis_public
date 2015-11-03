@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IANAHardwareTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                      xmlns="http://www.w3schools.com"
+                      xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Ethernet(1)</enum>
+    <enum>IEEE802(6)</enum>
+    <enum>ARCNET(7)</enum>
+    <enum>FrameRelay(15)</enum>
+    <enum>ATM(16)</enum>
+    <enum>HDLC(17)</enum>
+    <enum>FibreChannel(18)</enum>
+    <enum>ATM(19)</enum>
+    <enum>SerialLine(20)</enum>
+</IANAHardwareTypeEnum>

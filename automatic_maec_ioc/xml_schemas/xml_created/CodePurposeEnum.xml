@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CodePurposeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                 xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Application_Code</enum>
+    <enum>Library_Code</enum>
+    <enum>Shellcode</enum>
+    <enum>Exploit_Code</enum>
+    <enum>Unknown</enum>
+    <enum>Other</enum>
+</CodePurposeEnum>

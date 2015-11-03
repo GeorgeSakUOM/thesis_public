@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DiskActionNameEnum-1.1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                        xmlns="http://www.w3schools.com"
+                        xsi:schemaLocation="http://www.w3schools.com">
+    <enum>get disk type</enum>
+    <enum>get disk attributes</enum>
+    <enum>mount disk</enum>
+    <enum>unmount disk</enum>
+    <enum>emulate disk</enum>
+    <enum>list disks</enum>
+    <enum>monitor disk</enum>
+</DiskActionNameEnum-1.1>

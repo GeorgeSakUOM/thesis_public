@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ElectronicAddressIdentifierTypeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                     xmlns="http://www.w3schools.com"
+                                     xsi:schemaLocation="http://www.w3schools.com">
+    <enum>AIM</enum>
+    <enum>EMAIL</enum>
+    <enum>GOOGLE</enum>
+    <enum>GIZMO</enum>
+    <enum>ICQ</enum>
+    <enum>JABBER</enum>
+    <enum>MSN</enum>
+    <enum>SIP</enum>
+    <enum>SKYPE</enum>
+    <enum>URL</enum>
+    <enum>XRI</enum>
+    <enum>YAHOO</enum>
+</ElectronicAddressIdentifierTypeList>

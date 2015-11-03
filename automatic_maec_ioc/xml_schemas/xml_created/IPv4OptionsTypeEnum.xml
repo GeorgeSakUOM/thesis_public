@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IPv4OptionsTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                     xmlns="http://www.w3schools.com"
+                     xsi:schemaLocation="http://www.w3schools.com">
+    <enum>endofoptionslist(0)</enum>
+    <enum>nop(1)</enum>
+    <enum>security(2)</enum>
+    <enum>loosesourceroute(3)</enum>
+    <enum>timestamp(4)</enum>
+    <enum>extendedsecurity(5)</enum>
+    <enum>commercialsecurity(6)</enum>
+    <enum>recordroute(7)</enum>
+    <enum>streamidentifier(8)</enum>
+    <enum>strictsourceroute(9)</enum>
+    <enum>experimentalmeasure(10)</enum>
+    <enum>mtuprobe(11)</enum>
+    <enum>mtureply(12)</enum>
+    <enum>experimentalflowcontrol(13)</enum>
+    <enum>experimentalaccesscontrol(14)</enum>
+    <enum>encode(15)</enum>
+    <enum>imitrafficdescriptor(16)</enum>
+    <enum>extendedip(17)</enum>
+    <enum>traceroute(18)</enum>
+    <enum>addressextension(19)</enum>
+    <enum>routeralert(20)</enum>
+    <enum>selectivedirectedbroadcasemode(21)</enum>
+    <enum>dynamicepacketstate(23)</enum>
+    <enum>upstreammulticastpacket(24)</enum>
+    <enum>quickstart(25)</enum>
+    <enum>exp(30)</enum>
+</IPv4OptionsTypeEnum>

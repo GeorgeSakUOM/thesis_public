@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SubsystemTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                   xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Unknown</enum>
+    <enum>Native</enum>
+    <enum>Windows_GUI</enum>
+    <enum>Windows_CUI</enum>
+    <enum>OS2_CUI</enum>
+    <enum>POSIX_CUI</enum>
+    <enum>Native_Win9x_Driver</enum>
+    <enum>Windows_CE_GUI</enum>
+    <enum>EFI_Application</enum>
+    <enum>EFI_Boot_Service_Driver</enum>
+    <enum>EFI_Runtime_Driver</enum>
+    <enum>EFI_ROM</enum>
+    <enum>XBOX</enum>
+    <enum>Windows_Boot_Application</enum>
+</SubsystemTypeEnum>

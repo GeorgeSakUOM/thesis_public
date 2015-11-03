@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SecurityDegradationTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                               xmlns="http://www.w3schools.com"
+                                               xsi:schemaLocation="http://www.w3schools.com">
+    <enum>stop execution of security program</enum>
+    <enum>disable firewall</enum>
+    <enum>disable access right checking</enum>
+    <enum>disable kernel patching protection</enum>
+    <enum>prevent access to security websites</enum>
+    <enum>remove sms warning messages</enum>
+    <enum>modify security program configuration</enum>
+    <enum>prevent security program from running</enum>
+    <enum>disable system update services/daemons</enum>
+    <enum>disable system service pack/patch installation</enum>
+    <enum>disable system file overwrite protection</enum>
+    <enum>disable privilege limiting</enum>
+    <enum>gather security product info</enum>
+    <enum>disable os security alerts</enum>
+    <enum>disable user account control</enum>
+</SecurityDegradationTacticalObjectivesEnum-1.0>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<NLRouteProtocolEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                     xmlns="http://www.w3schools.com"
+                     xsi:schemaLocation="http://www.w3schools.com">
+    <enum>MIB_IPPROTO_OTHER</enum>
+    <enum>MIB_IPPROTO_LOCAL</enum>
+    <enum>MIB_IPPROTO_NETMGMT</enum>
+    <enum>MIB_IPPROTO_ICMP</enum>
+    <enum>MIB_IPPROTO_EGP</enum>
+    <enum>MIB_IPPROTO_GGP</enum>
+    <enum>MIB_IPPROTO_HELLO</enum>
+    <enum>MIB_IPPROTO_RIP</enum>
+    <enum>MIB_IPPROTO_IS_IS</enum>
+    <enum>MIB_IPPROTO_ES_IS</enum>
+    <enum>MIB_IPPROTO_CISCO</enum>
+    <enum>MIB_IPPROTO_BBN</enum>
+    <enum>MIB_IPPROTO_OSPF</enum>
+    <enum>MIB_IPPROTO_BGP</enum>
+    <enum>MIB_IPPROTO_NT_AUTOSTATIC</enum>
+    <enum>MIB_IPPROTO_NT_STATIC</enum>
+    <enum>MIB_IPPROTO_NT_STATIC_NON_DOD</enum>
+</NLRouteProtocolEnum>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AuthenticationTokenProtectionMechanismTypeEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                                    xmlns="http://www.w3schools.com"
+                                                    xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Plaintext</enum>
+    <enum>Salted GOST Hash</enum>
+    <enum>Unsalted GOST Hash</enum>
+    <enum>Salted HAVAL Hash</enum>
+    <enum>Unsalted HAVAL Hash</enum>
+    <enum>Salted MD2 Hash</enum>
+    <enum>Unsalted MD2 Hash</enum>
+    <enum>Salted MD4 Hash</enum>
+    <enum>Unsalted MD4 Hash</enum>
+    <enum>Salted MD5 Hash</enum>
+    <enum>Unsalted MD5 Hash</enum>
+    <enum>Salted PANAMA Hash</enum>
+    <enum>Unsalted PANAMA Hash</enum>
+    <enum>Salted RadioGatun Hash</enum>
+    <enum>Unsalted RadioGatun Hash</enum>
+    <enum>Salted RIPEMD Hash</enum>
+    <enum>Unsalted RIPEMD Hash</enum>
+    <enum>Salted RIPEMD-128/256 Hash</enum>
+    <enum>Unsalted RIPEMD-128/256 Hash</enum>
+    <enum>Salted RIPEMD-160 Hash</enum>
+    <enum>Unsalted RIPEMD-160 Hash</enum>
+    <enum>Salted RIPEMD-320 Hash</enum>
+    <enum>Unsalted RIPEMD-320 Hash</enum>
+    <enum>Salted SHA-0 Hash</enum>
+    <enum>Unsalted SHA-0 Hash</enum>
+    <enum>Salted SHA-1 Hash</enum>
+    <enum>Unsalted SHA-1 Hash</enum>
+    <enum>Salted SHA-256/224 Hash</enum>
+    <enum>Unsalted SHA-256/224 Hash</enum>
+    <enum>Salted SHA-512/384 Hash</enum>
+    <enum>Unsalted SHA-512/384 Hash</enum>
+    <enum>Salted SHA-3 Hash</enum>
+    <enum>Unsalted SHA-3 Hash</enum>
+    <enum>Salted SHA-3-224 Hash</enum>
+    <enum>Unsalted SHA-3-224 Hash</enum>
+    <enum>Salted SHA-3-256 Hash</enum>
+    <enum>Unsalted SHA-3-256 Hash</enum>
+    <enum>Salted SHA-3-384 Hash</enum>
+    <enum>Unsalted SHA-3-384 Hash</enum>
+    <enum>Salted SHA-3-512 Hash</enum>
+    <enum>Unsalted SHA-3-512 Hash</enum>
+    <enum>Salted Tiger(2)-192/160/128 Hash</enum>
+    <enum>Unsalted Tiger(2)-192/160/128 Hash</enum>
+    <enum>Salted WHIRLPOOL Hash</enum>
+    <enum>Unsalted WHIRLPOOL Hash</enum>
+    <enum>Salted Skein-256 Hash</enum>
+    <enum>Unsalted Skein-256 Hash</enum>
+    <enum>Salted Skein-512 Hash</enum>
+    <enum>Unsalted Skein-512 Hash</enum>
+    <enum>Salted Skein-1024 Hash</enum>
+    <enum>Unsalted Skein-1024 Hash</enum>
+    <enum>Salted Snefru-128 Hash</enum>
+    <enum>Unsalted Snefru-128 Hash</enum>
+    <enum>Salted Snefru-256 Hash</enum>
+    <enum>Unsalted Snefru-256 Hash</enum>
+    <enum>Iterative Hash</enum>
+    <enum>AES</enum>
+    <enum>Blowfish</enum>
+    <enum>DES</enum>
+    <enum>IDEA</enum>
+    <enum>RC4</enum>
+    <enum>TEA</enum>
+</AuthenticationTokenProtectionMechanismTypeEnum-1.0>

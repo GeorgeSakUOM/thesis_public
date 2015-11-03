@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SystemActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                          xmlns="http://www.w3schools.com"
+                          xsi:schemaLocation="http://www.w3schools.com">
+    <enum>add scheduled task</enum>
+    <enum>shutdown system</enum>
+    <enum>sleep system</enum>
+    <enum>get elapsed system up time</enum>
+    <enum>get netbios name</enum>
+    <enum>set netbios name</enum>
+    <enum>get system host name</enum>
+    <enum>set system host name</enum>
+    <enum>get system time</enum>
+    <enum>set system time</enum>
+    <enum>get system local time</enum>
+    <enum>set system local time</enum>
+    <enum>get username</enum>
+    <enum>enumerate system handles</enum>
+    <enum>get system global flags</enum>
+    <enum>set system global flags</enum>
+    <enum>get windows directory</enum>
+    <enum>get windows system directory</enum>
+    <enum>get windows temporary files directory</enum>
+</SystemActionNameEnum-1.0>

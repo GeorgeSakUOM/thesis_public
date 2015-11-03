@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DataTheftPropertiesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                             xmlns="http://www.w3schools.com"
+                             xsi:schemaLocation="http://www.w3schools.com">
+    <enum>targeted application</enum>
+    <enum>targeted website</enum>
+</DataTheftPropertiesEnum-1.0>

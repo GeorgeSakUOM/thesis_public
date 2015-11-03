@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ConditionTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                   xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Equals</enum>
+    <enum>DoesNotEqual</enum>
+    <enum>Contains</enum>
+    <enum>DoesNotContain</enum>
+    <enum>StartsWith</enum>
+    <enum>EndsWith</enum>
+    <enum>GreaterThan</enum>
+    <enum>GreaterThanOrEqual</enum>
+    <enum>LessThan</enum>
+    <enum>LessThanOrEqual</enum>
+    <enum>InclusiveBetween</enum>
+    <enum>ExclusiveBetween</enum>
+    <enum>FitsPattern</enum>
+    <enum>BitwiseAnd</enum>
+    <enum>BitwiseOr</enum>
+    <enum>BitwiseXor</enum>
+</ConditionTypeEnum>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ContactNumberElementList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                          xmlns="http://www.w3schools.com"
+                          xsi:schemaLocation="http://www.w3schools.com">
+    <enum>CountryCode</enum>
+    <enum>AreaCode</enum>
+    <enum>LocalNumber</enum>
+    <enum>Extension</enum>
+    <enum>Pin</enum>
+    <enum>Separator</enum>
+    <enum>NationalNumber</enum>
+    <enum>InternationalNumber</enum>
+</ContactNumberElementList>

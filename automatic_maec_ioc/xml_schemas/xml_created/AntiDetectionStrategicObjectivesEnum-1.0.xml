@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AntiDetectionStrategicObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                          xmlns="http://www.w3schools.com"
+                                          xsi:schemaLocation="http://www.w3schools.com">
+    <enum>security software evasion</enum>
+    <enum>hide executing code</enum>
+    <enum>self-modification</enum>
+    <enum>anti-memory forensics</enum>
+    <enum>hide non-executing code</enum>
+    <enum>hide malware artifacts</enum>
+</AntiDetectionStrategicObjectivesEnum-1.0>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<NumberTypeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>RangeFrom</enum>
+    <enum>Range</enum>
+    <enum>RangeTo</enum>
+    <enum>Prefix</enum>
+    <enum>Suffix</enum>
+    <enum>Number</enum>
+    <enum>Separator</enum>
+    <enum>Extension</enum>
+</NumberTypeList>

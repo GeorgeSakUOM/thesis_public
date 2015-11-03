@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<VisaElementList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                 xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Type</enum>
+    <enum>Number</enum>
+    <enum>Code</enum>
+    <enum>Country</enum>
+    <enum>IssuePlace</enum>
+    <enum>MaximumStay</enum>
+    <enum>Restriction</enum>
+    <enum>Privilege</enum>
+    <enum>SpecialCondition</enum>
+    <enum>EntryType</enum>
+</VisaElementList>

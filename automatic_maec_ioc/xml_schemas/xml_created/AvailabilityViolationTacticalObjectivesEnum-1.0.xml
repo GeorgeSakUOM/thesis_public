@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AvailabilityViolationTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                                 xmlns="http://www.w3schools.com"
+                                                 xsi:schemaLocation="http://www.w3schools.com">
+    <enum>denial of service</enum>
+    <enum>compromise local system availability</enum>
+    <enum>crack passwords</enum>
+    <enum>mine for cryptocurrency</enum>
+    <enum>compromise access to information assets</enum>
+</AvailabilityViolationTacticalObjectivesEnum-1.0>

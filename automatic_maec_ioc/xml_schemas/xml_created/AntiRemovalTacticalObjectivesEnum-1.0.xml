@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AntiRemovalTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                       xmlns="http://www.w3schools.com"
+                                       xsi:schemaLocation="http://www.w3schools.com">
+    <enum>prevent registry deletion</enum>
+    <enum>prevent api unhooking</enum>
+    <enum>prevent file access</enum>
+    <enum>prevent memory access</enum>
+    <enum>prevent registry access</enum>
+    <enum>prevent file deletion</enum>
+</AntiRemovalTacticalObjectivesEnum-1.0>

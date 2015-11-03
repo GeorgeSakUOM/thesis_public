@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ImportanceTypeEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                        xmlns="http://www.w3schools.com"
+                        xsi:schemaLocation="http://www.w3schools.com">
+    <enum>high</enum>
+    <enum>medium</enum>
+    <enum>low</enum>
+    <enum>informational</enum>
+    <enum>numeric</enum>
+    <enum>unknown</enum>
+</ImportanceTypeEnum-1.0>

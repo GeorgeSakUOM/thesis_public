@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IPVersionTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                   xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>IPv4(4)</enum>
+    <enum>ST(5)</enum>
+    <enum>IPv6(6)</enum>
+    <enum>TP/IX(7)</enum>
+    <enum>PIP(8)</enum>
+    <enum>TUBA(9)</enum>
+</IPVersionTypeEnum>

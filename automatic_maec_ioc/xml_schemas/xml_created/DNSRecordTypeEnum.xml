@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DNSRecordTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                   xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>A</enum>
+    <enum>AAAA</enum>
+    <enum>AFSDB</enum>
+    <enum>APL</enum>
+    <enum>CERT</enum>
+    <enum>CNAME</enum>
+    <enum>DHCID</enum>
+    <enum>DLV</enum>
+    <enum>DNAME</enum>
+    <enum>DNSKEY</enum>
+    <enum>DS</enum>
+    <enum>HIP</enum>
+    <enum>IPSECKEY</enum>
+    <enum>KEY</enum>
+    <enum>KX</enum>
+    <enum>LOC</enum>
+    <enum>MX</enum>
+    <enum>NAPTR</enum>
+    <enum>NS</enum>
+    <enum>NSEC</enum>
+    <enum>NSEC3</enum>
+    <enum>NSEC3PARAM</enum>
+    <enum>PTR</enum>
+    <enum>RRSIG</enum>
+    <enum>RP</enum>
+    <enum>SIG</enum>
+    <enum>SOA</enum>
+    <enum>SPF</enum>
+    <enum>SRV</enum>
+    <enum>SSHFP</enum>
+    <enum>TA</enum>
+    <enum>TKEY</enum>
+    <enum>TSIG</enum>
+    <enum>TXT</enum>
+</DNSRecordTypeEnum>

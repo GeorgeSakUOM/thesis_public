@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InformationSourceTypeEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                               xmlns="http://www.w3schools.com"
+                               xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Comm Logs</enum>
+    <enum>Application Logs</enum>
+    <enum>Web Logs</enum>
+    <enum>DBMS Log</enum>
+    <enum>OS/Device Driver APIs</enum>
+    <enum>Frameworks</enum>
+    <enum>VM Hypervisor</enum>
+    <enum>TPM</enum>
+    <enum>Application Framework</enum>
+    <enum>Help Desk</enum>
+    <enum>Incident Management</enum>
+    <enum>IAVM</enum>
+</InformationSourceTypeEnum-1.0>

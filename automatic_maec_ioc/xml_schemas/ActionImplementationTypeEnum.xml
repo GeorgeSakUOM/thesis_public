@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ActionImplementationTypeEnum xmlns="http://www.w3schools.com"
- 						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-						xsi:schemaLocation="http://www.w3schools.com" file="EnumList.xsd" >
-	<enum>api call</enum>
-	<enum>code</enum>
-</ActionImplementationTypeEnum>

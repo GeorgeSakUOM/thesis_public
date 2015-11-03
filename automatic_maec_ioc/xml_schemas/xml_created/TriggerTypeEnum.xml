@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TriggerTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                 xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>TASK_TRIGGER_EVENT</enum>
+    <enum>TASK_TRIGGER_TIME</enum>
+    <enum>TASK_TRIGGER_IDLE</enum>
+    <enum>TASK_TRIGGER_REGISTRATION</enum>
+    <enum>TASK_TRIGGER_BOOT</enum>
+    <enum>TASK_TRIGGER_LOGON</enum>
+    <enum>TASK_TRIGGER_SESSION_STATE_CHANGE</enum>
+</TriggerTypeEnum>

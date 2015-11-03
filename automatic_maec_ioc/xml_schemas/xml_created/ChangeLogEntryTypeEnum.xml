@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ChangeLogEntryTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                        xmlns="http://www.w3schools.com"
+                        xsi:schemaLocation="http://www.w3schools.com">
+    <enum>UPDATE_ACL</enum>
+    <enum>UPDATE_ATTRIBUTES</enum>
+    <enum>DELETE_FILE</enum>
+    <enum>CREATE_FILE</enum>
+    <enum>RENAME_FILE</enum>
+    <enum>CREATE_DIRECTORY</enum>
+    <enum>RENAME_DIRECTORY</enum>
+    <enum>DELETE_DIRECTORY</enum>
+    <enum>MNT_CREATE</enum>
+</ChangeLogEntryTypeEnum>

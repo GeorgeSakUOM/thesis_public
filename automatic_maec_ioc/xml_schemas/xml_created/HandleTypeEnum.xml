@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<HandleTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>AccessToken</enum>
+    <enum>Event</enum>
+    <enum>File</enum>
+    <enum>FileMapping</enum>
+    <enum>Job</enum>
+    <enum>IOCompletionPort</enum>
+    <enum>Mailslot</enum>
+    <enum>Mutex</enum>
+    <enum>NamedPipe</enum>
+    <enum>Pipe</enum>
+    <enum>Process</enum>
+    <enum>Semaphore</enum>
+    <enum>Thread</enum>
+    <enum>Transaction</enum>
+    <enum>WaitableTimer</enum>
+    <enum>RegistryKey</enum>
+    <enum>Window</enum>
+    <enum>ServiceControlManager</enum>
+    <enum>CommunicationsDevice</enum>
+    <enum>ConsoleInput</enum>
+    <enum>ConsoleScreenBuffer</enum>
+    <enum>MemoryResourceNotification</enum>
+    <enum>Directory</enum>
+    <enum>SymbolicLink</enum>
+    <enum>Token</enum>
+    <enum>Profile</enum>
+    <enum>WindowStation</enum>
+    <enum>Port</enum>
+    <enum>WaitablePort</enum>
+    <enum>Controller</enum>
+    <enum>Driver</enum>
+    <enum>Desktop</enum>
+    <enum>Adapter</enum>
+    <enum>Bitmap</enum>
+    <enum>Brush</enum>
+    <enum>ColorSpace</enum>
+    <enum>Cursor</enum>
+    <enum>DeviceContext</enum>
+    <enum>EnhancedMetafile</enum>
+    <enum>Font</enum>
+    <enum>GDIObject</enum>
+    <enum>Hook</enum>
+    <enum>Icon</enum>
+    <enum>Instance</enum>
+    <enum>Menu</enum>
+    <enum>Metafile</enum>
+    <enum>DisplayMonitor</enum>
+    <enum>Palette</enum>
+    <enum>Pen</enum>
+    <enum>Region</enum>
+    <enum>Resource</enum>
+</HandleTypeEnum>

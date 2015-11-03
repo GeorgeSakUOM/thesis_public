@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IANAEtherTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                   xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>IPv4(0x0800)</enum>
+    <enum>ARP(0x0806)</enum>
+    <enum>RARP(0x8035)</enum>
+    <enum>IPX(0x8137)</enum>
+    <enum>SNMP(0x814C)</enum>
+    <enum>IPv6(0x86DD)</enum>
+</IANAEtherTypeEnum>

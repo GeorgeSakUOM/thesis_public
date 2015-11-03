@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ActionRelationshipTypeEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                xmlns="http://www.w3schools.com"
+                                xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Preceded_By</enum>
+    <enum>Followed_By</enum>
+    <enum>Equivalent_To</enum>
+    <enum>Related_To</enum>
+    <enum>Dependent_On</enum>
+    <enum>Initiated_By</enum>
+    <enum>Initiated</enum>
+</ActionRelationshipTypeEnum-1.0>

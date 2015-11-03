@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IPv6DoNotRecogActionTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                              xmlns="http://www.w3schools.com"
+                              xsi:schemaLocation="http://www.w3schools.com">
+    <enum>skipoption(00)</enum>
+    <enum>discardpacket(01)</enum>
+    <enum>discardpacketsendicmpcode2(10)</enum>
+    <enum>discardpacketsendicmpcode2nomulti(11)</enum>
+</IPv6DoNotRecogActionTypeEnum>

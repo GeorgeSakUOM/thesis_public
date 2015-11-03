@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<EffectTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>State_Changed</enum>
+    <enum>Data_Read</enum>
+    <enum>Data_Written</enum>
+    <enum>Data_Sent</enum>
+    <enum>Data_Received</enum>
+    <enum>Properties_Read</enum>
+    <enum>Properties_Enumerated</enum>
+    <enum>Values_Enumerated</enum>
+    <enum>ControlCode_Sent</enum>
+</EffectTypeEnum>

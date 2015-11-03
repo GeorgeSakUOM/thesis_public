@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PremisesElementTypeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                         xmlns="http://www.w3schools.com"
+                         xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Name</enum>
+    <enum>Location</enum>
+    <enum>SubPremisesConnector</enum>
+    <enum>InternalThoroughfare</enum>
+    <enum>ReferenceLocation</enum>
+    <enum>Type</enum>
+</PremisesElementTypeList>

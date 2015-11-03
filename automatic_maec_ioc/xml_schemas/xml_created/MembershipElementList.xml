@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<MembershipElementList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                       xmlns="http://www.w3schools.com"
+                       xsi:schemaLocation="http://www.w3schools.com">
+    <enum>MembershipNumber</enum>
+    <enum>Privilege</enum>
+    <enum>Restriction</enum>
+    <enum>GroupName</enum>
+    <enum>Category</enum>
+    <enum>Type</enum>
+    <enum>IssuingCountryName</enum>
+    <enum>Role</enum>
+</MembershipElementList>

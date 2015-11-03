@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Layer3ProtocolEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                    xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>IPv4</enum>
+    <enum>IPv6</enum>
+    <enum>ICMP</enum>
+    <enum>IGMP</enum>
+    <enum>IGRP</enum>
+    <enum>CLNP</enum>
+    <enum>EGP</enum>
+    <enum>EIGRP</enum>
+    <enum>IPSec</enum>
+    <enum>IPX</enum>
+    <enum>Routed-SMLT</enum>
+    <enum>SCCP</enum>
+</Layer3ProtocolEnum>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AntiCodeAnalysisTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                            xmlns="http://www.w3schools.com"
+                                            xsi:schemaLocation="http://www.w3schools.com">
+    <enum>transform control flow</enum>
+    <enum>restructure arrays</enum>
+    <enum>detect debugging</enum>
+    <enum>prevent debugging</enum>
+    <enum>defeat flow-oriented (recursive traversal) disassembler</enum>
+    <enum>defeat linear disassembler</enum>
+    <enum>obfuscate instructions</enum>
+    <enum>obfuscate imports</enum>
+    <enum>defeat call graph generation</enum>
+    <enum>obfuscate runtime code</enum>
+</AntiCodeAnalysisTacticalObjectivesEnum-1.0>

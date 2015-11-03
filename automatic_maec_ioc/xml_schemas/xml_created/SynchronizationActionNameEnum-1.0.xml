@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SynchronizationActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                   xmlns="http://www.w3schools.com"
+                                   xsi:schemaLocation="http://www.w3schools.com">
+    <enum>create mutex</enum>
+    <enum>delete mutex</enum>
+    <enum>open mutex</enum>
+    <enum>release mutex</enum>
+    <enum>create semaphore</enum>
+    <enum>delete semaphore</enum>
+    <enum>open semaphore</enum>
+    <enum>release semaphore</enum>
+    <enum>create event</enum>
+    <enum>delete event</enum>
+    <enum>open event</enum>
+    <enum>reset event</enum>
+    <enum>create critical section</enum>
+    <enum>delete critical section</enum>
+    <enum>open critical section</enum>
+    <enum>release critical section</enum>
+</SynchronizationActionNameEnum-1.0>

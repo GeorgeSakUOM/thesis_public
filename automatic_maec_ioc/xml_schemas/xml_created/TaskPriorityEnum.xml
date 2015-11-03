@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TaskPriorityEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                  xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>HIGH_PRIORITY_CLASS</enum>
+    <enum>NORMAL_PRIORITY_CLASS</enum>
+    <enum>IDLE_PRIORITY_CLASS</enum>
+    <enum>REALTIME_PRIORITY_CLASS</enum>
+    <enum>ABOVE_NORMAL_PRIORITY_CLASS</enum>
+    <enum>BELOW_NORMAL_PRIORITY_CLASS</enum>
+</TaskPriorityEnum>

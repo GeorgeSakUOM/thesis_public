@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<KernelHookTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                    xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>IAT_API</enum>
+    <enum>Inline_Function</enum>
+    <enum>Instruction_Hooking</enum>
+</KernelHookTypeEnum>

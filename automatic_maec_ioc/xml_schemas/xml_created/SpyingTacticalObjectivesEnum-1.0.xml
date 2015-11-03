@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SpyingTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                  xmlns="http://www.w3schools.com"
+                                  xsi:schemaLocation="http://www.w3schools.com">
+    <enum>capture system screenshot</enum>
+    <enum>capture camera input</enum>
+    <enum>capture file system</enum>
+    <enum>capture printer output</enum>
+    <enum>capture gps data</enum>
+    <enum>capture keyboard input</enum>
+    <enum>capture mouse input</enum>
+    <enum>capture microphone input</enum>
+    <enum>capture system network traffic</enum>
+    <enum>capture touchscreen input</enum>
+    <enum>capture system memory</enum>
+</SpyingTacticalObjectivesEnum-1.0>

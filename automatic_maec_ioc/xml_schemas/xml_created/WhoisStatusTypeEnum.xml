@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WhoisStatusTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                     xmlns="http://www.w3schools.com"
+                     xsi:schemaLocation="http://www.w3schools.com">
+    <enum>ADD_PERIOD</enum>
+    <enum>RENEW_PERIOD</enum>
+    <enum>AUTO_RENEW_PERIOD</enum>
+    <enum>TRANSFER_PERIOD</enum>
+    <enum>PENDING_DELETE_RESTORABLE</enum>
+    <enum>PENDING_DELETE_SCHEDULED_FOR_RELEASE</enum>
+    <enum>PENDING_RESTORE</enum>
+    <enum>OK</enum>
+    <enum>INACTIVE</enum>
+    <enum>CLIENT_TRANSFER_PROHIBITED</enum>
+    <enum>CLIENT_RENEW_PROHIBITED</enum>
+    <enum>CLIENT_DELETE_PROHIBITED</enum>
+    <enum>CLIENT_UPDATE_PROHIBITED</enum>
+    <enum>CLIENT_HOLD</enum>
+    <enum>TRANSFER_PROHIBITED</enum>
+    <enum>RENEW_PROHIBITED</enum>
+    <enum>DELETE_PROHIBITED</enum>
+    <enum>UPDATE_PROHIBITED</enum>
+    <enum>HOLD</enum>
+</WhoisStatusTypeEnum>

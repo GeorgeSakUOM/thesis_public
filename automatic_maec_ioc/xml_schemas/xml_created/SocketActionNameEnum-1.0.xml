@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SocketActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                          xmlns="http://www.w3schools.com"
+                          xsi:schemaLocation="http://www.w3schools.com">
+    <enum>accept socket connection</enum>
+    <enum>bind address to socket</enum>
+    <enum>create socket</enum>
+    <enum>close socket</enum>
+    <enum>connect to socket</enum>
+    <enum>disconnect from socket</enum>
+    <enum>listen on socket</enum>
+    <enum>send data on socket</enum>
+    <enum>receive data on socket</enum>
+    <enum>send data to address on socket</enum>
+    <enum>get host by address</enum>
+    <enum>get host by name</enum>
+</SocketActionNameEnum-1.0>

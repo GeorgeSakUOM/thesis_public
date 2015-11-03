@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OriginTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>user</enum>
+    <enum>desktop</enum>
+    <enum>lan</enum>
+    <enum>gateway</enum>
+    <enum>isp</enum>
+    <enum>honeypot</enum>
+    <enum>collection</enum>
+    <enum>spam</enum>
+    <enum>wan</enum>
+    <enum>internal</enum>
+    <enum>partner</enum>
+    <enum>unknown</enum>
+</OriginTypeEnum>

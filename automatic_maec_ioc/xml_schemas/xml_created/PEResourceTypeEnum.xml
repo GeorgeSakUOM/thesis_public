@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PEResourceTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                    xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Cursor</enum>
+    <enum>Bitmap</enum>
+    <enum>Icon</enum>
+    <enum>Menu</enum>
+    <enum>MenuEX</enum>
+    <enum>Popup</enum>
+    <enum>Dialog</enum>
+    <enum>DialogEX</enum>
+    <enum>String</enum>
+    <enum>StringTable</enum>
+    <enum>Fontdir</enum>
+    <enum>Font</enum>
+    <enum>Accelerators</enum>
+    <enum>RCData</enum>
+    <enum>MessageTable</enum>
+    <enum>GroupCursor</enum>
+    <enum>GroupIcon</enum>
+    <enum>VersionInfo</enum>
+    <enum>DLGInclude</enum>
+    <enum>PlugPlay</enum>
+    <enum>TextInclude</enum>
+    <enum>TypeLib</enum>
+    <enum>Vxd</enum>
+    <enum>AniCursor</enum>
+    <enum>AniIcon</enum>
+    <enum>HTML</enum>
+    <enum>Manifest</enum>
+    <enum>MessageTableEntry</enum>
+</PEResourceTypeEnum>

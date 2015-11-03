@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<QualificationElementList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                          xmlns="http://www.w3schools.com"
+                          xsi:schemaLocation="http://www.w3schools.com">
+    <enum>QualificationName</enum>
+    <enum>MajorSubject</enum>
+    <enum>MinorSubject</enum>
+    <enum>Grade</enum>
+    <enum>CourseDuration</enum>
+    <enum>CompletionDate</enum>
+    <enum>Award</enum>
+    <enum>Restriction</enum>
+    <enum>Registration</enum>
+    <enum>WayOfStudy</enum>
+</QualificationElementList>

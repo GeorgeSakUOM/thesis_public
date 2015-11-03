@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SharedResourceTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                        xmlns="http://www.w3schools.com"
+                        xsi:schemaLocation="http://www.w3schools.com">
+    <enum>STYPE_DISKTREE</enum>
+    <enum>STYPE_DISKTREE_SPECIAL</enum>
+    <enum>STYPE_DISKTREE_TEMPORARY</enum>
+    <enum>STYPE_DISKTREE_SPECIAL_TEMPORARY</enum>
+    <enum>STYPE_PRINTQ</enum>
+    <enum>STYPE_PRINTQ_SPECIAL</enum>
+    <enum>STYPE_PRINTQ_TEMPORARY</enum>
+    <enum>STYPE_PRINTQ_SPECIAL_TEMPORARY</enum>
+    <enum>STYPE_DEVICE</enum>
+    <enum>STYPE_DEVICE_SPECIAL</enum>
+    <enum>STYPE_DEVICE_TEMPORARY</enum>
+    <enum>STYPE_DEVICE_SPECIAL_TEMPORARY</enum>
+    <enum>STYPE_IPC</enum>
+    <enum>STYPE_IPC_SPECIAL</enum>
+    <enum>STYPE_IPC_TEMPORARY</enum>
+    <enum>STYPE_IPC_SPECIAL_TEMPORARY</enum>
+</SharedResourceTypeEnum>

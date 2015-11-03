@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SecondaryOperationStrategicObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                               xmlns="http://www.w3schools.com"
+                                               xsi:schemaLocation="http://www.w3schools.com">
+    <enum>patch operating system file(s)</enum>
+    <enum>remove traces of infection</enum>
+    <enum>log activity</enum>
+    <enum>lay dormant</enum>
+    <enum>install other components</enum>
+    <enum>suicide exit</enum>
+</SecondaryOperationStrategicObjectivesEnum-1.0>

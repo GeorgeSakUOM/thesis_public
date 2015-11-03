@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IANAPortNumberRegistryTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                xmlns="http://www.w3schools.com"
+                                xsi:schemaLocation="http://www.w3schools.com">
+    <enum>ftpdata(20)</enum>
+    <enum>ftp(21)</enum>
+    <enum>ssh(22)</enum>
+    <enum>telnet(23)</enum>
+    <enum>smtp(25)</enum>
+    <enum>domain(53)</enum>
+    <enum>tftp(69)</enum>
+    <enum>http(80)</enum>
+    <enum>ldap(389)</enum>
+    <enum>https(443)</enum>
+</IANAPortNumberRegistryTypeEnum>

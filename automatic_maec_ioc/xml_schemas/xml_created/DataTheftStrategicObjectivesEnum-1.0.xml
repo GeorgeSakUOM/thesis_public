@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DataTheftStrategicObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                      xmlns="http://www.w3schools.com"
+                                      xsi:schemaLocation="http://www.w3schools.com">
+    <enum>steal stored information</enum>
+    <enum>steal user data</enum>
+    <enum>steal system information</enum>
+    <enum>steal authentication credentials</enum>
+</DataTheftStrategicObjectivesEnum-1.0>

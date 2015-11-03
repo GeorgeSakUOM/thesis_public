@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<LibraryActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                           xmlns="http://www.w3schools.com"
+                           xsi:schemaLocation="http://www.w3schools.com">
+    <enum>enumerate libraries</enum>
+    <enum>free library</enum>
+    <enum>load library</enum>
+    <enum>get function address</enum>
+</LibraryActionNameEnum-1.0>

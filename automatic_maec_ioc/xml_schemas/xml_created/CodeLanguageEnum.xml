@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CodeLanguageEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                  xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>C</enum>
+    <enum>C++</enum>
+    <enum>C#</enum>
+    <enum>Java</enum>
+    <enum>JSP</enum>
+    <enum>Javascript</enum>
+    <enum>ASP.NET</enum>
+    <enum>SQL</enum>
+    <enum>Python</enum>
+    <enum>Perl</enum>
+    <enum>PHP</enum>
+    <enum>SOAP</enum>
+    <enum>Ruby</enum>
+    <enum>Shell</enum>
+    <enum>PseudoCode</enum>
+    <enum>.NET</enum>
+    <enum>Assembly</enum>
+    <enum>XML</enum>
+    <enum>HTML</enum>
+    <enum>Other</enum>
+</CodeLanguageEnum>

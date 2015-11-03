@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<FileActionNameEnum-1.1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                        xmlns="http://www.w3schools.com"
+                        xsi:schemaLocation="http://www.w3schools.com">
+    <enum>create file</enum>
+    <enum>delete file</enum>
+    <enum>copy file</enum>
+    <enum>create file symbolic link</enum>
+    <enum>find file</enum>
+    <enum>get file attributes</enum>
+    <enum>set file attributes</enum>
+    <enum>lock file</enum>
+    <enum>unlock file</enum>
+    <enum>modify file</enum>
+    <enum>move file</enum>
+    <enum>open file</enum>
+    <enum>read from file</enum>
+    <enum>write to file</enum>
+    <enum>rename file</enum>
+    <enum>create file alternate data stream</enum>
+    <enum>send control code to file</enum>
+    <enum>create file mapping</enum>
+    <enum>open file mapping</enum>
+    <enum>execute file</enum>
+    <enum>hide file</enum>
+    <enum>close file</enum>
+</FileActionNameEnum-1.1>

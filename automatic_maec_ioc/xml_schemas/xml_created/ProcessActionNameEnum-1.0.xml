@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ProcessActionNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                           xmlns="http://www.w3schools.com"
+                           xsi:schemaLocation="http://www.w3schools.com">
+    <enum>create process</enum>
+    <enum>kill process</enum>
+    <enum>create process as user</enum>
+    <enum>enumerate processes</enum>
+    <enum>open process</enum>
+    <enum>flush process instruction cache</enum>
+    <enum>get process current directory</enum>
+    <enum>set process current directory</enum>
+    <enum>get process environment variable</enum>
+    <enum>set process environment variable</enum>
+    <enum>sleep process</enum>
+    <enum>get process startupinfo</enum>
+</ProcessActionNameEnum-1.0>

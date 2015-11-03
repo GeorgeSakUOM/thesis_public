@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IntegrityViolationTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                              xmlns="http://www.w3schools.com"
+                                              xsi:schemaLocation="http://www.w3schools.com">
+    <enum>subvert system</enum>
+    <enum>corrupt system data</enum>
+    <enum>annoy local system user</enum>
+    <enum>intercept/manipulate network traffic</enum>
+    <enum>annoy remote user</enum>
+    <enum>corrupt user data</enum>
+</IntegrityViolationTacticalObjectivesEnum-1.0>

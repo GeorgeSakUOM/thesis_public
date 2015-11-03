@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AddressUsageList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                  xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Business</enum>
+    <enum>Billing</enum>
+    <enum>Communication</enum>
+    <enum>Contact</enum>
+    <enum>Mailing</enum>
+    <enum>Personal</enum>
+    <enum>Postal</enum>
+    <enum>Residential</enum>
+</AddressUsageList>

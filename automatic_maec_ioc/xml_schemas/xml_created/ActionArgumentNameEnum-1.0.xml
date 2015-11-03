@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ActionArgumentNameEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                            xmlns="http://www.w3schools.com"
+                            xsi:schemaLocation="http://www.w3schools.com">
+    <enum>API</enum>
+    <enum>Application Name</enum>
+    <enum>Database Name</enum>
+    <enum>Privilege Name</enum>
+    <enum>Proxy Name</enum>
+    <enum>Proxy Bypass</enum>
+    <enum>Creation Flags</enum>
+    <enum>Flags</enum>
+    <enum>Access Mode</enum>
+    <enum>Share Mode</enum>
+    <enum>Callback Address</enum>
+    <enum>Source Address</enum>
+    <enum>Destination Address</enum>
+    <enum>Base Address</enum>
+    <enum>Starting Address</enum>
+    <enum>Size (bytes)</enum>
+    <enum>Number of Bytes Per Send</enum>
+    <enum>Control Parameter</enum>
+    <enum>Host Name</enum>
+    <enum>Function Name</enum>
+    <enum>Function Address</enum>
+    <enum>Options</enum>
+    <enum>Transfer Flags</enum>
+    <enum>Control Code</enum>
+    <enum>APC Mode</enum>
+    <enum>APC Address</enum>
+    <enum>Base Address</enum>
+    <enum>Protection</enum>
+    <enum>Target PID</enum>
+    <enum>Mapping Offset</enum>
+    <enum>File Information Class</enum>
+    <enum>Function Ordinal</enum>
+    <enum>Function Name</enum>
+    <enum>Hook Type</enum>
+    <enum>Request Size</enum>
+    <enum>Requested Version</enum>
+    <enum>Service Type</enum>
+    <enum>Service State</enum>
+    <enum>Service Name</enum>
+    <enum>Hostname</enum>
+    <enum>Shutdown Flag</enum>
+    <enum>Sleep Time (ms)</enum>
+    <enum>Delay Time (ms)</enum>
+    <enum>Code Address</enum>
+    <enum>Parameter Address</enum>
+    <enum>Server</enum>
+    <enum>Reason</enum>
+    <enum>System Metric Index</enum>
+    <enum>Initial Owner</enum>
+    <enum>Error Control</enum>
+    <enum>Username</enum>
+    <enum>Password</enum>
+    <enum>Command</enum>
+</ActionArgumentNameEnum-1.0>

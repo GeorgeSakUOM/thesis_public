@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OrganisationNameTypeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                          xmlns="http://www.w3schools.com"
+                          xsi:schemaLocation="http://www.w3schools.com">
+    <enum>LegalName</enum>
+    <enum>FormerName</enum>
+    <enum>CommonUse</enum>
+    <enum>PublishingName</enum>
+    <enum>OfficialName</enum>
+    <enum>UnofficialName</enum>
+    <enum>Undefined</enum>
+</OrganisationNameTypeList>

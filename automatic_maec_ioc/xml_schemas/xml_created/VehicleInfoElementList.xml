@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<VehicleInfoElementList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                        xmlns="http://www.w3schools.com"
+                        xsi:schemaLocation="http://www.w3schools.com">
+    <enum>Make</enum>
+    <enum>Model</enum>
+    <enum>ManufactureDate</enum>
+    <enum>EngineNumber</enum>
+    <enum>ChassisNumber</enum>
+    <enum>BodyNumber</enum>
+    <enum>LicensePlateNumber</enum>
+    <enum>LicensePlateType</enum>
+    <enum>Colour</enum>
+    <enum>BodyType</enum>
+    <enum>Type</enum>
+</VehicleInfoElementList>

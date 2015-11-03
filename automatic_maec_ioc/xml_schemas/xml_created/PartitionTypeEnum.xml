@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PartitionTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                   xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>PARTITION_ENTRY_UNUSED</enum>
+    <enum>PARTITION_FAT_12</enum>
+    <enum>PARTITION_XENIX_1</enum>
+    <enum>PARTITION_XENIX_2</enum>
+    <enum>PARTITION_FAT_16</enum>
+    <enum>PARTITION_EXTENDED</enum>
+    <enum>PARTITION_HUGE</enum>
+    <enum>PARTITION_IFS</enum>
+    <enum>PARTITION_OS2BOOTMGR</enum>
+    <enum>PARTITION_FAT32</enum>
+    <enum>PARTITION_FAT32_XINT13</enum>
+    <enum>PARTITION_XINT13</enum>
+    <enum>PARTITION_XINT13_EXTENDED</enum>
+    <enum>PARTITION_PREP</enum>
+    <enum>PARTITION_LDM</enum>
+    <enum>PARTITION_UNIX</enum>
+    <enum>VALID_NTFT</enum>
+    <enum>PARTITION_NTFT</enum>
+    <enum>UNKNOWN</enum>
+</PartitionTypeEnum>

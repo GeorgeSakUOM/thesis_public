@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WindowsDriveTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                      xmlns="http://www.w3schools.com"
+                      xsi:schemaLocation="http://www.w3schools.com">
+    <enum>DRIVE_UNKNOWN</enum>
+    <enum>DRIVE_NO_ROOT_DIR</enum>
+    <enum>DRIVE_REMOVABLE</enum>
+    <enum>DRIVE_FIXED</enum>
+    <enum>DRIVE_REMOTE</enum>
+    <enum>DRIVE_CDROM</enum>
+    <enum>DRIVE_RAMDISK</enum>
+</WindowsDriveTypeEnum>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DataExfiltrationTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                            xmlns="http://www.w3schools.com"
+                                            xsi:schemaLocation="http://www.w3schools.com">
+    <enum>exfiltrate via covert channel</enum>
+    <enum>exfiltrate via fax</enum>
+    <enum>exfiltrate via physical media</enum>
+    <enum>encrypt data</enum>
+    <enum>exfiltrate via network</enum>
+    <enum>hide data</enum>
+    <enum>package data</enum>
+    <enum>exfiltrate via dumpster dive</enum>
+    <enum>move data to staging server</enum>
+    <enum>exfiltrate via voip/phone</enum>
+</DataExfiltrationTacticalObjectivesEnum-1.0>

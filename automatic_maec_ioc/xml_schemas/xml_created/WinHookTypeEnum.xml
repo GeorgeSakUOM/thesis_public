@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WinHookTypeEnum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                 xmlns="http://www.w3schools.com" xsi:schemaLocation="http://www.w3schools.com">
+    <enum>WH_CALLWNDPROC</enum>
+    <enum>WH_CALLWNDPROCRET</enum>
+    <enum>WH_CBT</enum>
+    <enum>WH_DEBUG</enum>
+    <enum>WH_FOREGROUNDIDLE</enum>
+    <enum>WH_GETMESSAGE</enum>
+    <enum>WH_JOURNALPLAYBACK</enum>
+    <enum>WH_JOURNALRECORD</enum>
+    <enum>WH_KEYBOARD</enum>
+    <enum>WH_KEYBOARD_LL</enum>
+    <enum>WH_MOUSE</enum>
+    <enum>WH_MOUSE_LL</enum>
+    <enum>WH_MSGFILTER</enum>
+    <enum>WH_SHELL</enum>
+    <enum>WH_SYSMSGFILTER</enum>
+</WinHookTypeEnum>

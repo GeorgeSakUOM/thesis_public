@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DataTheftTacticalObjectivesEnum-1.0 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" file="EnumList.xsd"
+                                     xmlns="http://www.w3schools.com"
+                                     xsi:schemaLocation="http://www.w3schools.com">
+    <enum>steal dialed phone numbers</enum>
+    <enum>steal email data</enum>
+    <enum>steal referrer urls</enum>
+    <enum>steal cryptocurrency data</enum>
+    <enum>steal pki software certificate</enum>
+    <enum>steal browser cache</enum>
+    <enum>steal serial numbers</enum>
+    <enum>steal sms database</enum>
+    <enum>steal cookie</enum>
+    <enum>steal password hash</enum>
+    <enum>steal make/model</enum>
+    <enum>steal documents</enum>
+    <enum>steal network address</enum>
+    <enum>steal open port</enum>
+    <enum>steal images</enum>
+    <enum>steal browser history</enum>
+    <enum>steal web/network credential</enum>
+    <enum>steal pki key</enum>
+    <enum>steal contact list data</enum>
+    <enum>steal database content</enum>
+</DataTheftTacticalObjectivesEnum-1.0>
