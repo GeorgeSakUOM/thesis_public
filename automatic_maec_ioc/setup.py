@@ -5,7 +5,7 @@ Initalize the configuration files adding system variables
 import os, ConfigParser
 if __name__ == '__main__':
     try:
-        config = ConfigParser.RawConfigParser()
+        config = ConfigParser.RawConfigParser(allow_no_value=True)
         # Initialize configuration file of logs
         print('Initialize configuration file of logs')
         config.add_section('Logging')
@@ -54,6 +54,26 @@ if __name__ == '__main__':
         # Writing configuration file to 'maec.conf'
         print("Writing configuration file to 'maec.conf'")        
         with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','maec.conf')), 'w') as configfile:
+            config.write(configfile)
+            configfile.close()
+        config.remove_section('maec')
+        config.remove_section('xml_schema')
+        #Initialize configuration file of Cuckoo Results
+        print('Initialize configuration file of Cuckoo Results')
+        config.add_section('analysisinfo')
+        config.set('analysisinfo','description','analysisinfo describes the structure of the analysis info dictionary of  Cuckoo Results. It has also '
+                                                ' a subsection for the description of machine dictionary that encapsulated in.')
+        config.set('analysisinfo','key','info')
+        config.set('analysisinfo','keys','version,started,ended,duration,id,category,custom,package,machine')
+        config.set('analysisinfo','encapsulation',True)
+        config.set('analysisinfo','subsections','machine')
+        config.add_section('subsection_machine')
+        config.set('subsection_machine','encapsulation',False)
+        config.set('subsection_machine','keys','id,name,label,manager,started_on,shutdown_on')
+
+        # Writing configuration file to 'cuckoo_results.conf'
+        print("Writing configuration file to 'maec.conf'")
+        with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','cuckoo_results.conf')), 'w') as configfile:
             config.write(configfile)
             configfile.close()
         print('Configuration Completed successfully')

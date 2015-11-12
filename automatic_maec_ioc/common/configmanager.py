@@ -15,25 +15,25 @@ class ConfigurationManager():
         
         
     @staticmethod
-    def readLogConfig(variable='',filepath='',filename='log.conf',section='Logging'):
+    def readLogConfig(variable=None,filename='log.conf',section='Logging'):
         config = ConfigParser.RawConfigParser()
         pathConf =  os.path.abspath(os.path.join(os.path.dirname(__file__),"../conf"))
-        filepath = os.path.join(pathConf,filename)
-        config.read(filepath)
+        file_path = os.path.join(pathConf,filename)
+        config.read(file_path)
         var = config.get(section, variable)
         return var 
     
     @staticmethod
-    def readServerConfig(variable='',filepath='',filename='server.conf',section='Server'):
+    def readServerConfig(variable=None,filename='server.conf',section='Server'):
         config = ConfigParser.RawConfigParser()
         pathConf =  os.path.abspath(os.path.join(os.path.dirname(__file__),"../conf"))
-        filepath = os.path.join(pathConf,filename)
-        config.read(filepath)
+        file_path = os.path.join(pathConf,filename)
+        config.read(file_path)
         var = config.get(section, variable)
         return var 
     
     @staticmethod
-    def readmaecConfig(variable='',filepath='',filename='maec.conf',section='maec'):
+    def readmaecConfig(variable=None,filename='maec.conf',section='maec'):
         config = ConfigParser.RawConfigParser()
         pathConf =  os.path.abspath(os.path.join(os.path.dirname(__file__),"../conf"))
         filepath = os.path.join(pathConf,filename)
@@ -42,10 +42,19 @@ class ConfigurationManager():
         return var 
 
     @staticmethod
-    def readxmlConfig(variable='',filepath='',filename='maec.conf',section='xml_schema'):
+    def readxmlConfig(variable=None,filename='maec.conf',section='xml_schema'):
         config = ConfigParser.RawConfigParser()
         pathConf =  os.path.abspath(os.path.join(os.path.dirname(__file__),"../conf"))
-        filepath = os.path.join(pathConf,filename)
-        config.read(filepath)
+        file_path = os.path.join(pathConf,filename)
+        config.read(file_path)
         var = config.get(section, variable)
         return var 
+
+    @staticmethod
+    def readCuckooResultsConfig(variable,section,filename='cuckoo_results.conf'):
+        config= ConfigParser.ConfigParser()
+        pathConf = os.path.abspath(os.path.join(os.path.dirname(__file__),"../conf"))
+        file_path = os.path.join(pathConf,filename)
+        config.read(file_path)
+        var = config.get(section,variable)
+        return var

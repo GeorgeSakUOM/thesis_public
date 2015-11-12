@@ -7,8 +7,6 @@ SOURCE_PATH =os.path.join(os.getcwd(), 'xsd_source')
 DESTINATION_PATH =os.path.join(os.getcwd(),'xml_created')
 SCHEMA_FILE_PATH = os.path.join(os.getcwd(),'EnumList.xsd')
 
-DICTIONARY_PATH={}
-
 def extract_files(source_path):
     dict={}
     for dirpath, dirnames,files in  os.walk(source_path):
@@ -38,8 +36,8 @@ def print_enumeration_values_from_file(file_path):
 def write_elements_to_schema_file(schema_file_path,file_path):
     tree = ET.parse(file_path)
     root = tree.getroot()
-    schematree = ET.parse(schema_file_path)
-    schemaroot =schematree.getroot()
+    schema_tree = ET.parse(schema_file_path)
+    schema_root =schema_tree.getroot()
     for child in root:
         flag=False
         if 'name' in child.attrib.keys() and ('Enum' in child.attrib['name']or 'List' in child.attrib['name']):
@@ -48,8 +46,8 @@ def write_elements_to_schema_file(schema_file_path,file_path):
                     if 'restriction' in x.tag and list(x):
                         flag=True
                 if flag:
-                   ET.SubElement(schemaroot,tag='xs:element',attrib={'name':child.attrib['name'],'type':'EnumList'})
-    schematree.write(SCHEMA_FILE_PATH)
+                   ET.SubElement(schema_root,tag='xs:element',attrib={'name':child.attrib['name'],'type':'EnumList'})
+    schema_tree.write(SCHEMA_FILE_PATH)
 
 def create_xml_empty_files(file_path,destination_directory):
     tree = ET.parse(file_path)
