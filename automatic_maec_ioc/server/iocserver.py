@@ -4,6 +4,7 @@ from os import listdir
 from os.path import isfile,join
 from common.logger import Logger
 from common.configmanager import ConfigurationManager
+import errno
 
 #Define and initialize global variables // Global variables should be initialized from configuration file 
 global FILENUMBER, DBFILENAME, JSONFILES,ADDRESS,PORT_NUMBERS
@@ -26,7 +27,7 @@ class IOCServer():
         self.serveradress=(adress,port)
         self.logger =Logger()
         
-    def saveInFile(self,dbfilename=DBFILENAME,filenumber=FILENUMBER,results=[]):
+    def saveInFile(self,dbfilename=DBFILENAME,filenumber=FILENUMBER,results=None):
         '''
         Save received data to a unique json file. Checking first that data is dictionary. 
         '''
@@ -51,6 +52,7 @@ class IOCServer():
     
     def loadFromFile(self,dbfilename):
         '''Loading the Report dictionary of cuckoo from a file that saved and recreate the dictionary'''
+        resultsDictionary={}
         try:
             dbfile = open(dbfilename,'r')
             data = dbfile.read()
