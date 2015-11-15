@@ -56,7 +56,9 @@ def load_results(filename):
     return results
 
 class Handler(object):
+
     def __init__(self,section,filename):
+        self.logger = Logger()
         self.key=ConfigurationManager.readCuckooResultsConfig(variable='key',section=section)
         self.encapsulation = literal_eval(ConfigurationManager.readCuckooResultsConfig(variable='encapsulation',section=section))
         self.keys = list(ConfigurationManager.readCuckooResultsConfig(variable='keys',section=section).split(','))
@@ -68,12 +70,20 @@ class Handler(object):
             self.subsections = returnsubsections(self.encapsulation,section=section,subsections=[])
             for subsection in self.subsections:
                 self.subsectionskeys[ConfigurationManager.readCuckooResultsConfig(variable='key',section='subsection_'+subsection)] = list(ConfigurationManager.readCuckooResultsConfig(variable='keys',section='subsection_'+subsection).split(','))
-        results = load_results('cuckoo_results')[self.key]
+        results=None
+        try:
+            results = load_results('cuckoo_results')[self.key]
+        except Exception, e:
+            self.logger.errorLogging(str(e))
+
         if isinstance(results,dict):
             self.dictionary = results
             self.list = None
         elif isinstance(results,list):
             self.list= results
+            self.dictionary = None
+        else:
+            self.list = None
             self.dictionary = None
 
     def get_section_simple_values(self):
@@ -81,7 +91,9 @@ class Handler(object):
         if self.dictionary:
             for key in self.keys:
                 if key in self.keys and key not in self.subsectionskeys.keys():
-                    values[key]= self.dictionary[key]
+                    if key in self.dictionary.keys():
+                       if not isinstance(self.dictionary[key],list):
+                           values[key]= self.dictionary[key]
         return values
 
 class AnalysisInfoHandler(Handler):
@@ -212,10 +224,39 @@ class DebugHandler(Handler):
             return self.dictionary['errors'].pop(0)
 
 class MemoryHandler(Handler):
-    pass
+
+    def __init__(self,filename):
+        super(MemoryHandler,self).__init__(section=S_MEMORY,filename=filename)
+
+    def get_subsection_next_item(self,subsection):
+        if self.dictionary is not None:
+            if self.dictionary[subsection]:
+                if self.dictionary[subsection]['data']:
+                    return self.dictionary[subsection]['data'].pop(0)
+
+    def get_subsection_item_keys(self,subsection):
+        return self.subsectionskeys[subsection+'_data']
+
+    def get_subsection_config(self,subsection):
+        if self.dictionary is not None:
+            if self.dictionary[subsection]:
+                return self.dictionary[subsection]['config']
 
 class TargetInfoHandler(Handler):
-    pass
+
+    def __init__(self,filename):
+        super(TargetInfoHandler,self).__init__(section=S_TARGETINFO,filename=filename)
+
+    def get_file(self):
+        if self.dictionary is not None:
+            if 'file' in self.dictionary.keys():
+                return self.dictionary['file']
+
+    def get_next_file_yara(self):
+        if self.dictionary is not None:
+            if 'file' in self.dictionary.keys():
+                if self.dictionary['file']['yara']:
+                    return self.dictionary['file']['yara'].pop(0)
 
 class VirusTotalHandler(Handler):
     def __init__(self,filename):
@@ -234,18 +275,100 @@ class VirusTotalHandler(Handler):
             return scan.values().pop(0)
 
 class NetworkHandler(Handler):
-    pass
 
+    def __init__(self,filename):
+        super(NetworkHandler,self).__init__(section=S_NETWORK,filename=filename)
+
+    def get_next_irc(self):
+        if self.dictionary is not None:
+            if 'irc' in self.dictionary.keys():
+                if self.dictionary['irc']:
+                    return self.dictionary['irc'].pop(0)
+
+    def get_next_host(self):
+        if self.dictionary is not None:
+            if 'hosts' in self.dictionary.keys():
+                if self.dictionary['hosts']:
+                    return self.dictionary['hosts'].pop(0)
+
+    def get_next_domain(self):
+        if self.dictionary is not None:
+            if 'domains' in self.dictionary.keys():
+                if self.dictionary['domains']:
+                    return self.dictionary['domains'].pop(0)
+
+    def get_next_tcp_flow(self):
+        if self.dictionary is not None:
+            if 'tcp' in self.dictionary.keys():
+                if self.dictionary['tcp']:
+                    return self.dictionary['tcp'].pop(0)
+
+    def get_next_udp_flow(self):
+        if self.dictionary is not None:
+            if 'udp' in self.dictionary.keys():
+                if self.dictionary['udp']:
+                    return self.dictionary['udp'].pop(0)
+
+    def get_next_icmp_packet(self):
+        if self.dictionary is not None:
+            if 'icmp' in self.dictionary.keys():
+                if self.dictionary['icmp']:
+                    return self.dictionary['icmp'].pop(0)
+
+    def get_next_http_message(self):
+        if self.dictionary is not None:
+            if 'http' in self.dictionary.keys():
+                if self.dictionary['http']:
+                    return self.dictionary['http'].pop(0)
+
+    def get_next_dns_query(self):
+        if self.dictionary is not None:
+            if 'dns' in self.dictionary.keys():
+                if self.dictionary['dns']:
+                    return self.dictionary['dns'].pop(0)
+
+    def get_next_dns_query_answer(self,query):
+        if query is not None:
+            if query['answers']:
+                return query['answers'].pop(0)
+
+    def get_next_smtp_request(self):
+        if self.dictionary is not None:
+            if 'smtp' in self.dictionary.keys():
+                if self.dictionary['smtp']:
+                    return self.dictionary['smtp'].pop(0)
 
 class AnalysisHandler():
     def __init__(self,filename):
-        self.analysisinfo = AnalysisInfoHandler(filename=filename)
-
-
-
-
+        self.analysisinfo = AnalysisInfoHandler(filename)
+        self.procmemory = ProcessMemoryHandler(filename)
+        self.static = StaticHandler(filename)
+        self.dropped = DroppedHandler(filename)
+        self.behavior = BehaviorHandler(filename)
+        self.strings = StringsHandler(filename)
+        self.debug = DebugHandler(filename)
+        self.memory = MemoryHandler(filename)
+        self.targetinfo = TargetInfoHandler(filename)
+        self.virustotal = VirusTotalHandler(filename)
+        self.network = NetworkHandler(filename)
 
 if __name__=='__main__':
+    an = AnalysisHandler(filename='cuckoo_results')
+    #nh = NetworkHandler(filename='cuckoo_results')
+    #print(nh.key)
+    #print(nh.keys)
+    #print(nh.subsections)
+    #print(nh.get_section_simple_values())
+    #print(nh.get_next_domain())
+    #ti = TargetInfoHandler(filename='cuckoo_results')
+    #print(ti.key)
+    #print(ti.keys)
+    #print(ti.subsections)
+    #print(ti.subsectionskeys)
+    #print(ti.dictionary)
+    #print(ti.get_section_simple_values())
+    #print(ti.get_file())
+    #print(ti.get_next_file_yara())
     #infh=AnalysisInfoHandler(filename='cuckoo_results')
     #print(infh.key)
     #print(infh.keys)
@@ -296,10 +419,18 @@ if __name__=='__main__':
     #print(db.key)
     #print(db.get_section_simple_values())
     #print(db.get_next_error())
-    vt= VirusTotalHandler(filename='cuckoo_results')
-    print(vt.key)
-    print(vt.subsections)
-    print(vt.subsectionskeys)
-    print(vt.get_section_simple_values())
-    print(vt.get_next_scan())
-    print(vt.get_scan_analysis(vt.get_next_scan()))
+    #vt= VirusTotalHandler(filename='cuckoo_results')
+    #print(vt.key)
+    #print(vt.subsections)
+    #print(vt.subsectionskeys)
+    #print(vt.get_section_simple_values())
+    #print(vt.get_next_scan())
+    #print(vt.get_scan_analysis(vt.get_next_scan()))
+    #me = MemoryHandler(filename='cuckoo_results')
+    #print(me.key)
+    #print(me.subsections)
+    #print(me.get_section_simple_values())
+    #print(me.subsectionskeys)
+    #print(me.get_subsection_item_keys('pslist'))
+    #print(me.get_subsection_config('pslist'))
+    #print(me.get_subsection_next_item('pslist'))

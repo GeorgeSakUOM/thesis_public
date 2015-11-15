@@ -9,3 +9,13 @@ ERROR:root:24-09-2015 12:17:43 AM:expected string or buffer
 ERROR:root:24-09-2015 10:37:46 AM:expected string or buffer
 "ERROR:root:24-09-2015 10:46:28 AM:expected string or buffer"
 ERROR:root:24-09-2015 10:47:55 AM:expected string or buffer
+ERROR:root:15-11-2015 10:13:03 AM:'memory'
+ERROR:root:15-11-2015 10:25:05 AM:'memory'
+ERROR:root:15-11-2015 10:29:22 AM:'memory'
+ERROR:root:15-11-2015 10:30:12 AM:'memory'
+ERROR:root:15-11-2015 10:31:07 AM:'memory'
+ERROR:root:15-11-2015 10:31:47 AM:'memory'
+ERROR:root:15-11-2015 10:52:10 AM:'memory'
+ERROR:root:15-11-2015 10:53:00 AM:'memory'
+ERROR:root:15-11-2015 10:55:44 AM:'memory'
+ERROR:root:15-11-2015 11:54:49 AM:'memory'
