@@ -20,7 +20,8 @@ Run setup.py
 -initserveraddr[ initserveraddr]      init server address
 
 +---------------------------------------------+-----------------------+
-|-initserverport [ " " initserverport]            init server address |
+|-initserverport [  initserverport]               init server address |
++---------------------------------------------+-----------------------+
 |-h                                               help                |
 +---------------------------------------------+-----------------------+
 
