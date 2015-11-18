@@ -22,9 +22,8 @@ Run setup.py
 +---------------------------------------------+----------------------+
 -initserverport [ " " initserverport]            init server address |
 +---------------------------------------------+----------------------+
-
--h                                  help
-
+-h                                               help                |
++---------------------------------------------+----------------------+
 
 - if cuckoopath is not provided, default cuckoo path has the value  '/opt/cuckoo'
 - if inetsimpath is not provided,default inetsimpath has the value '/opt/inetsim/'
