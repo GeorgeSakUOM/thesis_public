@@ -12,12 +12,13 @@ Run setup.py
 +---------------------------------------+-------------------+
 | -h                                     help               |
 +---------------------------------------+-------------------+
- -cuckoopath cuckoo_path                 path of cuckoo directory
- -inetsimpath inetsimpath                path of inetsim directory
- -host server_host                       remote access server address
- -port server_port                       remote access server port
- -initserveraddr initserveraddr          init server address
- -initserverport initserverport          init server address
+
+-cuckoopath cuckoo_path                 path of cuckoo directory
+-inetsimpath inetsimpath                path of inetsim directory
+-host server_host                       remote access server address
+-port server_port                       remote access server port
+-initserveraddr initserveraddr          init server address
+-initserverport initserverport          init server address
 
 - if cuckoopath is not provided, default cuckoo path has the value  '/opt/cuckoo'
 - if inetsimpath is not provided,default inetsimpath has the value '/opt/inetsim/'
