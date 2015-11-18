@@ -14,8 +14,8 @@ def main():
     parser.add_argument('-inetsimpath',action='store',dest='inetsimpath', help='path of inetsim directory')
     parser.add_argument('-host',action='store',dest='host',help='host of Cuckoo remote access server')
     parser.add_argument('-port',action='store',dest='port',help='Cuckoo remote access server port')
-    parser.add_argument('-initserveraddr',action='store',dest='initserveraddr',help='IOC server address')
-    parser.add_argument('-initserverport',action='store',dest='initserverport',help='IOC server port')
+    parser.add_argument('-initservaddr',action='store',dest='initserveraddr',help='IOC server address')
+    parser.add_argument('-initservport',action='store',dest='initserverport',help='IOC server port')
 
     args = parser.parse_args()
     if args.cuckoopath is not None:

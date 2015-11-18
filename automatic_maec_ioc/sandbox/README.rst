@@ -9,19 +9,13 @@ Installation
 ------------
 Run setup.py
 
--cuckoopath[ cuckoo_path]          path of cuckoo directory
-
--inetsimpath[ inetsimpath]         path of inetsim directory
-
--host[ server_host]                   remote access server address
-
--port[ server_port]                   remote access server port
-
--initserveraddr[ initserveraddr]      init server address
-
--initserverport[  initserverport]                init server address
-
--h                                               help
+-cuckoopath      [path]  path of cuckoo directory
+-inetsimpath       [path]  path of inetsim directory
+-host       [addr]   remote access server address
+-port       [port]   remote access server port
+-initservaddr       [addr] init server address
+-initservport       [port] init server port
+-h       help
 
 - if cuckoopath is not provided, default cuckoo path has the value  '/opt/cuckoo'
 - if inetsimpath is not provided,default inetsimpath has the value '/opt/inetsim/'
@@ -36,25 +30,25 @@ After the execution the directory tree should be have the following structure:
 
 | sandbox/
 | ├── common
-| │   ├── configmanager.py
-| │   ├── configmanager.pyc
-| │   ├── __init__.py
-| │   ├── __init__.pyc
-| │   ├── logger.py
-| │   └── logger.pyc
+| │   ├── configmanager.py
+| │   ├── configmanager.pyc
+| │   ├── __init__.py
+| │   ├── __init__.pyc
+| │   ├── logger.py
+| │   └── logger.pyc
 | ├── conf
-| │   ├── log.conf
-| │   └── server.conf
+| │   ├── log.conf
+| │   └── server.conf
 | ├── extensions
-| │   ├── cuckoo_messenger.py
-| │   └── __init__.py
+| │   ├── cuckoo_messenger.py
+| │   └── __init__.py
 | ├── __init__.py
 | ├── log
 | ├── malware_hub/
 | ├── README.rst
 | ├── remote_access_server.py
 | ├── server_certificates/
-| │  
+| │  
 | └── setup.py
 
 System Requirements
