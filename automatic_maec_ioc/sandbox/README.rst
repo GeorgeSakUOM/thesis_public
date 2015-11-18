@@ -27,35 +27,35 @@ setup.py
 Futures changes can be inserted manually into serrver.conf file.
 
 After the execution the directory tree should be have the following structure:
-    sandbox/
-    ├── common
-    │   ├── configmanager.py
-    │   ├── configmanager.pyc
-    │   ├── __init__.py
-    │   ├── __init__.pyc
-    │   ├── logger.py
-    │   └── logger.pyc
-    ├── conf
-    │   ├── log.conf
-    │   └── server.conf
-    ├── extensions
-    │   ├── cuckoo_messenger.py
-    │   └── __init__.py
-    ├── __init__.py
-    ├── log
-    │   └── error.log
-    ├── malware_hub
-    │   └── test1.bin
-    ├── README.rst
-    ├── remote_access_server.py
-    ├── server_certificates
-    │   ├── cacert.pem
-    │   ├── cuckoo_server01.pem
-    │   └── cuckoo_server.key
-    ├── setup.py
-    ├── test1.bin
-    ├── test_initialization_server1.py
-    └── test_malware_sender.py
+sandbox/
+├── common
+│   ├── configmanager.py
+│   ├── configmanager.pyc
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── logger.py
+│   └── logger.pyc
+├── conf
+│   ├── log.conf
+│   └── server.conf
+├── extensions
+│   ├── cuckoo_messenger.py
+│   └── __init__.py
+├── __init__.py
+├── log
+│   └── error.log
+├── malware_hub
+│   └── test1.bin
+├── README.rst
+├── remote_access_server.py
+├── server_certificates
+│   ├── cacert.pem
+│   ├── cuckoo_server01.pem
+│   └── cuckoo_server.key
+├── setup.py
+├── test1.bin
+├── test_initialization_server1.py
+└── test_malware_sender.py
 
 System Requirements
 -------------------
