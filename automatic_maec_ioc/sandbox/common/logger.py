@@ -5,8 +5,6 @@
 import os, logging
 from configmanager import ConfigurationManager
 
-global LOG_PATH,ERROR_FILENAME,FORMAT,DATEFORMAT,WARNING_FILENAME,DEBUG_FILENAME,CRITICAL_FILENAME,INFO_FILENAME
- 
 LOG_PATH = ConfigurationManager.readLogConfig(variable = 'log_path')
 ERROR_FILENAME = ConfigurationManager.readLogConfig(variable = 'error_filename')
 WARNING_FILENAME = ConfigurationManager.readLogConfig(variable = 'warning_filename')
@@ -31,27 +29,27 @@ class Logger():
         self.infoFilePath = os.path.join(logPath,infoFilename)
 
     
-    def errorLogging(self,msg,filepath=''):
+    def errorLogging(self,msg,filepath=None):
         filepath=self.errorFilePath
         logging.basicConfig(format =self.logFormat,filename=filepath,level =logging.ERROR,datefmt=self.log_date_format)
         logging.error(msg)
     
-    def warningLogging(self,msg,filepath=''): 
+    def warningLogging(self,msg,filepath=None):
         filepath=self.warningFilePath
         logging.basicConfig(format =self.logFormat,filename=filepath,level =logging.WARNING,datefmt=self.log_date_format)
         logging.warn(msg)
     
-    def debugLogging(self,msg,filepath=''): 
+    def debugLogging(self,msg,filepath=None):
         filepath=self.debugFilePath
         logging.basicConfig(format =self.logFormat,filename=filepath,level =logging.DEBUG,datefmt=self.log_date_format)
         logging.debug(msg)
     
-    def infoLogging(self,msg,filepath=''): 
+    def infoLogging(self,msg,filepath=None):
         filepath=self.infoFilePath
         logging.basicConfig(format =self.logFormat,filename=filepath,level =logging.INFO,datefmt=self.log_date_format)
         logging.info(msg)
     
-    def criticalLogging(self,msg,filepath=''): 
+    def criticalLogging(self,msg,filepath=None):
         filepath=self.warningFilePath
         logging.basicConfig(format =self.logFormat,filename=filepath,level =logging.CRITICAL,datefmt=self.log_date_format)
         logging.critical(msg)

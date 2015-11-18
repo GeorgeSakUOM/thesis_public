@@ -2,8 +2,35 @@
 @author: george
 Initalize the configuration files adding system variables
 '''
-import os, ConfigParser
-if __name__ == '__main__':
+import os, ConfigParser,uuid,argparse
+
+DEFAULT_ANALYSIS_PATH= os.path.abspath(os.path.join(os.path.dirname(__file__),"analysis_hub"))
+DEFAULT_SERVER_HOST = 'localhost'
+DEFAULT_SERVER_PORT = 10000
+
+def main():
+    parser = argparse.ArgumentParser(description='This program configure cuckoo remote access server')
+    parser.add_argument('-path',action='store',dest='path', help='path of cuckoo directory')
+    parser.add_argument('-host',action='store',dest='host',help='host of Cuckoo remote access server')
+    parser.add_argument('-port',action='store',dest='port',help='Cuckoo remote access server port')
+    args = parser.parse_args()
+    if args.path is not None:
+        ANALYSIS_PATH = args.path
+    else:
+        ANALYSIS_PATH = DEFAULT_ANALYSIS_PATH
+    print "Cuckoo path is initialized to : %s"%ANALYSIS_PATH
+
+    if args.host is not None:
+        SERVER_HOST = args.host
+    else:
+        SERVER_HOST = DEFAULT_SERVER_HOST
+    print "Server host is initialized to : %s"%SERVER_HOST
+
+    if args.port is not None:
+        SERVER_PORT = args.port
+    else:
+        SERVER_PORT = DEFAULT_SERVER_PORT
+    print "Server host is initialized to : %s"%SERVER_PORT
     try:
         config = ConfigParser.RawConfigParser(allow_no_value=True)
         # Initialize configuration file of logs
@@ -16,7 +43,7 @@ if __name__ == '__main__':
         config.set('Logging', 'CRITICAL_FILENAME', 'critical_error.log')
         config.set('Logging', 'INFO_FILENAME', 'info.log')
         config.set('Logging', 'FORMAT', '%(levelname)s:%(name)s:%(asctime)s:%(message)s')
-        config.set('Logging', 'DATEFORMAT', '%d-%m-%Y %I:%M:%S %p') 
+        config.set('Logging', 'DATEFORMAT', '%d-%m-%Y %I:%M:%S %p')
         # Writing configuration file to 'log.conf'
         print("Writing configuration file to 'log.conf'")
         with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','log.conf')), 'w') as configfile:
@@ -26,13 +53,14 @@ if __name__ == '__main__':
         #Initialize configuration file of Server
         print('Initialize configuration file of Server')
         config.add_section('Server')
-        config.set('Server', 'ANALYSIS_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"analysis_hub")))
+        config.set('Server', 'ANALYSIS_PATH',ANALYSIS_PATH )
         config.set('Server', 'FILENUMBER', '0')
         config.set('Server', 'DBFILENAME', 'cuckoo_results_')
-        config.set('Server', 'ADDRESS', 'localhost')
-        config.set('Server', 'PORT_NUMBER', '10000')
+        config.set('Server', 'ADDRESS', SERVER_HOST)
+        config.set('Server', 'PORT_NUMBER', SERVER_PORT)
+        config.set('Server','SERVER_ID',uuid.uuid1())
         # Writing configuration file to 'server.conf'
-        print("Writing configuration file to 'server.conf'")        
+        print("Writing configuration file to 'server.conf'")
         with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','server.conf')), 'w') as configfile:
             config.write(configfile)
             configfile.close()
@@ -52,7 +80,7 @@ if __name__ == '__main__':
         config.set('xml_schema', 'PACKAGE_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","maec_package_schema.xsd")))
         config.set('xml_schema', 'MAEC_DV_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","maec_default_vocabularies.xsd")))
         # Writing configuration file to 'maec.conf'
-        print("Writing configuration file to 'maec.conf'")        
+        print("Writing configuration file to 'maec.conf'")
         with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','maec.conf')), 'w') as configfile:
             config.write(configfile)
             configfile.close()
@@ -516,7 +544,9 @@ if __name__ == '__main__':
             config.write(configfile)
             configfile.close()
         print('Configuration Completed successfully')
-        
-        
+
     except Exception, e :
         print e
+
+if __name__ == '__main__':
+    main()

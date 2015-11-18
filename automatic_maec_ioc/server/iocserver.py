@@ -7,7 +7,6 @@ from common.configmanager import ConfigurationManager
 import errno
 
 #Define and initialize global variables // Global variables should be initialized from configuration file 
-global FILENUMBER, DBFILENAME, JSONFILES,ADDRESS,PORT_NUMBERS
 ANALYSIS_PATH = ConfigurationManager.readServerConfig(variable='analysis_path')
 FILENUMBER = int(ConfigurationManager.readServerConfig(variable='filenumber'))  
 DBFILENAME = ConfigurationManager.readServerConfig(variable = 'dbfilename')

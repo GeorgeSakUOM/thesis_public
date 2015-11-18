@@ -8,7 +8,7 @@ print >> sys.stderr, 'starting up on %s port %s '% server_adress
 sock.bind(server_adress)
 sock.listen(1)
 
-dbfilename='cuckoo_results'
+dbfilename='cuckoo_results1'
 chunks =[]
 messaselength =0
 
