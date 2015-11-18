@@ -9,9 +9,9 @@ Installation
 ------------
 Run setup.py
 
-+---------------------------------------+-------------------------------------------+
-| h                             [" " path ] " "         |help                       |
-+-----------------------------------------------------------------------------------+
++---------------------------------------+-------------------+
+| h                                     | help              |
++---------------------------------------+-------------------+
  -cuckoopath cuckoo_path                 path of cuckoo directory
  -inetsimpath inetsimpath                path of inetsim directory
  -host server_host                       remote access server address
