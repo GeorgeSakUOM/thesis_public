@@ -9,14 +9,19 @@ Installation
 ------------
 Run setup.py
 
--cuckoopath [ cuckoo_path]           path of cuckoo directory
--inetsimpath [ inetsimpath]          path of inetsim directory
+-cuckoopath [ cuckoo_path]          path of cuckoo directory
 
--host server_host                   [remote access server address]
--port server_port                   [remote access server port]
--initserveraddr initserveraddr      [init server address]
--initserverport initserverport      [init server address]
--h                                  [help]
+-inetsimpath [ inetsimpath]         path of inetsim directory
+
+-host [ server_host]                   remote access server address
+
+-port [ server_port]                   remote access server port
+
+-initserveraddr [ initserveraddr]      init server address
+
+-initserverport [ initserverport]      init server address
+
+-h                                  help
 
 
 - if cuckoopath is not provided, default cuckoo path has the value  '/opt/cuckoo'
