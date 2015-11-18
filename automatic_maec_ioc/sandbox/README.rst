@@ -28,7 +28,7 @@ Futures changes can be inserted manually into serrver.conf file.
 
 After the execution the directory tree should be have the following structure:
 
-sandbox/
+| sandbox/
 | ├── common
 | │   ├── configmanager.py
 | │   ├── configmanager.pyc
