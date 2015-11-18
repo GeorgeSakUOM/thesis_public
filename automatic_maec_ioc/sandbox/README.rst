@@ -8,7 +8,6 @@ the analysis result to the main system server.
 Installation
 ------------
 Run setup.py
-
 -h   help
 -cuckoopath cuckoo_path   path of cuckoo directory
 -inetsimpath inetsimpath   path of inetsim directory
