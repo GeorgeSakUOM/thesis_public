@@ -7,7 +7,15 @@ the analysis result to the main system server.
 
 Installation
 ------------
-Run setup.py -cuckoopath cuckoo_path -inetsimpath inetsimpath -host server_host -port server_port -initserveraddr initserveraddr -initserverport initserverport
+Run
+setup.py
+-h                                      help
+-cuckoopath cuckoo_path                 path of cuckoo directory
+-inetsimpath inetsimpath                path of inetsim directory
+-host server_host                       remote access server address
+-port server_port                       remote access server port
+-initserveraddr initserveraddr          init server address
+-initserverport initserverport          init server address
 
 - if cuckoopath is not provided, default cuckoo path has the value  '/opt/cuckoo'
 - if inetsimpath is not provided,default inetsimpath has the value '/opt/inetsim/'
@@ -18,6 +26,36 @@ Run setup.py -cuckoopath cuckoo_path -inetsimpath inetsimpath -host server_host 
 
 Futures changes can be inserted manually into serrver.conf file.
 
+After the execution the directory tree should be have the following structure:
+    sandbox/
+    ├── common
+    │   ├── configmanager.py
+    │   ├── configmanager.pyc
+    │   ├── __init__.py
+    │   ├── __init__.pyc
+    │   ├── logger.py
+    │   └── logger.pyc
+    ├── conf
+    │   ├── log.conf
+    │   └── server.conf
+    ├── extensions
+    │   ├── cuckoo_messenger.py
+    │   └── __init__.py
+    ├── __init__.py
+    ├── log
+    │   └── error.log
+    ├── malware_hub
+    │   └── test1.bin
+    ├── README.rst
+    ├── remote_access_server.py
+    ├── server_certificates
+    │   ├── cacert.pem
+    │   ├── cuckoo_server01.pem
+    │   └── cuckoo_server.key
+    ├── setup.py
+    ├── test1.bin
+    ├── test_initialization_server1.py
+    └── test_malware_sender.py
 
 System Requirements
 -------------------

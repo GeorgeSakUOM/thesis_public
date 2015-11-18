@@ -55,7 +55,6 @@ def main():
         INIT_SERVER_PORT = DEFAULT_INIT_SERVER_PORT
     print "IOC Server port is initialized to : %s"%INIT_SERVER_PORT
 
-    '''
     try:
         print('Creating configuration directory.')
         subprocess.call(['mkdir','conf'])
@@ -80,8 +79,6 @@ def main():
     except Exception, e:
         print e
 
-    Here add certificates functionality
-    '''
     try:
         config = ConfigParser.RawConfigParser(allow_no_value=True)
         # Initialize configuration file of logs
