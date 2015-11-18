@@ -7,8 +7,8 @@ the analysis result to the main system server.
 
 Installation
 ------------
-Run
-setup.py
+Run setup.py
+
 -h                                      help
 -cuckoopath cuckoo_path                 path of cuckoo directory
 -inetsimpath inetsimpath                path of inetsim directory
@@ -44,15 +44,11 @@ After the execution the directory tree should be have the following structure:
 | │   └── __init__.py
 | ├── __init__.py
 | ├── log
-| │   └── error.log
-| ├── malware_hub
-| │   └── test1.bin
+| ├── malware_hub/
 | ├── README.rst
 | ├── remote_access_server.py
-| ├── server_certificates
-| │   ├── cacert.pem
-| │   ├── cuckoo_server01.pem
-| │   └── cuckoo_server.key
+| ├── server_certificates/
+| │  
 | └── setup.py
 
 System Requirements
