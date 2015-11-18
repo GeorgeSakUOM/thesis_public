@@ -18,8 +18,9 @@ Run setup.py
 -port[ server_port]                   remote access server port
 
 -initserveraddr[ initserveraddr]      init server address
-
--initserverport [" " initserverport] "   "      init server address
++---------------------------------------------+----------------------+
+-initserverport [ " " initserverport] "   "      init server address |
++---------------------------------------------+----------------------+
 
 -h                                  help
 
