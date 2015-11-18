@@ -9,13 +9,13 @@ Installation
 ------------
 Run setup.py
 
--h                                      help                        
--cuckoopath cuckoo_path                 path of cuckoo directory
--inetsimpath inetsimpath                path of inetsim directory
--host server_host                       remote access server address
--port server_port                       remote access server port
--initserveraddr initserveraddr          init server address
--initserverport initserverport          init server address
+-h   help
+-cuckoopath cuckoo_path   path of cuckoo directory
+-inetsimpath inetsimpath   path of inetsim directory
+-host server_host  remote  access server address
+-port server_port  remote  access server port
+-initserveraddr initserveraddr   init server address
+-initserverport initserverport   init server address
 
 - if cuckoopath is not provided, default cuckoo path has the value  '/opt/cuckoo'
 - if inetsimpath is not provided,default inetsimpath has the value '/opt/inetsim/'
@@ -53,5 +53,5 @@ After the execution the directory tree should be have the following structure:
 
 System Requirements
 -------------------
--The software of Virtual machine needs to be VirtualBox
--The name of virtual machine that used from Cuckoo Sandbox must be cuckoo1
+- The software of Virtual machine needs to be VirtualBox
+- The name of virtual machine that used from Cuckoo Sandbox must be cuckoo1
