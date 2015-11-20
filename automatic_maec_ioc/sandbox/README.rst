@@ -24,7 +24,7 @@ Run setup.py
 - if initserveraddr is not provided, default init server address has the value 'localhost'
 - if initserverport is not provided, default init server port has the value 8000
 
-Futures changes can be inserted manually into serrver.conf file.
+Futures changes can be inserted manually into server.conf file.
 
 After the execution the directory tree should be have the following structure:
 

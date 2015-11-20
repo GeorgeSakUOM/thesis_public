@@ -21,34 +21,14 @@ Run setup.py
 - if port is not provided, default server port has the value 10000
 - if iport is not provided, default init server port has the value 8000
 
-Futures changes can be inserted manually into serrver.conf file.
+Futures changes can be inserted manually into server.conf file.
 
-After the execution the directory tree should be have the following structure:
-
-| sandbox/
-| ├── common
-| │   ├── configmanager.py
-| │   ├── configmanager.pyc
-| │   ├── __init__.py
-| │   ├── __init__.pyc
-| │   ├── logger.py
-| │   └── logger.pyc
-| ├── conf
-| │   ├── log.conf
-| │   └── server.conf
-| ├── extensions
-| │   ├── cuckoo_messenger.py
-| │   └── __init__.py
-| ├── __init__.py
-| ├── log
-| ├── malware_hub/
-| ├── README.rst
-| ├── remote_access_server.py
-| ├── server_certificates/
-| │
-| └── setup.py
 
 System Requirements
 -------------------
 - The software of Virtual machine needs to be VirtualBox
 - The name of virtual machine that used from Cuckoo Sandbox must be cuckoo1
+
+Security
+--------
+
