@@ -1,0 +1,544 @@
+automatic_maec_ioc/
+├── analysis_hub
+│   └── cuckoo_results
+├── analyzers
+├── client
+│   ├── client.py
+│   ├── guiClient.py
+│   ├── __init__.py
+│   └── iocclient.py
+├── common
+│   ├── configmanager.py
+│   ├── configmanager.pyc
+│   ├── default_dict.py
+│   ├── default_dict.pyc
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── logger.py
+│   ├── logger.pyc
+│   ├── xmlhandler.py
+│   └── xmlhandler.pyc
+├── conf
+│   ├── cuckoo_results.conf
+│   ├── log.conf
+│   ├── maec.conf
+│   └── server.conf
+├── .idea
+│   ├── automatic_maec_ioc.iml
+│   ├── misc.xml
+│   ├── modules.xml
+│   ├── .name
+│   ├── vcs.xml
+│   └── workspace.xml
+├── log
+│   └── error.log
+├── maec_ioc_processor
+│   ├── cuckoo_results_handler.py
+│   ├── cybox
+│   │   ├── cybox_action.py
+│   │   ├── cybox_action.pyc
+│   │   ├── cybox_discovery_method.py
+│   │   ├── cybox_discovery_method.pyc
+│   │   ├── cybox_event.py
+│   │   ├── cybox_object.py
+│   │   ├── cybox_object.pyc
+│   │   ├── cybox_observable.py
+│   │   ├── cybox_observables.py
+│   │   ├── __init__.py
+│   │   └── __init__.pyc
+│   ├── cybox_event.py~
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── maec_bundle
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── maec_bundle_action.py
+│   │   ├── maec_bundle_action.pyc
+│   │   └── maec_bundle.py
+│   ├── maec_container.py
+│   ├── maec_creator.py
+│   ├── maec_package
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── maec_analysis.py
+│   │   ├── maec_malware_subject.py
+│   │   ├── maec_malware_subject.pyc
+│   │   └── maec_package.py
+│   └── SchemaCreator.py
+├── main.py
+├── .project
+├── project_directory_tree.txt
+├── .pydevproject
+├── README.rst
+├── run.py
+├── sandbox
+│   ├── common
+│   │   ├── configmanager.py
+│   │   ├── configmanager.pyc
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── logger.py
+│   │   └── logger.pyc
+│   ├── conf
+│   │   ├── log.conf
+│   │   └── server.conf
+│   ├── extensions
+│   │   ├── cuckoo_messenger.py
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── log
+│   │   └── error.log
+│   ├── malware_hub
+│   │   └── test1.bin
+│   ├── README.rst
+│   ├── remote_access_server.py
+│   ├── server_certificates
+│   │   ├── cacert.pem
+│   │   ├── cuckoo_server01.pem
+│   │   └── cuckoo_server.key
+│   ├── setup.py
+│   ├── test1.bin
+│   ├── test_initialization_server1.py
+│   └── test_malware_sender.py
+├── server
+│   ├── analyzers
+│   ├── databasemanage.py
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── init_server.py
+│   ├── iocserver.py
+│   ├── iocserver.pyc
+│   ├── server_certificate
+│   │   ├── iocserver.csr
+│   │   ├── iocserver.key
+│   │   └── iocserver.pem
+│   ├── server.py
+│   ├── ssl
+│   │   ├── CA
+│   │   │   ├── cacert.pem
+│   │   │   ├── certs
+│   │   │   ├── index.txt
+│   │   │   ├── index.txt.attr
+│   │   │   ├── index.txt.attr.old
+│   │   │   ├── index.txt.old
+│   │   │   ├── newcerts
+│   │   │   │   ├── 01.pem
+│   │   │   │   └── 02.pem
+│   │   │   ├── private
+│   │   │   │   └── cakey.pem
+│   │   │   ├── serial
+│   │   │   └── serial.old
+│   │   ├── cuckoo_server.csr
+│   │   └── iocserver.csr
+│   └── tets.py
+├── setup.py
+├── setup.pyc
+├── test.py
+├── testxml
+└── xml_schemas
+    ├── EnumList.xsd
+    ├── files_dictionary.json
+    ├── __init__.py
+    ├── xml_created
+    │   ├── AccountElementList.xml
+    │   ├── ActionArgumentNameEnum-1.0.xml
+    │   ├── ActionContextTypeEnum.xml
+    │   ├── ActionImplementationTypeEnum.xml
+    │   ├── ActionNameEnum-1.0.xml
+    │   ├── ActionNameEnum-1.1.xml
+    │   ├── ActionObjectAssociationTypeEnum-1.0.xml
+    │   ├── ActionRelationshipTypeEnum-1.0.xml
+    │   ├── ActionStatusTypeEnum.xml
+    │   ├── ActionTypeEnum-1.0.xml
+    │   ├── AddressFamilyTypeEnum.xml
+    │   ├── AddressTypeList.xml
+    │   ├── AddressUsageList.xml
+    │   ├── AdministrativeAreaNameTypeList.xml
+    │   ├── AdministrativeAreaTypeList.xml
+    │   ├── AnalysisMethodEnum.xml
+    │   ├── AnalysisTypeEnum.xml
+    │   ├── AntiBehavioralAnalysisPropertiesEnum-1.0.xml
+    │   ├── AntiBehavioralAnalysisStrategicObjectivesEnum-1.0.xml
+    │   ├── AntiBehavioralAnalysisTacticalObjectivesEnum-1.0.xml
+    │   ├── AntiCodeAnalysisStrategicObjectivesEnum-1.0.xml
+    │   ├── AntiCodeAnalysisTacticalObjectivesEnum-1.0.xml
+    │   ├── AntiDetectionStrategicObjectivesEnum-1.0.xml
+    │   ├── AntiDetectionTacticalObjectivesEnum-1.0.xml
+    │   ├── AntiRemovalStrategicObjectivesEnum-1.0.xml
+    │   ├── AntiRemovalTacticalObjectivesEnum-1.0.xml
+    │   ├── ARPCacheEntryTypeEnum.xml
+    │   ├── ARPOpTypeEnum.xml
+    │   ├── ArtifactTypeEnum.xml
+    │   ├── AuthenticationTokenProtectionMechanismTypeEnum-1.0.xml
+    │   ├── AuthenticationTypeEnum-1.0.xml
+    │   ├── AvailabilityViolationPropertiesEnum-1.0.xml
+    │   ├── AvailabilityViolationStrategicObjectivesEnum-1.0.xml
+    │   ├── AvailabilityViolationTacticalObjectivesEnum-1.0.xml
+    │   ├── BirthInfoElementList.xml
+    │   ├── BitnessEnum.xml
+    │   ├── BlockTypeEnum.xml
+    │   ├── BloodGroupList.xml
+    │   ├── BundleContentTypeEnum.xml
+    │   ├── CapabilityObjectiveRelationshipEnum-1.0.xml
+    │   ├── CategoryTypeEnum.xml
+    │   ├── ChangeLogEntryTypeEnum.xml
+    │   ├── CharacterEncodingEnum-1.0.xml
+    │   ├── CipherEnum.xml
+    │   ├── ClassificationTypeEnum.xml
+    │   ├── CodeLanguageEnum.xml
+    │   ├── CodePurposeEnum.xml
+    │   ├── CodeTypeEnum.xml
+    │   ├── CommandandControlPropertiesEnum-1.0.xml
+    │   ├── CommandandControlStrategicObjectivesEnum-1.0.xml
+    │   ├── CommandandControlTacticalObjectivesEnum-1.0.xml
+    │   ├── CommonCapabilityPropertiesEnum-1.0.xml
+    │   ├── CommunicationMediaTypeList.xml
+    │   ├── CompensationModelEnum.xml
+    │   ├── ConditionApplicationEnum.xml
+    │   ├── ConditionTypeEnum.xml
+    │   ├── ContactNumberElementList.xml
+    │   ├── CountryNameTypeList.xml
+    │   ├── DataExfiltrationPropertiesEnum-1.0.xml
+    │   ├── DataExfiltrationStrategicObjectivesEnum-1.0.xml
+    │   ├── DataExfiltrationTacticalObjectivesEnum-1.0.xml
+    │   ├── DataFormatEnum.xml
+    │   ├── DataQualityTypeList.xml
+    │   ├── DataSizeUnitsEnum.xml
+    │   ├── DataTheftPropertiesEnum-1.0.xml
+    │   ├── DataTheftStrategicObjectivesEnum-1.0.xml
+    │   ├── DataTheftTacticalObjectivesEnum-1.0.xml
+    │   ├── DatatypeEnum.xml
+    │   ├── DatePrecisionEnum.xml
+    │   ├── DebuggingActionNameEnum-1.0.xml
+    │   ├── DestructionPropertiesEnum-1.0.xml
+    │   ├── DestructionStrategicObjectivesEnum-1.0.xml
+    │   ├── DestructionTacticalObjectivesEnum-1.0.xml
+    │   ├── DetectedTypeEnum.xml
+    │   ├── DeviceDriverActionNameEnum-1.0.xml
+    │   ├── DeviceDriverActionNameEnum-1.1.xml
+    │   ├── DirectionTypeList.xml
+    │   ├── DirectoryActionNameEnum-1.0.xml
+    │   ├── DirectoryActionNameEnum-1.1.xml
+    │   ├── DiskActionNameEnum-1.0.xml
+    │   ├── DiskActionNameEnum-1.1.xml
+    │   ├── DiskTypeEnum.xml
+    │   ├── DNSActionNameEnum-1.0.xml
+    │   ├── DNSRecordTypeEnum.xml
+    │   ├── DocumentElementList.xml
+    │   ├── DocumentTypeList.xml
+    │   ├── DomainNameTypeEnum.xml
+    │   ├── DomainTypeEnum.xml
+    │   ├── DoNotFragmentTypeEnum.xml
+    │   ├── EaseOfObfuscationEnum.xml
+    │   ├── EffectTypeEnum.xml
+    │   ├── ElectronicAddressIdentifierTypeList.xml
+    │   ├── EndiannessTypeEnum.xml
+    │   ├── EventTypeEnum-1.0.1.xml
+    │   ├── EventTypeEnum-1.0.xml
+    │   ├── FeatureTypeList.xml
+    │   ├── FileActionNameEnum-1.0.xml
+    │   ├── FileActionNameEnum-1.1.xml
+    │   ├── FraudStrategicObjectivesEnum-1.0.xml
+    │   ├── FraudTacticalObjectivesEnum-1.0.xml
+    │   ├── FTPActionNameEnum-1.0.xml
+    │   ├── GroupingRelationshipEnum-1.0.xml
+    │   ├── GUIActionNameEnum-1.0.xml
+    │   ├── HandleTypeEnum.xml
+    │   ├── HashNameEnum-1.0.xml
+    │   ├── HookingActionNameEnum-1.0.xml
+    │   ├── HookingActionNameEnum-1.1.xml
+    │   ├── HTTPActionNameEnum-1.0.xml
+    │   ├── HTTPMethodEnum.xml
+    │   ├── IANAAssignedIPNumbersTypeEnum.xml
+    │   ├── IANAEtherTypeEnum.xml
+    │   ├── IANAHardwareTypeEnum.xml
+    │   ├── IANAPortNumberRegistryTypeEnum.xml
+    │   ├── IdentifierElementTypeList.xml
+    │   ├── ImportanceTypeEnum-1.0.xml
+    │   ├── InfectionPropagationPropertiesEnum-1.0.xml
+    │   ├── InfectionPropagationStrategicObjectivesEnum-1.0.xml
+    │   ├── InfectionPropagationTacticalObjectivesEnum-1.0.xml
+    │   ├── InformationSourceTypeEnum-1.0.xml
+    │   ├── __init__.py
+    │   ├── IntegrityViolationStrategicObjectivesEnum-1.0.xml
+    │   ├── IntegrityViolationTacticalObjectivesEnum-1.0.xml
+    │   ├── InteractionLevelEnum.xml
+    │   ├── IPCActionNameEnum-1.0.xml
+    │   ├── IPTypeEnum.xml
+    │   ├── IPv4ClassTypeEnum.xml
+    │   ├── IPv4CopyFlagTypeEnum.xml
+    │   ├── IPv4OptionsTypeEnum.xml
+    │   ├── IPv6DoNotRecogActionTypeEnum.xml
+    │   ├── IPv6PacketChangeTypeEnum.xml
+    │   ├── IPVersionTypeEnum.xml
+    │   ├── IRCActionNameEnum-1.0.xml
+    │   ├── KernelHookTypeEnum.xml
+    │   ├── LanguageSkillsList.xml
+    │   ├── Layer3ProtocolEnum.xml
+    │   ├── Layer4ProtocolEnum.xml
+    │   ├── Layer7ProtocolEnum.xml
+    │   ├── LibraryActionNameEnum-1.0.xml
+    │   ├── LibraryActionNameEnum-1.1.xml
+    │   ├── LibraryTypeEnum.xml
+    │   ├── LocalityNameTypeList.xml
+    │   ├── LocalityTypeList.xml
+    │   ├── LocationTypeEnum.xml
+    │   ├── MachineAccessControlPropertiesEnum-1.0.xml
+    │   ├── MachineAccessControlStrategicObjectivesEnum-1.0.xml
+    │   ├── MachineAccessControlTacticalObjectivesEnum-1.0.xml
+    │   ├── MalwareCapabilityEnum-1.0.xml
+    │   ├── MalwareConfigurationParameterEnum-1.0.xml
+    │   ├── MalwareDevelopmentToolEnum-1.0.xml
+    │   ├── MalwareEntityTypeEnum-1.0.xml
+    │   ├── MalwareLabelEnum-1.0.xml
+    │   ├── MalwareSubjectRelationshipEnum-1.0.xml
+    │   ├── MalwareSubjectRelationshipEnum-1.1.xml
+    │   ├── MembershipElementList.xml
+    │   ├── MemoryPageProtectionEnum.xml
+    │   ├── MemoryPageStateEnum.xml
+    │   ├── MemoryPageTypeEnum.xml
+    │   ├── MFlagTypeEnum.xml
+    │   ├── MoreFragmentsTypeEnum.xml
+    │   ├── NetflowV9FieldTypeEnum.xml
+    │   ├── NetflowV9ScopeFieldTypeEnum.xml
+    │   ├── NetworkActionNameEnum-1.0.xml
+    │   ├── NetworkActionNameEnum-1.1.xml
+    │   ├── NetworkShareActionNameEnum-1.0.xml
+    │   ├── NLRouteOriginEnum.xml
+    │   ├── NLRouteProtocolEnum.xml
+    │   ├── NoisinessEnum.xml
+    │   ├── NumberTypeList.xml
+    │   ├── ObjectRelationshipEnum-1.0.xml
+    │   ├── ObjectRelationshipEnum-1.1.xml
+    │   ├── ObjectStateEnum-1.0.xml
+    │   ├── OccupationElementList.xml
+    │   ├── operatorEnumeration.xml
+    │   ├── OperatorTypeEnum.xml
+    │   ├── OrganisationCategoryTypeList.xml
+    │   ├── OrganisationNameElementList.xml
+    │   ├── OrganisationNameTypeList.xml
+    │   ├── OriginTypeEnum.xml
+    │   ├── PackerClassEnum.xml
+    │   ├── PageProtectionAttributeEnum.xml
+    │   ├── PageProtectionValueEnum.xml
+    │   ├── PartitionTypeEnum.xml
+    │   ├── PartyIdentifierElementList.xml
+    │   ├── PartyIdentifierTypeList.xml
+    │   ├── PatternTypeEnum.xml
+    │   ├── PDFObjectTypeEnum.xml
+    │   ├── PDFXrefEntryTypeEnum.xml
+    │   ├── PEResourceTypeEnum.xml
+    │   ├── PersistencePropertiesEnum-1.0.xml
+    │   ├── PersistenceStrategicObjectivesEnum-1.0.xml
+    │   ├── PersistenceTacticalObjectivesEnum-1.0.xml
+    │   ├── PersonCategoryTypeList.xml
+    │   ├── PersonNameElementList.xml
+    │   ├── PersonNameTypeList.xml
+    │   ├── PETypeEnum.xml
+    │   ├── PostalDeliveryPointTypeList.xml
+    │   ├── PremisesElementTypeList.xml
+    │   ├── PremisesTypeList.xml
+    │   ├── PrivilegeEscalationPropertiesEnum-1.0.xml
+    │   ├── PrivilegeEscalationStrategicObjectivesEnum-1.0.xml
+    │   ├── PrivilegeEscalationTacticalObjectivesEnum-1.0.xml
+    │   ├── ProbingStrategicObjectivesEnum-1.0.xml
+    │   ├── ProbingTacticalObjectivesEnum-1.0.xml
+    │   ├── ProcessActionNameEnum-1.0.xml
+    │   ├── ProcessMemoryActionNameEnum-1.0.xml
+    │   ├── ProcessorArchEnum.xml
+    │   ├── ProcessorTypeEnum.xml
+    │   ├── ProcessThreadActionNameEnum-1.0.xml
+    │   ├── PropertyTypeEnum.xml
+    │   ├── ProtocolTypeEnum.xml
+    │   ├── QualificationElementList.xml
+    │   ├── RegionalRegistryTypeEnum.xml
+    │   ├── RegionTypeEnum.xml
+    │   ├── RegistryActionNameEnum-1.0.xml
+    │   ├── RegistryDataTypesEnum.xml
+    │   ├── RegistryHiveEnum.xml
+    │   ├── RelationshipTypeEnum.xml
+    │   ├── RemoteMachineManipulationStrategicObjectivesEnum-1.0.xml
+    │   ├── RemoteMachineManipulationTacticalObjectivesEnum-1.0.xml
+    │   ├── RouteTypeEnum.xml
+    │   ├── SecondaryOperationPropertiesEnum-1.0.xml
+    │   ├── SecondaryOperationStrategicObjectivesEnum-1.0.xml
+    │   ├── SecondaryOperationTacticalObjectivesEnum-1.0.xml
+    │   ├── SecurityDegradationPropertiesEnum-1.0.xml
+    │   ├── SecurityDegradationStrategicObjectivesEnum-1.0.xml
+    │   ├── SecurityDegradationTacticalObjectivesEnum-1.0.xml
+    │   ├── ServiceActionNameEnum-1.0.xml
+    │   ├── ServiceActionNameEnum-1.1.xml
+    │   ├── SharedResourceTypeEnum.xml
+    │   ├── SIDTypeEnum.xml
+    │   ├── SiLKAddressTypeEnum.xml
+    │   ├── SiLKDirectionTypeEnum.xml
+    │   ├── SiLKFlowAttributesTypeEnum.xml
+    │   ├── SiLKSensorClassTypeEnum.xml
+    │   ├── SocketActionNameEnum-1.0.xml
+    │   ├── SocketTypeEnum.xml
+    │   ├── SourceClassTypeEnum.xml
+    │   ├── SourceTypeEnum.xml
+    │   ├── SpyingStrategicObjectivesEnum-1.0.xml
+    │   ├── SpyingTacticalObjectivesEnum-1.0.xml
+    │   ├── SubAdministrativeAreaNameTypeList.xml
+    │   ├── SubAdministrativeAreaTypeList.xml
+    │   ├── SubDivisionTypeList.xml
+    │   ├── SubLocalityNameTypeList.xml
+    │   ├── SubLocalityTypeList.xml
+    │   ├── SubPremisesTypeList.xml
+    │   ├── SubsystemTypeEnum.xml
+    │   ├── SynchronizationActionNameEnum-1.0.xml
+    │   ├── SystemActionNameEnum-1.0.xml
+    │   ├── TaskActionTypeEnum.xml
+    │   ├── TaskPriorityEnum.xml
+    │   ├── TaskStatusEnum.xml
+    │   ├── TCPStateEnum.xml
+    │   ├── ThoroughfareNameTypeList.xml
+    │   ├── ThreadRunningStatusEnum.xml
+    │   ├── TimePrecisionEnum.xml
+    │   ├── ToolReferenceTypeEnum.xml
+    │   ├── ToolTypeEnum-1.0.xml
+    │   ├── ToolTypeEnum-1.1.xml
+    │   ├── TrendEnum.xml
+    │   ├── TriggerFrequencyEnum.xml
+    │   ├── TriggerTypeEnum.xml
+    │   ├── UnixFileTypeEnum.xml
+    │   ├── UnixProcessStateEnum.xml
+    │   ├── URITypeEnum.xml
+    │   ├── UserActionNameEnum-1.0.xml
+    │   ├── UserActionNameEnum-1.1.xml
+    │   ├── VehicleInfoElementList.xml
+    │   ├── VisaElementList.xml
+    │   ├── VolumeUnitsEnum.xml
+    │   ├── WaitableTimerTypeEnum.xml
+    │   ├── WhoisContactTypeEnum.xml
+    │   ├── WhoisDNSSECTypeEnum.xml
+    │   ├── WhoisStatusTypeEnum.xml
+    │   ├── WindowsDriveTypeEnum.xml
+    │   ├── WindowsVolumeAttributeEnum.xml
+    │   ├── WinEventTypeEnum.xml
+    │   └── WinHookTypeEnum.xml
+    ├── xmlcreator.py
+    └── xsd_source
+        ├── __init__.py
+        └── maec_4.1_offline
+            ├── cybox_2.1_offline
+            │   ├── cybox_common.xsd
+            │   ├── cybox_core.xsd
+            │   ├── cybox_default_vocabularies.xsd
+            │   ├── extensions
+            │   │   ├── location
+            │   │   │   └── ciq_address_3.0.xsd
+            │   │   └── platform
+            │   │       └── cpe2.3.xsd
+            │   ├── external
+            │   │   ├── cpe_2.3
+            │   │   │   ├── cpe-language_2.3.xsd
+            │   │   │   ├── cpe-naming_2.3.xsd
+            │   │   │   └── xml.xsd
+            │   │   └── oasis_ciq_3.0
+            │   │       ├── CommonTypes.xsd
+            │   │       ├── xAL-types.xsd
+            │   │       ├── xAL.xsd
+            │   │       ├── xlink-2003-12-31.xsd
+            │   │       ├── xNAL-types.xsd
+            │   │       ├── xNAL.xsd
+            │   │       ├── xNL-types.xsd
+            │   │       ├── xNL.xsd
+            │   │       ├── xPIL-types.xsd
+            │   │       └── xPIL.xsd
+            │   └── objects
+            │       ├── Account_Object.xsd
+            │       ├── Address_Object.xsd
+            │       ├── API_Object.xsd
+            │       ├── Archive_File_Object.xsd
+            │       ├── ARP_Cache_Object.xsd
+            │       ├── Artifact_Object.xsd
+            │       ├── AS_Object.xsd
+            │       ├── Code_Object.xsd
+            │       ├── Custom_Object.xsd
+            │       ├── Device_Object.xsd
+            │       ├── Disk_Object.xsd
+            │       ├── Disk_Partition_Object.xsd
+            │       ├── DNS_Cache_Object.xsd
+            │       ├── DNS_Query_Object.xsd
+            │       ├── DNS_Record_Object.xsd
+            │       ├── Domain_Name_Object.xsd
+            │       ├── Email_Message_Object.xsd
+            │       ├── File_Object.xsd
+            │       ├── GUI_Dialogbox_Object.xsd
+            │       ├── GUI_Object.xsd
+            │       ├── GUI_Window_Object.xsd
+            │       ├── Hostname_Object.xsd
+            │       ├── HTTP_Session_Object.xsd
+            │       ├── Image_File_Object.xsd
+            │       ├── Library_Object.xsd
+            │       ├── Link_Object.xsd
+            │       ├── Linux_Package_Object.xsd
+            │       ├── Memory_Object.xsd
+            │       ├── Mutex_Object.xsd
+            │       ├── Network_Connection_Object.xsd
+            │       ├── Network_Flow_Object.xsd
+            │       ├── Network_Packet_Object.xsd
+            │       ├── Network_Route_Entry_Object.xsd
+            │       ├── Network_Route_Object.xsd
+            │       ├── Network_Socket_Object.xsd
+            │       ├── Network_Subnet_Object.xsd
+            │       ├── PDF_File_Object.xsd
+            │       ├── Pipe_Object.xsd
+            │       ├── Port_Object.xsd
+            │       ├── Process_Object.xsd
+            │       ├── Product_Object.xsd
+            │       ├── Semaphore_Object.xsd
+            │       ├── SMS_Message_Object.xsd
+            │       ├── Socket_Address_Object.xsd
+            │       ├── System_Object.xsd
+            │       ├── Unix_File_Object.xsd
+            │       ├── Unix_Network_Route_Entry_Object.xsd
+            │       ├── Unix_Pipe_Object.xsd
+            │       ├── Unix_Process_Object.xsd
+            │       ├── Unix_User_Account_Object.xsd
+            │       ├── Unix_Volume_Object.xsd
+            │       ├── URI_Object.xsd
+            │       ├── URL_History_Object.xsd
+            │       ├── User_Account_Object.xsd
+            │       ├── User_Session_Object.xsd
+            │       ├── Volume_Object.xsd
+            │       ├── Whois_Object.xsd
+            │       ├── Win_Computer_Account_Object.xsd
+            │       ├── Win_Critical_Section_Object.xsd
+            │       ├── Win_Driver_Object.xsd
+            │       ├── Win_Event_Log_Object.xsd
+            │       ├── Win_Event_Object.xsd
+            │       ├── Win_Executable_File_Object.xsd
+            │       ├── Win_Filemapping_Object.xsd
+            │       ├── Win_File_Object.xsd
+            │       ├── Win_Handle_Object.xsd
+            │       ├── Win_Hook_Object.xsd
+            │       ├── Win_Kernel_Hook_Object.xsd
+            │       ├── Win_Kernel_Object.xsd
+            │       ├── Win_Mailslot_Object.xsd
+            │       ├── Win_Memory_Page_Region_Object.xsd
+            │       ├── Win_Mutex_Object.xsd
+            │       ├── Win_Network_Route_Entry_Object.xsd
+            │       ├── Win_Network_Share_Object.xsd
+            │       ├── Win_Pipe_Object.xsd
+            │       ├── Win_Prefetch_Object.xsd
+            │       ├── Win_Process_Object.xsd
+            │       ├── Win_Registry_Key_Object.xsd
+            │       ├── Win_Semaphore_Object.xsd
+            │       ├── Win_Service_Object.xsd
+            │       ├── Win_System_Object.xsd
+            │       ├── Win_System_Restore_Object.xsd
+            │       ├── Win_Task_Object.xsd
+            │       ├── Win_Thread_Object.xsd
+            │       ├── Win_User_Account_Object.xsd
+            │       ├── Win_Volume_Object.xsd
+            │       ├── Win_Waitable_Timer_Object.xsd
+            │       └── X509_Certificate_Object.xsd
+            ├── external
+            │   └── metadataSharing.xsd
+            ├── maec_bundle_schema.xsd
+            ├── maec_container_schema.xsd
+            ├── maec_default_vocabularies.xsd
+            └── maec_package_schema.xsd
