@@ -1,23 +1,14 @@
 __author__ = 'george'
-import socket
-import sys
-import json
+import socket,sys,ssl,fcntl,os,SocketServer
 from ast import literal_eval
-import ssl
-CERTIFICATE = '/home/george/PycharmProjects/thesis_public/automatic_maec_ioc/server/server_certificate/iocserver.pem'
-CERTIFICATECA = 'server_certificates/cacert.pem'
-KEYFILE = '/home/george/PycharmProjects/thesis_public/automatic_maec_ioc/server/server_certificate/iocserver.key'
-
-#global available_servers,available_servers_environment_status,available_servers_address
+from common.configmanager import ConfigurationManager
+SERVER_CERTIFICATE = ConfigurationManager.readServerConfig('server_certificate')
+INIT_SERVER_ADDRESS = ConfigurationManager.readServerConfig('init_address')
+INIT_SERVER_PORT = int(ConfigurationManager.readServerConfig('init_port'))
 available_servers_address ={}
 available_servers_environment_status = {}
 available_servers=[]
-#bindsock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-server_adress=('localhost',8000)
-
-import SocketServer
-
-
+server_address=(INIT_SERVER_ADDRESS,INIT_SERVER_PORT)
 
 class TCPHandler(SocketServer.BaseRequestHandler):
 
@@ -86,7 +77,17 @@ class TCPHandler(SocketServer.BaseRequestHandler):
         self.available_servers_local = available_servers
         self.available_servers_environment_status_local = available_servers_environment_status
         self.available_servers_address_local =available_servers_address
-        constream=ssl.wrap_socket(self.request,server_side=True,certfile=CERTIFICATE,keyfile=KEYFILE)
+        server_certificate=None
+        cacert = None
+        server_key=None
+        for cert in os.listdir(SERVER_CERTIFICATE):
+            if all(x in cert for x in ['pem', 'server']):
+                server_certificate = os.path.join(SERVER_CERTIFICATE,cert)
+            if 'ca' in cert:
+                cacert = os.path.join(SERVER_CERTIFICATE,cert)
+            if 'key' in cert:
+                server_key =os.path.join(SERVER_CERTIFICATE,cert)
+        constream=ssl.wrap_socket(self.request,server_side=True,certfile=server_certificate,keyfile=server_key)
         try:
             self.deal_with_client(constream)
             print('Available servers adressses')
@@ -98,17 +99,24 @@ class TCPHandler(SocketServer.BaseRequestHandler):
         finally:
             constream.shutdown(socket.SHUT_RDWR)
             constream.close()
-
             available_servers =self.available_servers_local
             available_servers_environment_status = self.available_servers_environment_status_local
             available_servers_address =self.available_servers_address_local
-    '''
-    def finish(self):
-        self.request.shutdown(socket.SHUT_RDWR)
-        self.request.close()
-    '''
-if __name__=='__main__':
-    print >> sys.stderr, 'starting up on %s port %s '% server_adress
+        return
 
-    server = SocketServer.ThreadingTCPServer(server_adress,TCPHandler)
+    def finish(self):
+        global available_servers,available_servers_environment_status,available_servers_address
+        print('Writing servers to analyzers file')
+        analyzers = open('analyzers','w')
+        fcntl.fcntl(analyzers,fcntl.LOCK_EX)
+        analyzers.write(str(available_servers_address))
+        fcntl.fcntl(analyzers,fcntl.LOCK_UN)
+        analyzers.close()
+        return SocketServer.BaseRequestHandler.finish(self)
+
+
+if __name__=='__main__':
+    print >> sys.stderr, 'starting up on %s port %s '% server_address
+
+    server = SocketServer.ThreadingTCPServer(server_address,TCPHandler)
     server.serve_forever()

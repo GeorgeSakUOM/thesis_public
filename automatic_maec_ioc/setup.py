@@ -2,23 +2,50 @@
 @author: george
 Initalize the configuration files adding system variables
 '''
-import os, ConfigParser,uuid,argparse
+import os, ConfigParser,uuid,argparse,subprocess
 
 DEFAULT_ANALYSIS_PATH= os.path.abspath(os.path.join(os.path.dirname(__file__),"analysis_hub"))
+DEFAULT_SERVER_CERTIFICATE_PATH=os.path.abspath(os.path.join(os.path.dirname(__file__),"server/server_certificate"))
+DEFAULT_MALWARE_SAMPLES_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),"malware_hub"))
+
 DEFAULT_SERVER_HOST = 'localhost'
 DEFAULT_SERVER_PORT = 10000
+DEFAULT_INIT_SERVER_PORT = 8000
+
 
 def main():
-    parser = argparse.ArgumentParser(description='This program configure cuckoo remote access server')
-    parser.add_argument('-path',action='store',dest='path', help='path of cuckoo directory')
-    parser.add_argument('-host',action='store',dest='host',help='host of Cuckoo remote access server')
-    parser.add_argument('-port',action='store',dest='port',help='Cuckoo remote access server port')
+    parser = argparse.ArgumentParser(description='This program configure ioc server')
+    parser.add_argument('-apath',action='store',dest='apath', help='Path of analysis directory. Here are stored results coming from analyzers')
+    parser.add_argument('-mpath',action='store',dest='mpath', help='Path of malware samples directory. Here are stored malware subjects coming for analysis')
+    parser.add_argument('-host',action='store',dest='host',help='Host address of IoC server')
+    parser.add_argument('-port',action='store',dest='port',help='IoC server port')
+    parser.add_argument('-iport',action='store',dest='iport',help='Init server port')
+
     args = parser.parse_args()
-    if args.path is not None:
-        ANALYSIS_PATH = args.path
+    '''
+    try:
+        print('Creating configuration directory.')
+        subprocess.call(['mkdir','conf'])
+        print('Creating log directory.')
+        subprocess.call(['mkdir','log'])
+        print('Creating malware samples hub')
+        subprocess.call(['mkdir','malware_hub'])
+        print('Creating analysis directory')
+        subprocess.call(['mkdir','malware_hub'])
+    except Exception, e:
+        print e
+    '''
+    if args.apath is not None:
+        ANALYSIS_PATH = args.apath
     else:
         ANALYSIS_PATH = DEFAULT_ANALYSIS_PATH
-    print "Cuckoo path is initialized to : %s"%ANALYSIS_PATH
+    print "Analysis path is initialized to : %s"%ANALYSIS_PATH
+
+    if args.mpath is not None:
+        MALWARE_PATH = args.mpath
+    else:
+        MALWARE_PATH = DEFAULT_MALWARE_SAMPLES_PATH
+    print "Malware samples path is initialized to : %s"%MALWARE_PATH
 
     if args.host is not None:
         SERVER_HOST = args.host
@@ -26,11 +53,20 @@ def main():
         SERVER_HOST = DEFAULT_SERVER_HOST
     print "Server host is initialized to : %s"%SERVER_HOST
 
+    INIT_SERVER_HOST = SERVER_HOST
+
     if args.port is not None:
         SERVER_PORT = args.port
     else:
         SERVER_PORT = DEFAULT_SERVER_PORT
-    print "Server host is initialized to : %s"%SERVER_PORT
+    print "Server port is initialized to : %s"%SERVER_PORT
+
+    if args.iport is not None:
+        INIT_SERVER_PORT = args.iport
+    else:
+        INIT_SERVER_PORT = DEFAULT_INIT_SERVER_PORT
+    print "Init server port is initialized to : %s"%INIT_SERVER_PORT
+
     try:
         config = ConfigParser.RawConfigParser(allow_no_value=True)
         # Initialize configuration file of logs
@@ -53,11 +89,16 @@ def main():
         #Initialize configuration file of Server
         print('Initialize configuration file of Server')
         config.add_section('Server')
-        config.set('Server', 'ANALYSIS_PATH',ANALYSIS_PATH )
+        config.set('Server', 'ANALYSIS_PATH',ANALYSIS_PATH)
+        config.set('Server','MALWARE_PATH',MALWARE_PATH)
         config.set('Server', 'FILENUMBER', '0')
         config.set('Server', 'DBFILENAME', 'cuckoo_results_')
         config.set('Server', 'ADDRESS', SERVER_HOST)
-        config.set('Server', 'PORT_NUMBER', SERVER_PORT)
+        config.set('Server', 'PORT', SERVER_PORT)
+        config.set('Server', 'INIT_ADDRESS', INIT_SERVER_HOST)
+        config.set('Server', 'INIT_PORT', INIT_SERVER_PORT)
+        config.set('Server', 'SERVER_CERTIFICATE', DEFAULT_SERVER_CERTIFICATE_PATH)
+
         config.set('Server','SERVER_ID',uuid.uuid1())
         # Writing configuration file to 'server.conf'
         print("Writing configuration file to 'server.conf'")

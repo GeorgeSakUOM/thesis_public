@@ -333,7 +333,7 @@ class CuckooRemoteServer():
         flag = self.communicate_identity()
         #Start server and wait for samples
         if flag:
-            analysis_environment_report = self.initialize_analysis_environment()
+            analysis_environment_report = (True,True,True)#self.initialize_analysis_environment()
             if analysis_environment_report[2] == False:
                 self.communicate_initialization_status('down')
                 print("Cuckoo seems to be down")

@@ -20,7 +20,7 @@ Run setup.py
 - if cuckoopath is not provided, default cuckoo path has the value  '/opt/cuckoo'
 - if inetsimpath is not provided,default inetsimpath has the value '/opt/inetsim/'
 - if host is not provided, default server host has the value 'localhost'
-- if path is not provided, default server port has the value 5000
+- if port is not provided, default server port has the value 5000
 - if initserveraddr is not provided, default init server address has the value 'localhost'
 - if initserverport is not provided, default init server port has the value 8000
 
