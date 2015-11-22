@@ -60,9 +60,8 @@ class TCPHandler(SocketServer.BaseRequestHandler):
                         constream.send('IoC server has encountered a fatal error: %s '%str(e))
             else:
                 print("Server with identity %s has not yet addressed identity"%datatuple[2])
-                constream.send('Server has not yet addressed identity. Please run again the script ')
-
-            return False
+                constream.send('Server has not yet addressed identity. Please run again the script.')
+        return False
 
     def deal_with_client(self,constream):
         data = constream.recv()

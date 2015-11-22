@@ -1,30 +1,37 @@
-import  json, os
+import  json, os, errno,SocketServer
 from socket import *
 from os import listdir
 from os.path import isfile,join
 from common.logger import Logger
 from common.configmanager import ConfigurationManager
-import errno
+
 
 #Define and initialize global variables // Global variables should be initialized from configuration file 
 ANALYSIS_PATH = ConfigurationManager.readServerConfig(variable='analysis_path')
 FILENUMBER = int(ConfigurationManager.readServerConfig(variable='filenumber'))  
 DBFILENAME = ConfigurationManager.readServerConfig(variable = 'dbfilename')
 ADDRESS = ConfigurationManager.readServerConfig(variable = 'address')
-PORT_NUMBER = int(ConfigurationManager.readServerConfig(variable='port_number'))
+PORT = int(ConfigurationManager.readServerConfig(variable='port'))
 JSONFILES = []
+server_address=(ADDRESS,PORT)
+
+class RequestHandler(SocketServer.BaseRequestHandler):
+
+    def handle(self):
+        pass
+
+
+    def finish(self):
+        pass
+
 
 class IOCServer():
-    '''
-    IOCServer responses to request for IoCs and also it receives data from analysis and creates IoCs 
-    '''
 
-    def __init__(self, adress=ADDRESS ,port=PORT_NUMBER):
-        '''
-        Constructor
-        '''
+    def __init__(self, adress=ADDRESS ,port=PORT):
+
         self.serveradress=(adress,port)
         self.logger =Logger()
+
         
     def saveInFile(self,dbfilename=DBFILENAME,filenumber=FILENUMBER,results=None):
         '''
@@ -105,9 +112,6 @@ class IOCServer():
                 connection.close()
                 print('Data received :',messaselength)
                 self.saveInFile(results=chunks)
- 
-    
-    
-    
+
 if __name__=='__main__':
-    pass
+    server = SocketServer.ThreadingTCPServer(server_address,RequestHandler)

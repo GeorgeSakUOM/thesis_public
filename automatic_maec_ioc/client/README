@@ -1,0 +1,34 @@
+Overview
+========
+Main purpose of IoC Client is  to provide a submission tool to someone that want o use the IOC Server.
+
+
+Installation
+------------
+Run setup.py
+
+-apath      [path]  path of  analysis results
+-mpath       [path]  path of malware subjects directory
+-host       [addr]   IoC server address
+-port       [port]   IoC server port
+-chost       [addr]   Local server address
+-cport       [port] Local server port
+-h       help
+
+- if apath is not provided, default analysis path has the value  './analyis_hub'
+- if mpath is not provided,default malwares directory has the value './malware_hub'
+- if host is not provided, default IoC server host has the value 'localhost'
+- if port is not provided, default IoC server port has the value 10000
+- if chost is not provided, default local server host has the value 'localhost'
+- if cport is not provided, default local server port has the value 7000
+
+Futures changes can be inserted manually into server.conf file.
+
+
+System Requirements
+-------------------
+- The software of Virtual machine needs to be VirtualBox
+- The name of virtual machine that used from Cuckoo Sandbox must be cuckoo1
+
+Security
+--------

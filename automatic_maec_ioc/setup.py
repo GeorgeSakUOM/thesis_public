@@ -22,7 +22,7 @@ def main():
     parser.add_argument('-iport',action='store',dest='iport',help='Init server port')
 
     args = parser.parse_args()
-    '''
+
     try:
         print('Creating configuration directory.')
         subprocess.call(['mkdir','conf'])
@@ -34,7 +34,7 @@ def main():
         subprocess.call(['mkdir','malware_hub'])
     except Exception, e:
         print e
-    '''
+
     if args.apath is not None:
         ANALYSIS_PATH = args.apath
     else:

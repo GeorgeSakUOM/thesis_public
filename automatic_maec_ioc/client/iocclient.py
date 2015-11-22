@@ -1,17 +1,8 @@
-'''
-Created on 24 Σεπ 2015
 
-@author: george
-'''
 
-class MyClass(object):
-    '''
-    classdocs
-    '''
-
+class GuiClient(object):
 
     def __init__(self, params):
-        '''
-        Constructor
-        '''
+        'TODO....'
+        pass
         
