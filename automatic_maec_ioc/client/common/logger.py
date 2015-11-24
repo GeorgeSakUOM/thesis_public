@@ -2,7 +2,9 @@
 @author: george
 
 '''
-import os, logging
+import os
+import logging
+
 from configmanager import ConfigurationManager
 
 LOG_PATH = ConfigurationManager.readLogConfig(variable = 'log_path')

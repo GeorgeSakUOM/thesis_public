@@ -81,7 +81,10 @@ class RequestHandler(SocketServer.BaseRequestHandler):
         finally:
             constream.shutdown(socket.SHUT_RDWR)
             constream.close()
+        return
 
+    def finish(self):
+        return SocketServer.BaseRequestHandler.finish(self)
 
 class CuckooRemoteServer():
 

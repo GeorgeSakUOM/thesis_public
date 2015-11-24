@@ -27,8 +27,6 @@ Futures changes can be inserted manually into server.conf file.
 
 System Requirements
 -------------------
-- The software of Virtual machine needs to be VirtualBox
-- The name of virtual machine that used from Cuckoo Sandbox must be cuckoo1
 
 Security
 --------
