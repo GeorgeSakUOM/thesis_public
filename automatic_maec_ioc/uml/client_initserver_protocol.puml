@@ -1,0 +1,42 @@
+@startuml
+activate Analyzer
+activate InitServer
+Analyzer->InitServer:('identity',uuid)
+note left:Analyzer try to be initialized
+alt successful case
+    InitServer-->Analyzer:(True,'Server identity stored')
+    note right:InitServer store {uuid:ip} in local\ndictionary servers address local
+else
+    group failure case 1
+    InitServer-->Analyzer:(False,'Server identity has not been stored')
+    note right:InitServer failed to store {uuid:ip} in local\ndictionary servers address local
+    end
+
+else
+    activate Analyzer
+    Analyzer->InitServer:('status','up',uuid)
+    note left:Analyzer starting InetSim,VM,Cuckoo
+    InitServer-->Analyzer:('IoC Server is informed and waiting')
+else
+    group failure case 2
+    Analyzer->InitServer:('status','down',uuid)
+    note right:InitServer del {uuid:ip} from local\ndictionary servers address local
+    InitServer-->Analyzer:('IoC server is informed')
+    end
+else
+    Analyzer->InitServer:('status','live',uuid)
+    note left:Starting server on port 5000
+    InitServer-->Analyzer:('IoC server is informed and ready  to send malware subjects')
+    note right: InitServer store [uuid] in available servers
+else
+    group failure case 3
+    Analyzer->InitServer:('status','dead',uuid)
+    note right:InitServer del {uuid:ip} and {uuid:ip}
+    InitServer-->Analyzer:('IoC server has been informed')
+    end
+end
+
+
+
+
+@enduml

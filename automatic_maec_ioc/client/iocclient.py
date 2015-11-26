@@ -28,6 +28,7 @@ class IOCClient(object):
                 self.server_key =os.path.join(CERTIFICATES_PATH,cert)
 
     def send_malware(self):
+        flag=True
         try:
             malware_instance = open(self.malware,'rb').read()
             hashtag= hashlib.sha1(malware_instance).hexdigest()
@@ -43,21 +44,24 @@ class IOCClient(object):
             if datatuple[0]:
                 print(' IoC Server Message: '+datatuple[1])
                 ssl_sock.sendall(malware_instance)
+                data = ssl_sock.recv()
+                datatuple =literal_eval(data)
+                if datatuple[0]:
+                    print(' IoC Server Message: '+datatuple[1])
+                else:
+                    flag=False
+                    print(' IoC Server Message: '+datatuple[1])
             else:
+                flag=False
                 print(' IoC Server Message: '+datatuple[1])
             print(data)
-            ssl_sock.sendall(malware_instance)
-            data = ssl_sock.recv()
-            datatuple =literal_eval(data)
-            if datatuple[0]:
-                print(' IoC Server Message: '+datatuple[1])
-                ssl_sock.sendall(malware_instance)
-            else:
-                print(' IoC Server Message: '+datatuple[1])
+
         except Exception,e:
             info =str(e)
             print(info)
             Logger().errorLogging(info)
+        finally:
+            return flag
 
     def local_server(self):
         try:
@@ -69,8 +73,8 @@ class IOCClient(object):
             Logger().errorLogging(info)
 
     def run(self):
-        self.send_malware()
-        self.local_server()
+        if self.send_malware():
+            self.local_server()
 
 
 class RequestHandler(SocketServer.BaseRequestHandler):

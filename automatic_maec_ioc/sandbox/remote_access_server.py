@@ -51,17 +51,17 @@ class RequestHandler(SocketServer.BaseRequestHandler):
         mal_check = hashlib.sha1(malware).hexdigest()
         print("The checksum of the received subject is: %s"%mal_check)
         if mal_check == checksum:
-            constream.send('Subject is delivered correctly.')
+            constream.send(str((True,'Subject has been delivered correctly.')))
             malware_file = open(os.path.join(MALWARE_SAMPLES_PATH,filename),'wb')
             malware_file.write(malware)
             malware_file.close()
             try:
                 self.set_analysis_task(filename)
-                print('Analysis subject has been submitted succesfully.')
+                print(str((True,'Analysis subject has been submitted succesfully.')))
             except :
-                constream.send('Failing to submit the subject  ')
+                constream.send(str((False,'Failing to submit the subject  ')))
         else:
-            constream.send('Subject is not delivered correctly.')
+            constream.send(str((False,'Subject has not been delivered correctly.')))
 
     def handle(self):
         cacert=None
