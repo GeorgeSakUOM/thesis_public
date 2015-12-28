@@ -14,6 +14,7 @@ CERTIFICATES_PATH = ConfigurationManager.readServerConfig('server_certificate')
 ioc_server=(IOC_SERVER_ADDR,IOC_SERVER_PORT)
 local_server=(SERVER_ADDRESS,SERVER_PORT)
 malware_info=[]
+
 class IOCClient(object):
 
     def __init__(self,filename):
@@ -38,7 +39,7 @@ class IOCClient(object):
             ssl_sock.connect(ioc_server)
             print("Sending info for subject %s with hash value: %s and length: %d"%(self.malware,hashtag,malware_length))
             malware_info.append((hashtag,time.time()))
-            ssl_sock.sendall(str(('identity',self.id,hashtag,malware_length,time.time())))
+            ssl_sock.sendall(str(('identity',self.id,hashtag,malware_length,time.time(),self.malware)))
             data = ssl_sock.recv()
             datatuple = literal_eval(data)
             if datatuple[0]:
@@ -141,9 +142,8 @@ class RequestHandler(SocketServer.BaseRequestHandler):
         return
 
 
-
     def finish(self):
-        pass
+        return SocketServer.BaseRequestHandler.finish(self)
 
 if __name__=='__main__':
     if len(sys.argv) ==2:
