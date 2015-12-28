@@ -1,8 +1,7 @@
-import datetime
-print(datetime.datetime.now())
+def test(d,c):
+    d+=1
+    c+=3
+    return d,c
 
-print(hex(456225))
 
-from cybox.objects.uri_object import URI
-
-print(URI.TYPES)
+print(test(1,2)[1])

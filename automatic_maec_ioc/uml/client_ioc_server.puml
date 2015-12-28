@@ -1,0 +1,46 @@
+@startuml
+title Client/IoC Server/Analyzer Protocol
+activate Client
+activate IoCServer
+activate Analyzer
+alt successful case
+    note left of Client:Client send analysis subject info
+    Client->IoCServer:('identity',subject_name,hashvalue,length,time)
+    note left of IoCServer: IoC Server stores subject's info
+    IoCServer-->Client:(True,'Analysis subject info has been received')
+else
+    group failure case 1
+    note left of IoCServer: IoC Server  isn't store subject's info
+    IoCServer-->Client:(False,'IoC Server fatal error try again later')
+    end
+else
+    Client->IoCServer:send(malware_subject)
+    IoCServer-->Client:(True,'Received successfully')
+else
+    group failure case 2
+    IoCServer-->Client:(False,'Try again later')
+    end
+else
+    IoCServer->Analyzer:(task_id,subject_name,'checksum',hashvalue,length)
+    Analyzer-->IoCServer:('ready')
+    IoCServer->Analyzer:send(malware_subject)
+    Analyzer-->IoCServer:(True,'Subject has delivered correctly')
+else
+    group failure case 3
+    Analyzer-->IoCServer:(False,'Subject has not been delivered correctly')
+    end
+else
+    note right of Analyzer:Submit malware for analysis
+    Analyzer-->IoCServer:send(analysis_results)
+else
+    group failure case 4
+    Analyzer-->IoCServer:(False,'Failing to submit malware')
+    end
+else
+    note left of IoCServer:Generate MAEC XML
+    IoCServer-->Client:(maec_hash,client_id,malware_hash,length,time,subject_name)
+    Client->IoCServer:('ready','Ready to receive analysis results')
+    IoCServer-->Client:send(maec.xml)
+    Client->IoCServer:(True,'Results delivered successfully')
+end
+@enduml

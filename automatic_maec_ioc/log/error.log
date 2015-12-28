@@ -19,3 +19,8 @@ ERROR:root:15-11-2015 10:52:10 AM:'memory'
 ERROR:root:15-11-2015 10:53:00 AM:'memory'
 ERROR:root:15-11-2015 10:55:44 AM:'memory'
 ERROR:root:15-11-2015 11:54:49 AM:'memory'
+ERROR:root:03-12-2015 11:45:02 AM:an integer is required
+ERROR:root:03-12-2015 11:46:12 AM:[Errno 98] Address already in use
+ERROR:root:03-12-2015 11:46:42 AM:an integer is required
+ERROR:root:03-12-2015 11:48:23 AM:an integer is required
+ERROR:root:03-12-2015 11:52:32 AM:an integer is required

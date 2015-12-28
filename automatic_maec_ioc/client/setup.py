@@ -3,10 +3,10 @@ __author__ = 'george'
 import argparse,ConfigParser,os,subprocess,uuid
 
 DEFAULT_ANALYSIS_DIRECTORY_PATH=os.path.abspath(os.path.join(os.path.dirname(__file__),"analysis_results"))
-DEFAULT_MALWARE_SUBJECTS_DIRECTORY_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),"malwares_hub"))
+DEFAULT_MALWARE_SUBJECTS_DIRECTORY_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),"malware_pool"))
 DEFAULT_SERVER_CERTIFICATE_PATH=os.path.abspath(os.path.join(os.path.dirname(__file__),"certificate"))
 DEFAULT_IOC_SERVER_ADDRESS ='localhost'
-DEFAULT_IOC_SERVER_PORT =10000
+DEFAULT_IOC_SERVER_PORT =10500
 DEFAULT_CLIENT_ADDRESS = 'localhost'
 DEFAULT_CLIENT_PORT = 7000
 
@@ -61,8 +61,8 @@ def main():
             print('Creating analysis results  directory...')
             subprocess.call(['mkdir','analsysis_results'])
         if args.mpath is None:
-            print('Creating malware hub...')
-            subprocess.call(['mkdir','malware_hub'])
+            print('Creating malware pool...')
+            subprocess.call(['mkdir','malware_pool'])
 
     except Exception, e:
         print(str(e))

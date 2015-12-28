@@ -1,4 +1,5 @@
 @startuml
+title Analyzer/Init Server Protocol
 activate Analyzer
 activate InitServer
 Analyzer->InitServer:('identity',uuid)

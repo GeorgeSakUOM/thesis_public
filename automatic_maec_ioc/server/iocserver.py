@@ -14,6 +14,8 @@ ADDRESS = ConfigurationManager.readServerConfig(variable = 'address')
 PORT = int(ConfigurationManager.readServerConfig(variable='port'))
 JSONFILES = []
 server_address=(ADDRESS,PORT)
+clients_port= int(ConfigurationManager.readServerConfig(variable='clients_port'))
+
 
 class RequestHandler(SocketServer.BaseRequestHandler):
 
@@ -24,12 +26,34 @@ class RequestHandler(SocketServer.BaseRequestHandler):
     def finish(self):
         pass
 
-
 class IOCServer():
+
+    def __init(self,console_queue,active, analyzers):
+        global active_analyzers,console,analyzers_pool
+        active_analyzers=active
+        console = console_queue
+        analyzers_pool=analyzers
+        self.logger= Logger()
+
+    def run(self):
+        global console
+        try:
+            console.put("Starting up on %s port %s"% server_address)
+            console.put(' ')
+            server = SocketServer.ThreadingTCPServer(server_address,RequestHandler)
+            server.serve_forever()
+        except Exception,e:
+            info=str(e)
+            console.put(info)
+            self.logger.errorLogging(info)
+
+
+
+class IOColdServer():
 
     def __init__(self, adress=ADDRESS ,port=PORT):
 
-        self.serveradress=(adress,port)
+        self.serveraddress=(adress,port)
         self.logger =Logger()
 
         
@@ -87,8 +111,8 @@ class IOCServer():
     
     def start(self):
         sock = socket(AF_INET,SOCK_STREAM)
-        print('Starting up on %s port %s '% self.serveradress)
-        sock.bind(self.serveradress)
+        print('Starting up on %s port %s '% self.serveraddress)
+        sock.bind(self.serveraddress)
         sock.listen(1)
         chunks =[]
         messaselength =0
@@ -112,6 +136,3 @@ class IOCServer():
                 connection.close()
                 print('Data received :',messaselength)
                 self.saveInFile(results=chunks)
-
-if __name__=='__main__':
-    server = SocketServer.ThreadingTCPServer(server_address,RequestHandler)

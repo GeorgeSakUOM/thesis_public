@@ -6,12 +6,14 @@ import os, ConfigParser,uuid,argparse,subprocess
 
 DEFAULT_ANALYSIS_PATH= os.path.abspath(os.path.join(os.path.dirname(__file__),"analysis_hub"))
 DEFAULT_SERVER_CERTIFICATE_PATH=os.path.abspath(os.path.join(os.path.dirname(__file__),"server/server_certificate"))
-DEFAULT_MALWARE_SAMPLES_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),"malware_hub"))
+DEFAULT_MALWARE_SAMPLES_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),"malware_pool"))
 
 DEFAULT_SERVER_HOST = 'localhost'
 DEFAULT_SERVER_PORT = 10000
 DEFAULT_INIT_SERVER_PORT = 8000
-
+DEFAULT_CLIENTS_PORT=7000
+DEFAULT_TASK_SERVER_PORT=10500
+DEFAULT_ANALYZER_PORT = 5000
 
 def main():
     parser = argparse.ArgumentParser(description='This program configure ioc server')
@@ -20,21 +22,24 @@ def main():
     parser.add_argument('-host',action='store',dest='host',help='Host address of IoC server')
     parser.add_argument('-port',action='store',dest='port',help='IoC server port')
     parser.add_argument('-iport',action='store',dest='iport',help='Init server port')
+    parser.add_argument('-tport',action='store',dest='tport',help='Task server port')
+    parser.add_argument('-cport',action='store',dest='cport',help='Clients port')
+    parser.add_argument('-aport',action='store',dest='aport',help='Analyzer port')
 
     args = parser.parse_args()
-
+    '''
     try:
         print('Creating configuration directory.')
         subprocess.call(['mkdir','conf'])
         print('Creating log directory.')
         subprocess.call(['mkdir','log'])
         print('Creating malware samples hub')
-        subprocess.call(['mkdir','malware_hub'])
+        subprocess.call(['mkdir','malware_pool'])
         print('Creating analysis directory')
-        subprocess.call(['mkdir','malware_hub'])
+        subprocess.call(['mkdir','malware_pool'])
     except Exception, e:
         print e
-
+    '''
     if args.apath is not None:
         ANALYSIS_PATH = args.apath
     else:
@@ -67,6 +72,24 @@ def main():
         INIT_SERVER_PORT = DEFAULT_INIT_SERVER_PORT
     print "Init server port is initialized to : %s"%INIT_SERVER_PORT
 
+    if args.tport is not None:
+        TASK_SERVER_PORT=args.tport
+    else:
+        TASK_SERVER_PORT=DEFAULT_TASK_SERVER_PORT
+    print "Task server port is initialized to : %s"%TASK_SERVER_PORT
+
+    if args.cport is not None:
+        CLIENTS_PORT = args.cport
+    else:
+        CLIENTS_PORT=DEFAULT_CLIENTS_PORT
+    print "Clients port is initialized to : %s"%CLIENTS_PORT
+
+    if args.aport is not None:
+        ANALYZER_PORT = args.aport
+    else:
+        ANALYZER_PORT=DEFAULT_ANALYZER_PORT
+    print "Analyzer port is initialized to : %s"%ANALYZER_PORT
+
     try:
         config = ConfigParser.RawConfigParser(allow_no_value=True)
         # Initialize configuration file of logs
@@ -98,8 +121,11 @@ def main():
         config.set('Server', 'INIT_ADDRESS', INIT_SERVER_HOST)
         config.set('Server', 'INIT_PORT', INIT_SERVER_PORT)
         config.set('Server', 'SERVER_CERTIFICATE', DEFAULT_SERVER_CERTIFICATE_PATH)
-
+        config.set('Server','CLIENTS_PORT',CLIENTS_PORT)
         config.set('Server','SERVER_ID',uuid.uuid1())
+        config.set('Server','TASK_PORT',TASK_SERVER_PORT)
+        config.set('Server','ANALYZER_PORT',ANALYZER_PORT)
+
         # Writing configuration file to 'server.conf'
         print("Writing configuration file to 'server.conf'")
         with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','server.conf')), 'w') as configfile:

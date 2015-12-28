@@ -6,7 +6,8 @@ INIT_SERVER_ADDRESS = ConfigurationManager.readServerConfig('init_address')
 INIT_SERVER_PORT = ConfigurationManager.readServerConfig('init_address')
 
 
-print(SERVER_CERTIFICATE)
-print(INIT_SERVER_ADDRESS)
-print(INIT_SERVER_PORT)
+a={'1':'start','2':'end'}
 
+c=a.popitem()
+print(a)
+print(c)

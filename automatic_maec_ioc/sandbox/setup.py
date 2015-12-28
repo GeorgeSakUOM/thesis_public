@@ -63,7 +63,7 @@ def main():
         print('Creating certificates directory')
         subprocess.call(['mkdir','server_certificates'])
         print('Creating malware samples hub')
-        subprocess.call(['mkdir','malware_hub'])
+        subprocess.call(['mkdir','malware_pool'])
         print('Copying cuckoo plugin to cuckoo reporting modules ')
         plugin_path = os.path.join(CUCKOO_PATH,'modules/reporting/')
         subprocess.call(["cp","extensions/cuckoo_messenger.py",plugin_path])
@@ -108,7 +108,7 @@ def main():
         config.set('Server','SERVER_ID',uuid.uuid1())
         config.set('Server','INIT_SERVER_ADDRESS',INIT_SERVER_ADDRESS)
         config.set('Server','INIT_SERVER_PORT',INIT_SERVER_PORT)
-        config.set('Server', 'MALWARE_SAMPLES_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"malware_hub")))
+        config.set('Server', 'MALWARE_SAMPLES_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"malware_pool")))
         config.set('Server', 'CERTIFICATES_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"server_certificates")))
         # Writing configuration file to 'server.conf'
         print("Writing configuration file to 'server.conf'")
