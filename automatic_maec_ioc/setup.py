@@ -7,6 +7,8 @@ import os, ConfigParser,uuid,argparse,subprocess
 DEFAULT_ANALYSIS_PATH= os.path.abspath(os.path.join(os.path.dirname(__file__),"analysis_hub"))
 DEFAULT_SERVER_CERTIFICATE_PATH=os.path.abspath(os.path.join(os.path.dirname(__file__),"server/server_certificate"))
 DEFAULT_MALWARE_SAMPLES_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),"malware_pool"))
+DEFAULT_MAEC_ANALYSIS_REP= os.path.abspath(os.path.join(os.path.dirname(__file__),"maec_analysis_repository"))
+
 
 DEFAULT_SERVER_HOST = 'localhost'
 DEFAULT_SERVER_PORT = 10000
@@ -37,6 +39,8 @@ def main():
         subprocess.call(['mkdir','malware_pool'])
         print('Creating analysis directory')
         subprocess.call(['mkdir','malware_pool'])
+        print('Creating analysis results repository')
+        subprocess.call(['mkdir','maec_analysis_repository'])
     except Exception, e:
         print e
     '''
@@ -125,6 +129,7 @@ def main():
         config.set('Server','SERVER_ID',uuid.uuid1())
         config.set('Server','TASK_PORT',TASK_SERVER_PORT)
         config.set('Server','ANALYZER_PORT',ANALYZER_PORT)
+        config.set('Server','MAEC_ANALYSIS_REPOSITORY',DEFAULT_MAEC_ANALYSIS_REP)
 
         # Writing configuration file to 'server.conf'
         print("Writing configuration file to 'server.conf'")

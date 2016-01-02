@@ -15,15 +15,16 @@ ANALYZER_PORT=ConfigurationManager.readServerConfig('analyzer_port')
 
 class TCPHandler(SocketServer.BaseRequestHandler):
 
-    def get_analyzer(self,name,client_id,time,client_ip):
+    def get_analyzer(self,name,client_id,time,client_ip,hashtag,taskid,length):
         global analyzers_pool,active_analyzers
         lock =Lock()
         analyzer=None
         try:
             lock.acquire()
             if analyzers_pool:
+
                 analyzer= analyzers_pool.popitem()
-                active_analyzers[analyzer[1]]=[name,client_id,time,client_ip,analyzer[0]]
+                active_analyzers[analyzer[1]]=[name,client_id,time,client_ip,analyzer[0],hashtag,taskid,length]
             else:
                 pass
                 #what should be done if all analyzers have a task
@@ -37,6 +38,7 @@ class TCPHandler(SocketServer.BaseRequestHandler):
         cacert=None
         server_certificate=None
         server_key = None
+        taskid=uuid.uuid4()
         try:
             for cert in os.listdir(SERVER_CERTIFICATE):
                 if all(x in cert for x in ['pem', 'server']):
@@ -47,10 +49,10 @@ class TCPHandler(SocketServer.BaseRequestHandler):
                     server_key =os.path.join(SERVER_CERTIFICATE,cert)
             sock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
             ssl_sock = ssl.wrap_socket(sock=sock,ca_certs=cacert,certfile=server_certificate,keyfile=server_key,cert_reqs=ssl.CERT_REQUIRED)
-            analyzer = self.get_analyzer(name,client_id,time,client_ip)
+            analyzer = self.get_analyzer(name,client_id,time,client_ip,hashtag,taskid,length)
             ssl_sock.connect((analyzer[1],ANALYZER_PORT))
             console.put("Sending identity")
-            ssl_sock.send(str((uuid.uuid4(),name,'checksum',hashtag,length)))
+            ssl_sock.send(str((taskid,name,'checksum',hashtag,length)))
             data = ssl_sock.recv()
             console.put(data)
             if data=='ready':

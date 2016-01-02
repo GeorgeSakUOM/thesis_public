@@ -83,7 +83,7 @@ class RequestHandler(SocketServer.BaseRequestHandler):
     def manipulate_data(self,data,filename):
         flag =True
         try:
-            xmlfile = open(os.path.join(ANALYSIS_PATH,filename),'w')
+            xmlfile = open(os.path.join(ANALYSIS_PATH,filename+".xml"),'w')
             xmlfile.write(data)
             xmlfile.close()
         except Exception, e:
