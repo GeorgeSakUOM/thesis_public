@@ -7,7 +7,7 @@ import os, ConfigParser,uuid,argparse,subprocess
 DEFAULT_ANALYSIS_PATH= os.path.abspath(os.path.join(os.path.dirname(__file__),"analysis_hub"))
 DEFAULT_SERVER_CERTIFICATE_PATH=os.path.abspath(os.path.join(os.path.dirname(__file__),"server/server_certificate"))
 DEFAULT_MALWARE_SAMPLES_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),"malware_pool"))
-DEFAULT_MAEC_ANALYSIS_REP= os.path.abspath(os.path.join(os.path.dirname(__file__),"maec_analysis_repository"))
+DEFAULT_MAEC_ANALYSIS_REP= os.path.abspath(os.path.join(os.path.dirname(__file__),"maec_results"))
 
 
 DEFAULT_SERVER_HOST = 'localhost'
@@ -38,9 +38,12 @@ def main():
         print('Creating malware samples hub')
         subprocess.call(['mkdir','malware_pool'])
         print('Creating analysis directory')
-        subprocess.call(['mkdir','malware_pool'])
+        subprocess.call(['mkdir','analysis_hub'])
         print('Creating analysis results repository')
-        subprocess.call(['mkdir','maec_analysis_repository'])
+        subprocess.call(['mkdir','maec_results'])
+        subprocess.call(['mkdir','maec_results/bundles'])
+        subprocess.call(['mkdir','maec_results/packages'])
+        subprocess.call(['mkdir','maec_results/containers'])
     except Exception, e:
         print e
     '''
@@ -146,11 +149,8 @@ def main():
         config.set('maec', 'MAEC_PATH_CONTAINERS', os.path.abspath(os.path.join(os.path.dirname(__file__),"maec_results","containers")))
         config.add_section('xml_schema')
         config.set('xml_schema', 'XML_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas")))
-        config.set('xml_schema', 'CYBOX_DV_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","cybox_default_vocabularies.xsd")))
-        config.set('xml_schema', 'BUNDLE_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","maec_bundle_schema.xsd")))
-        config.set('xml_schema', 'CONTAINER_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","maec_container_schema.xsd")))
-        config.set('xml_schema', 'PACKAGE_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","maec_package_schema.xsd")))
-        config.set('xml_schema', 'MAEC_DV_SCHEMA_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","maec_default_vocabularies.xsd")))
+        config.set('xml_schema', 'XSD_SOURSE_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","xsd_sourse")))
+        config.set('xml_schema', 'XML_CREATED_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__),"xml_schemas","xml_created")))
         # Writing configuration file to 'maec.conf'
         print("Writing configuration file to 'maec.conf'")
         with open(os.path.abspath(os.path.join(os.path.dirname(__file__),'conf','maec.conf')), 'w') as configfile:

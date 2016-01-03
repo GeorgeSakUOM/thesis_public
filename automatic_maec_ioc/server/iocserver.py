@@ -10,9 +10,8 @@ import hashlib
 #Define and initialize global variables // Global variables should be initialized from configuration file
 ANALYSIS_PATH = ConfigurationManager.readServerConfig(variable='analysis_path')
 ADDRESS = ConfigurationManager.readServerConfig(variable = 'address')
-ANALYSIS_REPOSITORY=ConfigurationManager.readServerConfig(variable = 'maec_analysis_repository')
+ANALYSIS_REPOSITORY=ConfigurationManager.readServerConfig(variable = 'maec_results')
 PORT = int(ConfigurationManager.readServerConfig(variable='port'))
-JSONFILES = []
 server_address=(ADDRESS,PORT)
 clients_port= int(ConfigurationManager.readServerConfig(variable='clients_port'))
 SERVER_CERTIFICATE=ConfigurationManager.readServerConfig(variable='server_certificate')
@@ -135,7 +134,7 @@ class RequestHandler(SocketServer.BaseRequestHandler):
 
 class IOCServer():
 
-    def __init(self,console_queue,active, analyzers):
+    def __init__(self,console_queue,active, analyzers):
         global active_analyzers,console,analyzers_pool
         active_analyzers=active
         console = console_queue

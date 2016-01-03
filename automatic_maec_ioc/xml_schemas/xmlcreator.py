@@ -1,10 +1,10 @@
 __author__ = 'george'
 import os,json
 from xml.etree import ElementTree as ET
+from common.configmanager import ConfigurationManager
 
-
-SOURCE_PATH =os.path.join(os.getcwd(), 'xsd_source')
-DESTINATION_PATH =os.path.join(os.getcwd(),'xml_created')
+SOURCE_PATH =ConfigurationManager.readxmlConfig(variable='xsd_source_path')
+DESTINATION_PATH =ConfigurationManager.readxmlConfig(variable='xml_created_path')
 SCHEMA_FILE_PATH = os.path.join(os.getcwd(),'EnumList.xsd')
 
 def extract_files(source_path):
