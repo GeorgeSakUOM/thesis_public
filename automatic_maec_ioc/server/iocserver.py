@@ -10,7 +10,7 @@ import hashlib
 #Define and initialize global variables // Global variables should be initialized from configuration file
 ANALYSIS_PATH = ConfigurationManager.readServerConfig(variable='analysis_path')
 ADDRESS = ConfigurationManager.readServerConfig(variable = 'address')
-ANALYSIS_REPOSITORY=ConfigurationManager.readServerConfig(variable = 'maec_results')
+ANALYSIS_REPOSITORY=ConfigurationManager.readServerConfig(variable = 'maec_analysis_repository')
 PORT = int(ConfigurationManager.readServerConfig(variable='port'))
 server_address=(ADDRESS,PORT)
 clients_port= int(ConfigurationManager.readServerConfig(variable='clients_port'))

@@ -1,0 +1,33 @@
+@startuml
+title Client/IoC Server/Analyzer Protocol
+activate Client
+activate TaskServer
+activate Analyzer
+alt successful case
+    note left of Client:Client send analysis subject info
+    Client->TaskServer:('identity',subject_name,hashvalue,length,time)
+    note left of TaskServer: Task Server stores subject's info
+    TaskServer-->Client:(True,'Analysis subject info has been received')
+else
+    group failure case 1
+    note left of TaskServer: Task Server  isn't store subject's info
+    TaskServer-->Client:(False,'Task Server fatal error try again later')
+    end
+else
+    Client->TaskServer:send(malware_subject)
+    TaskServer-->Client:(True,'Received successfully')
+else
+    group failure case 2
+    TaskServer-->Client:(False,'Try again later')
+    end
+else
+    TaskServer->Analyzer:(task_id,subject_name,'checksum',hashvalue,length)
+    Analyzer-->TaskServer:('ready')
+    TaskServer->Analyzer:send(malware_subject)
+    Analyzer-->TaskServer:(True,'Subject has delivered correctly')
+else
+    group failure case 3
+    Analyzer-->TaskServer:(False,'Subject has not been delivered correctly')
+    end
+end
+@enduml

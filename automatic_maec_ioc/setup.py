@@ -6,6 +6,7 @@ import os, ConfigParser,uuid,argparse,subprocess
 
 DEFAULT_ANALYSIS_PATH= os.path.abspath(os.path.join(os.path.dirname(__file__),"analysis_hub"))
 DEFAULT_SERVER_CERTIFICATE_PATH=os.path.abspath(os.path.join(os.path.dirname(__file__),"server/server_certificate"))
+DEFAULT_SSL_PATH=os.path.abspath(os.path.join(os.path.dirname(__file__),"server/ssl"))
 DEFAULT_MALWARE_SAMPLES_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),"malware_pool"))
 DEFAULT_MAEC_ANALYSIS_REP= os.path.abspath(os.path.join(os.path.dirname(__file__),"maec_results"))
 
@@ -128,6 +129,7 @@ def main():
         config.set('Server', 'INIT_ADDRESS', INIT_SERVER_HOST)
         config.set('Server', 'INIT_PORT', INIT_SERVER_PORT)
         config.set('Server', 'SERVER_CERTIFICATE', DEFAULT_SERVER_CERTIFICATE_PATH)
+        config.set('Server', 'SSL', DEFAULT_SSL_PATH)
         config.set('Server','CLIENTS_PORT',CLIENTS_PORT)
         config.set('Server','SERVER_ID',uuid.uuid1())
         config.set('Server','TASK_PORT',TASK_SERVER_PORT)

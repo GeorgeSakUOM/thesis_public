@@ -15,7 +15,7 @@ class TCPHandler(SocketServer.BaseRequestHandler):
 
 
     def manipulate_data(self,constream,data):
-        global gui
+        global console
         datatuple = literal_eval(data)
         if datatuple[0] =='identity':
             try:

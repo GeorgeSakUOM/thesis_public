@@ -49,3 +49,4 @@ class SimpleGUI(Frame):
             if not self.queue.empty():
                 self.printtoscreen(self.queue.get())
             #TODO implemention of error printing
+
