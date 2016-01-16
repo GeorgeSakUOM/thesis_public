@@ -1,17 +1,9 @@
-'''
-Created on 4 Οκτ 2015
 
-@author: george
-'''
 
 class MAECContainer(object):
-    '''
-    classdocs
-    '''
 
 
-    def __init__(self, params):
-        '''
-        Constructor
-        '''
+    def __init__(self):
+       #TODO Implemetation after the update of python maec library
+        pass
         

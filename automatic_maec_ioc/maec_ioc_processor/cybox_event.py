@@ -1,7 +1,9 @@
 __author__ = 'george'
 from mixbox.idgen import IDGenerator, set_id_method,set_id_namespace,create_id
 from cybox.core import Event,Actions, ActionRelationship, Frequency
-from maec_ioc_processor.cybox.cybox_action import CyboxAction
+
+from maec_ioc_processor.cybox_action import CyboxAction
+
 
 class CyboxEvent(Event):
 

@@ -57,7 +57,7 @@ def load_results(filename):
 
 class Handler(object):
 
-    def __init__(self,section,filename):
+    def __init__(self,section,filename=None,data_results=None):
         self.logger = Logger()
         self.key=ConfigurationManager.readCuckooResultsConfig(variable='key',section=section)
         self.encapsulation = literal_eval(ConfigurationManager.readCuckooResultsConfig(variable='encapsulation',section=section))
@@ -72,7 +72,10 @@ class Handler(object):
                 self.subsectionskeys[ConfigurationManager.readCuckooResultsConfig(variable='key',section='subsection_'+subsection)] = list(ConfigurationManager.readCuckooResultsConfig(variable='keys',section='subsection_'+subsection).split(','))
         results=None
         try:
-            results = load_results('cuckoo_results')[self.key]
+            if data_results is not None:
+                results=data_results[self.key]
+            elif filename is not  None:
+                results = load_results(filename)[self.key]
         except Exception, e:
             self.logger.errorLogging(str(e))
 
@@ -98,16 +101,16 @@ class Handler(object):
 
 class AnalysisInfoHandler(Handler):
 
-    def __init__(self,filename):
-        super(AnalysisInfoHandler,self).__init__(section=S_ANALYSISINFO,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(AnalysisInfoHandler,self).__init__(section=S_ANALYSISINFO,filename=filename,data_results=data_results)
 
     def get_machine(self):
         return self.dictionary['machine']
 
 class ProcessMemoryHandler(Handler):
 
-    def __init__(self,filename):
-        super(ProcessMemoryHandler,self).__init__(section=S_PROCMEMORY,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(ProcessMemoryHandler,self).__init__(section=S_PROCMEMORY,filename=filename,data_results=data_results)
 
     def get_next_proc(self):
         if self.list:
@@ -119,8 +122,8 @@ class ProcessMemoryHandler(Handler):
 
 class StaticHandler(Handler):
 
-    def __init__(self,filename):
-        super(StaticHandler,self).__init__(section=S_STATIC,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(StaticHandler,self).__init__(section=S_STATIC,filename=filename,data_results=data_results)
 
     def get_next_pe_import(self):
         if self.dictionary['pe_imports']:
@@ -149,8 +152,8 @@ class StaticHandler(Handler):
 
 class DroppedHandler(Handler):
 
-    def __init__(self,filename):
-        super(DroppedHandler,self).__init__(section=S_DROPPED,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(DroppedHandler,self).__init__(section=S_DROPPED,filename=filename,data_results=data_results)
 
     def get_next_drooped(self):
         if self.list:
@@ -162,8 +165,8 @@ class DroppedHandler(Handler):
 
 class BehaviorHandler(Handler):
 
-    def __init__(self,filename):
-        super(BehaviorHandler,self).__init__(section=S_BEHAVIOR,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(BehaviorHandler,self).__init__(section=S_BEHAVIOR,filename=filename,data_results=data_results)
 
     def get_next_process(self):
         if self.dictionary['processes']:
@@ -206,8 +209,8 @@ class BehaviorHandler(Handler):
 
 class StringsHandler(Handler):
 
-    def __init__(self,filename):
-        super(StringsHandler,self).__init__(section=S_STRINGS,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(StringsHandler,self).__init__(section=S_STRINGS,filename=filename,data_results=data_results)
 
     def get_next_string(self):
         if self.list:
@@ -215,8 +218,8 @@ class StringsHandler(Handler):
 
 class DebugHandler(Handler):
 
-    def __init__(self,filename):
-        super(DebugHandler,self).__init__(section=S_DEBUG,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(DebugHandler,self).__init__(section=S_DEBUG,filename=filename,data_results=data_results)
 
 
     def get_next_error(self):
@@ -225,8 +228,8 @@ class DebugHandler(Handler):
 
 class MemoryHandler(Handler):
 
-    def __init__(self,filename):
-        super(MemoryHandler,self).__init__(section=S_MEMORY,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(MemoryHandler,self).__init__(section=S_MEMORY,filename=filename,data_results=data_results)
 
     def get_subsection_next_item(self,subsection):
         if self.dictionary is not None:
@@ -244,8 +247,8 @@ class MemoryHandler(Handler):
 
 class TargetInfoHandler(Handler):
 
-    def __init__(self,filename):
-        super(TargetInfoHandler,self).__init__(section=S_TARGETINFO,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(TargetInfoHandler,self).__init__(section=S_TARGETINFO,filename=filename,data_results=data_results)
 
     def get_file(self):
         if self.dictionary is not None:
@@ -259,8 +262,8 @@ class TargetInfoHandler(Handler):
                     return self.dictionary['file']['yara'].pop(0)
 
 class VirusTotalHandler(Handler):
-    def __init__(self,filename):
-        super(VirusTotalHandler,self).__init__(section=S_VIRUSTOTAL,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(VirusTotalHandler,self).__init__(section=S_VIRUSTOTAL,filename=filename,data_results=data_results)
 
     def get_next_scan(self):
         if self.dictionary is not None:
@@ -276,8 +279,8 @@ class VirusTotalHandler(Handler):
 
 class NetworkHandler(Handler):
 
-    def __init__(self,filename):
-        super(NetworkHandler,self).__init__(section=S_NETWORK,filename=filename)
+    def __init__(self,filename=None,data_results=None):
+        super(NetworkHandler,self).__init__(section=S_NETWORK,filename=filename,data_results=data_results)
 
     def get_next_irc(self):
         if self.dictionary is not None:
@@ -339,18 +342,18 @@ class NetworkHandler(Handler):
                     return self.dictionary['smtp'].pop(0)
 
 class AnalysisHandler():
-    def __init__(self,filename):
-        self.analysisinfo = AnalysisInfoHandler(filename)
-        self.procmemory = ProcessMemoryHandler(filename)
-        self.static = StaticHandler(filename)
-        self.dropped = DroppedHandler(filename)
-        self.behavior = BehaviorHandler(filename)
-        self.strings = StringsHandler(filename)
-        self.debug = DebugHandler(filename)
-        self.memory = MemoryHandler(filename)
-        self.targetinfo = TargetInfoHandler(filename)
-        self.virustotal = VirusTotalHandler(filename)
-        self.network = NetworkHandler(filename)
+    def __init__(self,filename=None,data_results=None):
+        self.analysisinfo = AnalysisInfoHandler(filename=filename,data_results=data_results)
+        self.procmemory = ProcessMemoryHandler(filename=filename,data_results=data_results)
+        self.static = StaticHandler(filename=filename,data_results=data_results)
+        self.dropped = DroppedHandler(filename=filename,data_results=data_results)
+        self.behavior = BehaviorHandler(filename=filename,data_results=data_results)
+        self.strings = StringsHandler(filename=filename,data_results=data_results)
+        self.debug = DebugHandler(filename=filename,data_results=data_results)
+        self.memory = MemoryHandler(filename=filename,data_results=data_results)
+        self.targetinfo = TargetInfoHandler(filename=filename,data_results=data_results)
+        self.virustotal = VirusTotalHandler(filename=filename,data_results=data_results)
+        self.network = NetworkHandler(filename=filename,data_results=data_results)
 
 if __name__=='__main__':
     an = AnalysisHandler(filename='cuckoo_results')
@@ -369,13 +372,13 @@ if __name__=='__main__':
     #print(ti.get_section_simple_values())
     #print(ti.get_file())
     #print(ti.get_next_file_yara())
-    #infh=AnalysisInfoHandler(filename='cuckoo_results')
-    #print(infh.key)
-    #print(infh.keys)
-    #print(infh.encapsulation)
-    #print(infh.subsectionskeys)
-    #print(infh.get_section_simple_values())
-    #print(infh.get_machine())
+    infh=AnalysisInfoHandler(filename='cuckoo_results')
+    print(infh.key)
+    print(infh.keys)
+    print(infh.encapsulation)
+    print(infh.subsectionskeys)
+    print(infh.get_section_simple_values())
+    print(infh.get_machine())
     #pm = ProcessMemoryHandler(filename='cuckoo_results')
     #print(pm.key)
     #print(pm.keys)

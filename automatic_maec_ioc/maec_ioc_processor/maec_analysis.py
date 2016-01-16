@@ -277,11 +277,15 @@ class MaecAnalysis(Analysis):
         return identifier
 
 
-    def createanalysisenvironmentanalysissystem(self,installed_programs=None):
+    def createanalysisenvironmentanalysissystem(self,installed_programs=None,network_interfaces=None):
         analysis_system=AnalysisSystem()
         for program in installed_programs:
             if isinstance(program,PlatformSpecification):
                 analysis_system.installed_programs.append(program)
+        analysis_system.network_interface_list=NetworkInterfaceList()
+        for nw in network_interfaces:
+            if isinstance(nw,NetworkInterface):
+                analysis_system.network_interface_list.append(nw)
         return analysis_system
 
     def createanalysisenvironmentnetworkinfrastructurecapturedprotocol(self,port_number=None,layer7_protocol=None,layer4_protocol=None,interaction_level=None):
@@ -375,7 +379,7 @@ if __name__=='__main__':
     pl4 = an_ex.createanalysisenvironmentsystemplatform(description='testing platform',identifiers=[ident7,ident8])
     hvhostsyst1 = an_ex.createanalysisenvironmentHVhostsystem(available_physical_memory=12234343,bios_info=systbios,date=datetime.datetime.now(),hostname='uom@labs',local_time=datetime.datetime.now(),
                                            system_time=time.time(),uptime=datetime.datetime.now(),username='george',network_interface_list=[nwl],processor='Intel pentium',timezone_dst='UTC',
-                                           timezone_standard='UTC',total_physical_memory=555555555555,os=os1,vm_hypervisor=pl4)
+                                           timezone_standard='EET',total_physical_memory=555555555555,os=os1,vm_hypervisor=pl4)
 
     ident3 = an_ex.createanalysisenvironmentsystemplatformidentifier(system='win1',system_ref='test refer3')
     ident4 = an_ex.createanalysisenvironmentsystemplatformidentifier(system='unix1',system_ref='test_refer4')

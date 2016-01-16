@@ -1,7 +1,6 @@
 from maec.bundle import Bundle,AVClassification,ProcessTree,ProcessTreeNode,Capability,CapabilityProperty,CapabilityObjective,CapabilityObjectiveReference,CapabilityObjectiveRelationship, \
     CapabilityReference,CapabilityRelationship,AssociatedCode,BehaviorCollection,ObjectCollection,ActionCollection,Collections,ActionCollectionList,BehaviorCollectionList,ObjectCollectionList, \
     CandidateIndicatorCollectionList,CandidateIndicatorCollection
-
 from maec.bundle.behavior_reference import BehaviorReference
 from maec.bundle.behavior import Behavior,BehaviorPurpose,Exploit,CVEVulnerability,PlatformList,BehavioralActions,BehavioralAction,BehavioralActionEquivalenceReference,BehavioralActionReference
 from mixbox.idgen import set_id_method,set_id_namespace,IDGenerator
@@ -18,6 +17,7 @@ from cybox.objects.code_object import Code,TargetedPlatforms,CodeSegmentXOR
 from cybox.common.digitalsignature import DigitalSignature,DigitalSignatureList
 from maec.bundle.candidate_indicator import CandidateIndicator,MalwareEntity,CandidateIndicatorComposition
 from maec.bundle.object_reference import ObjectReference
+
 from maec_bundle_action import MaecBundleAction
 from maec_ioc_processor.cybox.cybox_object import CyboxObject
 
@@ -459,7 +459,7 @@ if __name__ =='__main__':
     action=mb.create_behavior_action(behavioral_ordering=1)
     action_reference= mb.create_behavior_action_reference(behavioral_ordering=2,action_id='Test action id 1')
     action_equivalence_reference= mb.create_behavior_action_equivalence_reference(behavioral_ordering=3,action_equivalence_idref='equiv idref 1')
-    from maec_ioc_processor.cybox.cybox_discovery_method import CyboxDiscoveryMethod
+    from maec_ioc_processor.cybox_discovery_method import CyboxDiscoveryMethod
     dm = CyboxDiscoveryMethod()
     dm.add_discovery_method_name(name='Test behavior discovey method name')
     extrfeat1 = mb.create_behavior_associated_code_extracted_feautures(functions=['extr feaut fun 1'],imports=['extr feat imp 1'],codesnippets=['code1 snip'],extractedstrings=['extstring 1'])

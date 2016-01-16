@@ -1,6 +1,5 @@
 __author__ = 'george'
 
-from maec_ioc_processor.cybox.cybox_action import CyboxAction
 from maec.bundle.malware_action import MalwareAction,ActionImplementation,APICall,Parameter,ParameterList
 from cybox.objects.code_object import CodeSegmentXOR,Code,TargetedPlatforms
 from cybox.common.structured_text import StructuredText
@@ -8,6 +7,8 @@ from  cybox.common.digitalsignature import DigitalSignature,DigitalSignatureList
 from cybox.common.extracted_features import ExtractedFeatures,ExtractedStrings,CodeSnippets,Imports,Functions
 from cybox.common.extracted_string import ExtractedString
 from cybox.common.platform_specification import PlatformSpecification,PlatformIdentifier
+
+from maec_ioc_processor.cybox.cybox_action import CyboxAction
 
 
 class MaecBundleAction(CyboxAction,MalwareAction):
@@ -135,7 +136,7 @@ if __name__=='__main__':
     ac.add_action_name(name='Create Hidden File')
     ####################################################################################################################
     #Add action implementation code or
-    from maec_ioc_processor.cybox.cybox_discovery_method import CyboxDiscoveryMethod
+    from maec_ioc_processor.cybox_discovery_method import CyboxDiscoveryMethod
     dm = CyboxDiscoveryMethod()
     dm.add_discovery_method_name(name='Test behavior discovey method name')
     extrfeat1 = ac.create_action_implementation_code_extracted_feautures(functions=['extr feaut fun 1'],imports=['extr feat imp 1'],codesnippets=['code1 snip'],extractedstrings=['extstring 1'])
