@@ -8,7 +8,7 @@ from cybox.common.extracted_features import ExtractedFeatures,ExtractedStrings,C
 from cybox.common.extracted_string import ExtractedString
 from cybox.common.platform_specification import PlatformSpecification,PlatformIdentifier
 
-from maec_ioc_processor.cybox.cybox_action import CyboxAction
+from maec_ioc_processor.cybox_action import CyboxAction
 
 
 class MaecBundleAction(CyboxAction,MalwareAction):

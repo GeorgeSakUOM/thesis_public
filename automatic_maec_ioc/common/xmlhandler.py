@@ -4,8 +4,8 @@
 import os
 from configmanager import ConfigurationManager
 from xml.etree import ElementTree
-from default_dict import maecEnumFiles
 XML_PATH = ConfigurationManager.readxmlConfig(variable='xml_path')
+XML_CREATED_PATH=os.path.join(XML_PATH,'xml_created')
 
 class XMLhandler():
     '''
@@ -13,8 +13,8 @@ class XMLhandler():
     '''
 
 
-    def __init__(self, filename=''):
-        self.filepath= os.path.join(XML_PATH,filename)
+    def __init__(self, filename=None):
+        self.filepath= os.path.join(XML_CREATED_PATH,filename)
         self.etree = ElementTree.parse(self.filepath)
         
     def returnListofValuesC(self):
@@ -40,7 +40,7 @@ class XMLhandler():
         '''
         XMLhandler static method return a list of values from an xml file
         '''
-        filepath= os.path.join(XML_PATH,filename)
+        filepath= os.path.join(XML_CREATED_PATH,filename)
         etree = ElementTree.parse(filepath)
         values =[]
         for value in etree.findall('./'):
@@ -52,7 +52,7 @@ class XMLhandler():
         '''
         XMLhandler static method return a dict of values from an xml file
         '''
-        filepath= os.path.join(XML_PATH,filename)
+        filepath= os.path.join(XML_CREATED_PATH,filename)
         etree = ElementTree.parse(filepath)
         values ={}
         for value in etree.findall('./'):
@@ -62,4 +62,9 @@ class XMLhandler():
     
 if __name__=='__main__':
     #testing 
-    print(XMLhandler.returnListofValuesS(maecEnumFiles['BundleContentTypeEnum']))   
+    dictfile=open(os.path.join(XML_PATH,'files_dictionary.json'),'r').read()
+    import json
+    filesdict= json.loads(dictfile)
+
+
+    print(XMLhandler.returnListofValuesS(filesdict['AnalysisMethodEnum']))

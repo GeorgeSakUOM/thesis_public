@@ -65,8 +65,6 @@ class MAECMalwareSubjectCreator(MAECCreator):
         return self.subject.to_xml()
 
     def bind_analysis_info(self):
-        analysis_info_keys =self.analysis_handler.analysisinfo.keys
-        analysis_info_subsection_keys = self.analysis_handler.analysisinfo.subsectionskeys
         analysis_info_simple_values= self.analysis_handler.analysisinfo.get_section_simple_values()
         analysis_machine = self.analysis_handler.analysisinfo.get_machine()
         self.analysis = MaecAnalysis(namespace=self.namespace,start_datetime=analysis_info_simple_values['started'],complete_datetime=analysis_info_simple_values['ended'])
@@ -151,6 +149,26 @@ class MAECMalwareSubjectCreator(MAECCreator):
             pass
             #TODO when category is URI
 
+    def bind_procmemory(self):
+        pass
+    def bind_static(self):
+        pass
+    def bind_dropped(self):
+        pass
+    def bind_behavior(self):
+        pass
+    def bind_strings(self):
+        pass
+    def bind_debug(self):
+        pass
+    def bind_memory(self):
+        pass
+    def bind_targetinfo(self):
+        pass
+    def virustotal(self):
+        pass
+    def bind_network(self):
+        pass
     def bind_analysis(self):
         self.subject.add_analysis(self.analysis)
 
