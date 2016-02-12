@@ -19,7 +19,7 @@ from maec.bundle.candidate_indicator import CandidateIndicator,MalwareEntity,Can
 from maec.bundle.object_reference import ObjectReference
 
 from maec_bundle_action import MaecBundleAction
-from maec_ioc_processor.cybox.cybox_object import CyboxObject
+from cybox_object import CyboxObject
 
 class MaecBundle(Bundle):
 

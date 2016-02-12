@@ -13,6 +13,7 @@ from maec_ioc_processor.maec_malware_subject import MaecMalwareSubject
 from maec_ioc_processor.maec_analysis import MaecAnalysis
 from mixbox.namespaces import Namespace
 from cybox_object import CyboxObject
+from cybox.common.hashes import Hash
 
 PREFIX='ioc_generator'
 SCHEMA_LOCATION = 'schema_location'
@@ -25,6 +26,7 @@ XML_PATH=ConfigurationManager.readxmlConfig(variable='xml_path')
 #
 #Testing methods
 from maec_ioc_processor.cuckoo_results_handler import load_results
+from maec_ioc_processor.maec_bundle import MaecBundle
 #
 def load_xml_filenames_dictionary():
     with open(os.path.join(XML_PATH,'files_dictionary.json'),'r') as jsonfile:
@@ -59,6 +61,8 @@ class MAECMalwareSubjectCreator(MAECCreator):
         super(MAECMalwareSubjectCreator,self).__init__(results)
         self.subject = MaecMalwareSubject(namespace=self.namespace)
         self.bind_analysis_info()
+        self.bind_targetinfo()
+        self.bind_virustotal()
         self.bind_analysis()
 
     def return_malware_subject(self):
@@ -143,11 +147,7 @@ class MAECMalwareSubjectCreator(MAECCreator):
                                                                                                                  protocol3,protocol4,protocol5,protocol6,protocol7,
                                                                                                                  protocol8,protocol9])
         self.analysis.addanalysisenvironment(analysis_environment)
-        if analysis_info_simple_values['category']=='file':
-            self.subject.addmalwareinstanceobjectattributes(CyboxObject().objecttype)
-        else:
-            pass
-            #TODO when category is URI
+
 
     def bind_procmemory(self):
         pass
@@ -164,13 +164,44 @@ class MAECMalwareSubjectCreator(MAECCreator):
     def bind_memory(self):
         pass
     def bind_targetinfo(self):
-        pass
-    def virustotal(self):
-        pass
+        objecttype=None
+        target_info_simple_values = self.analysis_handler.targetinfo.get_section_simple_values()
+        if target_info_simple_values['category']=='file':
+            objecttype=CyboxObject().objecttype
+            file_infos = self.analysis_handler.targetinfo.get_file()
+            objecttype.file_name = file_infos['name']
+            objecttype.device_path = os.path.dirname(file_infos['path'])
+            objecttype.full_path = file_infos['path']
+            objecttype.size_in_bytes = file_infos['size']
+            objecttype.file_extension = '.'.join(file_infos['name'].split('.')[1:])
+            objecttype.file_format = file_infos['type']
+            objecttype.add_hash(Hash(hash_value=file_infos['crc32'],type_=Hash.TYPE_OTHER))
+            objecttype.add_hash(Hash(hash_value=file_infos['md5'],type_=Hash.TYPE_MD5))
+            objecttype.add_hash(Hash(hash_value=file_infos['sha1'],type_=Hash.TYPE_SHA1))
+            objecttype.add_hash(Hash(hash_value=file_infos['sha256'],type_=Hash.TYPE_SHA256))
+            objecttype.add_hash(Hash(hash_value=file_infos['sha512'],type_=Hash.TYPE_SHA512))
+            objecttype.add_hash(Hash(hash_value=file_infos['ssdeep'],type_=Hash.TYPE_SSDEEP))
+        else:
+            pass
+            #TODO when category is URI
+        self.subject.addmalwareinstanceobjectattributes(objecttype)
+
+    def bind_virustotal(self):
+        self.bundle = MaecBundle()
+        scans= self.analysis_handler.virustotal.get_section_simple_values()['scans']
+        engines = scans.keys()
+        while scans:
+            engine = engines.pop()
+            data = scans.pop(engine)
+            av_classification = self.bundle.create_av_classification(classification=data['result'],tool_name=engine,
+                                                                     engine_version=data['version'],definition_version=data['update'])
+            self.bundle.add_av_classification(av_classification)
+
     def bind_network(self):
         pass
     def bind_analysis(self):
         self.subject.add_analysis(self.analysis)
+        self.subject.addbundleinfindingbundles(self.bundle)
 
 
 if __name__=='__main__':
