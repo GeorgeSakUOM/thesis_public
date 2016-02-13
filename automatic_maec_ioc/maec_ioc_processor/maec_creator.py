@@ -14,6 +14,8 @@ from maec_ioc_processor.maec_analysis import MaecAnalysis
 from mixbox.namespaces import Namespace
 from cybox_object import CyboxObject
 from cybox.common.hashes import Hash
+from cybox.objects.win_executable_file_object import WinExecutableFile,PEExports,PEExportedFunction,\
+    PEExportedFunctions,PEImportedFunctions,PEImportList,PEImport,PEImportedFunction
 
 PREFIX='ioc_generator'
 SCHEMA_LOCATION = 'schema_location'
@@ -61,6 +63,7 @@ class MAECMalwareSubjectCreator(MAECCreator):
         super(MAECMalwareSubjectCreator,self).__init__(results)
         self.subject = MaecMalwareSubject(namespace=self.namespace)
         self.bind_analysis_info()
+        self.bind_static()
         self.bind_targetinfo()
         self.bind_virustotal()
         self.bind_analysis()
@@ -152,7 +155,42 @@ class MAECMalwareSubjectCreator(MAECCreator):
     def bind_procmemory(self):
         pass
     def bind_static(self):
-        pass
+        static = self.analysis_handler.static.dictionary
+        static_object = CyboxObject(objecttype=WinExecutableFile).objecttype
+        self.static_bundle = MaecBundle()
+        self.analysis_static =MaecAnalysis(namespace=self.namespace)
+        self.analysis_static.add_method('static')
+        self.analysis_static.add_type('triage')
+        self.analysis_static.add_ordinal_position(2)
+        self.analysis_static.addsource(method='IoCs Generator System',name='George Sakellariou',organization='UOM')
+        self.analysis_static.addsummary('Results of static section')
+        pe_exports = static['pe_exports']
+        exports = PEExports()
+        if pe_exports:
+            exported_functions=PEExportedFunctions()
+            exports.number_of_functions= len(pe_exports)
+            exports.exports_time_stamp = static['pe_timestamp']
+            count_names=[]
+            count_addr =[]
+            while pe_exports:
+                function=PEExportedFunction()
+                pe_func_data=pe_exports.pop()
+                function.entry_point=pe_func_data['address']
+                if not pe_func_data['address'] in count_addr:
+                    count_addr.append(pe_func_data['address'])
+                function.ordinal=pe_func_data['ordinal']
+                function.function_name=pe_func_data['name']
+                if not pe_func_data['name'] in count_names:
+                    count_names.append(pe_func_data['name'])
+                exported_functions.append(function)
+            exports.exported_functions=exported_functions
+            exports.number_of_addresses=len(count_addr)
+            exports.number_of_names=len(count_names)
+        pe_imports=static['pe_imports']
+        imports= PEImportList()
+
+        static_object.exports = exports
+        self.static_bundle.add_object(static_object)
     def bind_dropped(self):
         pass
     def bind_behavior(self):
@@ -200,8 +238,12 @@ class MAECMalwareSubjectCreator(MAECCreator):
     def bind_network(self):
         pass
     def bind_analysis(self):
+        self.analysis.set_findings_bundle(self.bundle.id_)
+        self.analysis_static.set_findings_bundle(self.static_bundle.id_)
         self.subject.add_analysis(self.analysis)
+        self.subject.add_analysis(self.analysis_static)
         self.subject.addbundleinfindingbundles(self.bundle)
+        self.subject.addbundleinfindingbundles(self.static_bundle)
 
 
 if __name__=='__main__':
