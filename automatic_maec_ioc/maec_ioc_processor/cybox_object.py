@@ -6,6 +6,7 @@ from cybox.objects.file_object import File
 class CyboxObject(Object):
 
     def __init__(self,objecttype=File):
+        super(Object,self).__init__()
         self._objecttype = objecttype()
 
     @property

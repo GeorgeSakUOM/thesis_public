@@ -13,9 +13,15 @@ from maec_ioc_processor.maec_malware_subject import MaecMalwareSubject
 from maec_ioc_processor.maec_analysis import MaecAnalysis
 from mixbox.namespaces import Namespace
 from cybox_object import CyboxObject
-from cybox.common.hashes import Hash
+from cybox.common.hashes import Hash,HashList
 from cybox.objects.win_executable_file_object import WinExecutableFile,PEExports,PEExportedFunction,\
-    PEExportedFunctions,PEImportedFunctions,PEImportList,PEImport,PEImportedFunction
+    PEExportedFunctions,PEImportedFunctions,PEImportList,PEImport,PEImportedFunction,PESection,PESectionHeaderStruct,\
+    PESectionList,Entropy,PEResourceList,PEResource,PEVersionInfoResource,PEHeaders,PEFileHeader
+from cybox.common.extracted_features import ExtractedFeatures
+from cybox.common.extracted_string import ExtractedString,ExtractedStrings
+from langdetect import detect
+import hashlib
+from maec.bundle import ObjectList
 
 PREFIX='ioc_generator'
 SCHEMA_LOCATION = 'schema_location'
@@ -66,6 +72,7 @@ class MAECMalwareSubjectCreator(MAECCreator):
         self.bind_static()
         self.bind_targetinfo()
         self.bind_virustotal()
+        self.bind_dropped()
         self.bind_analysis()
 
     def return_malware_subject(self):
@@ -188,15 +195,149 @@ class MAECMalwareSubjectCreator(MAECCreator):
             exports.number_of_names=len(count_names)
         pe_imports=static['pe_imports']
         imports= PEImportList()
-
+        if pe_imports:
+            for imported_pe in pe_imports:
+                imported_functions = imported_pe['imports']
+                imported_func_list= PEImportedFunctions()
+                ordinal =0
+                for function in imported_functions:
+                    ordinal+=1
+                    func_obj = PEImportedFunction()
+                    func_obj.function_name=function['name']
+                    func_obj.virtual_address = function['address']
+                    func_obj.ordinal = ordinal
+                    imported_func_list.append(func_obj)
+                import_file = PEImport()
+                import_file.file_name=imported_pe['dll']
+                import_file.imported_functions=imported_func_list
+                imports.append(import_file)
+        pe_sections=static['pe_sections']
+        sections = PESectionList()
+        if pe_sections:
+            for section in pe_sections:
+                pe_section= PESection()
+                header = PESectionHeaderStruct()
+                header.name=section['name']
+                header.virtual_address=section['virtual_address']
+                header.virtual_size=section['virtual_size']
+                header.size_of_raw_data=section['size_of_data']
+                pe_section.section_header=header
+                entropy = Entropy()
+                entropy.value=section['entropy']
+                pe_section.entropy=entropy
+                sections.append(pe_section)
+        pe_resources= static['pe_resources']
+        resources = PEResourceList()
+        if pe_resources:
+            for pe_resource in pe_resources:
+                resource = PEResource()
+                resource.language= pe_resource['language']
+                resource.sub_language = pe_resource['sublanguage']
+                resource.type_ = pe_resource['filetype']
+                resource.size= pe_resource['size']
+                resource.name=pe_resource['name']
+                resource.data = pe_resource['offset']
+                resources.append(resource)
+        pe_versioninfo= static['pe_versioninfo']
+        if pe_versioninfo:
+            version_info = PEVersionInfoResource()
+            for entry in pe_versioninfo:
+                if entry['name']=='LegalCopyright':
+                    version_info.legalcopyright=entry['value']
+                elif entry['name'] =='FileVersion':
+                    version_info.fileversion=entry['value']
+                elif entry['name'] == 'CompanyName':
+                    version_info.companyname = entry['value']
+                elif entry['name']=='Comments':
+                    version_info.comments = entry['value']
+                elif entry['name']=='ProductName':
+                    version_info.productname = entry['value']
+                elif entry['name']=='ProductVersion':
+                    version_info.productversion=entry['value']
+                elif entry['name']=='FileDescription':
+                    version_info.filedescription = entry['value']
+                elif entry['name']=='Translation':
+                    version_info.internalname = entry['value']
+                elif entry['name']=='LangID':
+                    version_info.langid = entry['value']
+                elif entry['name']=='LegalTrademarks':
+                    version_info.legaltrademarks= entry['value']
+                elif entry['name']=='SpecialBuild':
+                    version_info.specialbuild= entry['value']
+                elif entry['name']=='PrivateBuild':
+                    version_info.privatebuild= entry['value']
+                elif entry['name']=='OriginalFilename':
+                    version_info.originalfilename = entry['value']
+            resources.append(version_info)
+        headers = PEHeaders()
+        headers.signature=static['peid_signatures']
+        file_header =PEFileHeader()
+        file_header.time_date_stamp=static['pe_timestamp']
+        file_header.number_of_sections=len(pe_sections)
+        imphash = Hash(hash_value=static['pe_imphash'],type_=Hash.TYPE_MD5)
+        file_header.hashes = HashList()
+        file_header.hashes.append(imphash)
+        headers.file_header=file_header
+        static_object.headers = headers
+        static_object.resources = resources
+        static_object.sections=sections
         static_object.exports = exports
+        static_object.imports = imports
+        extracted_feautures= ExtractedFeatures()
+        extracted_feautures.strings=self.bind_strings()
+        static_object.extracted_features = extracted_feautures
         self.static_bundle.add_object(static_object)
+
     def bind_dropped(self):
-        pass
+        dropped_list = self.analysis_handler.dropped.list
+        if dropped_list:
+            for dropped in dropped_list:
+                objectype = CyboxObject().objecttype
+                objectype.size=dropped['size']
+                objectype.add_hash(Hash(hash_value=dropped['sha1'],type_=Hash.TYPE_SHA1))
+                objectype.add_hash(Hash(hash_value=dropped['md5'],type_=Hash.TYPE_MD5))
+                objectype.add_hash(Hash(hash_value=dropped['sha256'],type_=Hash.TYPE_SHA256))
+                objectype.add_hash(Hash(hash_value=dropped['sha512'],type_=Hash.TYPE_SHA512))
+                objectype.add_hash(Hash(hash_value=dropped['crc32'],type_=Hash.TYPE_OTHER))
+                objectype.add_hash(Hash(hash_value=dropped['ssdeep'],type_=Hash.TYPE_SSDEEP))
+                objectype.file_name=dropped['name']
+                objectype.device_path = os.path.dirname(dropped['path'])
+                objectype.full_path = dropped['path']
+                objectype.size_in_bytes = dropped['size']
+                objectype.file_extension = '.'.join(dropped['name'].split('.')[1:])
+                objectype.file_format = dropped['type']
+                self.bundle.objects.append(objectype)
+
     def bind_behavior(self):
         pass
     def bind_strings(self):
-        pass
+        strings = self.analysis_handler.strings.list
+        extracted_strings=None
+        if strings:
+            extracted_strings = ExtractedStrings()
+            for string in strings:
+                string_obj= ExtractedString()
+                hash_list= HashList()
+                string_obj.string_value=string
+                string_obj.byte_string_value="".join("{:02x}".format(ord(c)) for c in string)
+                string_md5_value= hashlib.md5(string).hexdigest()
+                string_sha1_value = hashlib.sha1(string).hexdigest()
+                md5_obj=Hash(hash_value=string_md5_value,type_=Hash.TYPE_MD5)
+                hash_list.append(md5_obj)
+                sha1_obj = Hash(hash_value=string_sha1_value,type_=Hash.TYPE_SHA1)
+                hash_list.append(sha1_obj)
+                string_obj.hashes=hash_list
+                string_obj.length=len(string)
+                #Activation after better detect implementation
+                '''
+                try:
+                    string_obj.language = detect(string)
+                except Exception,e:
+                    string_obj.language=None
+                '''
+                extracted_strings.append(string_obj)
+        return extracted_strings
+
     def bind_debug(self):
         pass
     def bind_memory(self):
@@ -226,6 +367,7 @@ class MAECMalwareSubjectCreator(MAECCreator):
 
     def bind_virustotal(self):
         self.bundle = MaecBundle()
+        self.bundle.objects = ObjectList()
         scans= self.analysis_handler.virustotal.get_section_simple_values()['scans']
         engines = scans.keys()
         while scans:
