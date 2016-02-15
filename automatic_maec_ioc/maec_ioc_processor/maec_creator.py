@@ -22,6 +22,14 @@ from cybox.common.extracted_string import ExtractedString,ExtractedStrings
 from langdetect import detect
 import hashlib
 from maec.bundle import ObjectList
+from maec.bundle.process_tree import ProcessTree,ProcessTreeNode
+from cybox.objects.process_object import ChildPIDList
+from cybox.common import DateTime
+import datetime
+from maec_bundle_action import MaecBundleAction
+from cybox.core import AssociatedObject,AssociatedObjects
+from cybox.objects.win_thread_object import WinThread
+from cybox.objects.process_object import ImageInfo
 
 PREFIX='ioc_generator'
 SCHEMA_LOCATION = 'schema_location'
@@ -73,6 +81,7 @@ class MAECMalwareSubjectCreator(MAECCreator):
         self.bind_targetinfo()
         self.bind_virustotal()
         self.bind_dropped()
+        self.bind_behavior()
         self.bind_analysis()
 
     def return_malware_subject(self):
@@ -159,8 +168,28 @@ class MAECMalwareSubjectCreator(MAECCreator):
         self.analysis.addanalysisenvironment(analysis_environment)
 
 
-    def bind_procmemory(self):
-        pass
+    def bind_procmemory(self,root_process):
+        procmemory=self.analysis_handler.procmemory.list
+        if procmemory:
+            proc_dict={}
+            for proc in procmemory:
+                proc_dict[proc['pid']]={'file':proc['file'],'yara':proc['yara']}
+            for pid in proc_dict.keys():
+                image = ImageInfo()
+                image.path = proc_dict[pid][file]
+                image.current_directory = os.path.dirname(proc_dict[pid][file])
+                image.file_name = os.path.basename(proc_dict[pid][file])
+                if pid==root_process.pid:
+                    root_process.image_info=image
+                else:
+                    try:
+                        embedded_process = root_process.find_embedded_process(pid)
+                        embedded_process.image_info = image
+                    except Exception, e:
+                        pass
+        return root_process
+
+
     def bind_static(self):
         static = self.analysis_handler.static.dictionary
         static_object = CyboxObject(objecttype=WinExecutableFile).objecttype
@@ -309,7 +338,67 @@ class MAECMalwareSubjectCreator(MAECCreator):
                 self.bundle.objects.append(objectype)
 
     def bind_behavior(self):
-        pass
+        behavior = self.analysis_handler.behavior.dictionary
+        processtree=behavior['processtree']
+        process_tree = process_tree_from_list(processtree)
+        processes= behavior['processes']
+        root_process = process_tree.root_process
+        for process in processes:
+            if process['process_id']==root_process.pid:
+                root_process.start_time=DateTime(value=datetime.datetime.strptime(process['first_seen'],"%Y-%m-%d %H:%M:%S,%f"))
+                calls = process['calls']
+                associated_objects={}
+                for call in calls:
+                    action=MaecBundleAction()
+                    parameters = []
+                    arg_count=0
+                    for argument in call['arguments']:
+                        arg_count+=1
+                        parameters.append(action.create_action_implementation_api_call_parameter(ordinal_position=arg_count,name=argument['name'],value='value'))
+                    api_call = action.create_action_implementation_api_call(function_name=call['api'],
+                                                                            parameters=parameters,return_value=call['return'])
+                    action.add_timestamp(call['timestamp'])
+                    action.add_frequnecy(call['repeated'])
+                    action.add_action_implementation_api_call(api_call)
+                    if call['thread_id'] in associated_objects.keys():
+                        action.add_associated_objects(associated_objects[call['thread_id']])
+                    else:
+                        ass_obj = action.create_associated_object(defined_object=WinThread())
+                        ass_obj.properties.thread_id=call['thread_id']
+                        associated_objects[call['thread_id']]=ass_obj
+                        action.add_associated_objects(ass_obj)
+                    root_process.add_initiated_action(action_id=action.id_)
+                    self.bundle.add_action(action)
+            else:
+                embedded_process = root_process.find_embedded_process(process['process_id'])
+                embedded_process.start_time=DateTime(value=datetime.datetime.strptime(process['first_seen'],"%Y-%m-%d %H:%M:%S,%f"))
+                calls = process['calls']
+                associated_objects={}
+                for call in calls:
+                    action=MaecBundleAction()
+                    parameters = []
+                    arg_count=0
+                    for argument in call['arguments']:
+                        arg_count+=1
+                        parameters.append(action.create_action_implementation_api_call_parameter(ordinal_position=arg_count,name=argument['name'],value='value'))
+                    api_call = action.create_action_implementation_api_call(function_name=call['api'],
+                                                                            parameters=parameters,return_value=call['return'])
+                    action.add_timestamp(call['timestamp'])
+                    action.add_frequnecy(call['repeated'])
+                    action.add_action_implementation_api_call(api_call)
+                    if call['thread_id'] in associated_objects.keys():
+                        action.add_associated_objects(associated_objects[call['thread_id']])
+                    else:
+                        ass_obj = action.create_associated_object(defined_object=WinThread())
+                        ass_obj.properties.thread_id=call['thread_id']
+                        associated_objects[call['thread_id']]=ass_obj
+                        action.add_associated_objects(ass_obj)
+                    embedded_process.add_initiated_action(action_id=action.id_)
+                    self.bundle.add_action(action)
+
+        process_tree.set_root_process(self.bind_procmemory(root_process))
+        self.bundle.process_tree=process_tree
+
     def bind_strings(self):
         strings = self.analysis_handler.strings.list
         extracted_strings=None
@@ -388,8 +477,67 @@ class MAECMalwareSubjectCreator(MAECCreator):
         self.subject.addbundleinfindingbundles(self.static_bundle)
 
 
+def process_tree_from_list(tree_list):
+    p_tree = ProcessTree()
+    root = ProcessTreeNode()
+    process = tree_list.pop()
+    root.pid = process['pid']
+    root.name=process['name']
+    root.parent_pid = process['parent_id']
+    children=process['children']
+    if children:
+        children_pid_list=ChildPIDList()
+        for child in children:
+            children_pid_list.append(child['pid'])
+        root.child_pid_list=children_pid_list
+        complete_processes_list=children_list_recovery(children)
+        tree_pid=[]
+        tree_pid.append(root.pid)
+        while complete_processes_list:
+            for proc in complete_processes_list:
+                if proc['parent_id'] in tree_pid:
+                    process_node = ProcessTreeNode()
+                    process_node.parent_pid=proc['parent_id']
+                    process_node.pid=proc['pid']
+                    process_node.name=proc['name']
+                    child_list_helper = ChildPIDList()
+                    for cpid in proc['child_pid_list']:
+                        child_list_helper.append(cpid)
+                    process_node.child_pid_list=child_list_helper
+                    root.add_spawned_process(process_node,str(proc['parent_id']))
+                    tree_pid.append(proc['pid'])
+                    complete_processes_list.remove(proc)
+    p_tree.set_root_process(root)
+    return p_tree
+
+
+
+def children_list_recovery(children,list_children=None):
+    if not children:
+        return list_children
+    elif children and (list_children is None):
+        list_children=[]
+        for child in children:
+            children_of_child = child.pop('children')
+            child['child_pid_list']= [c['pid'] for c in children_of_child]
+            list_children.append(child)
+            list_children = children_list_recovery(children_of_child,list_children)
+        return list_children
+    elif children and (list_children is not None):
+        for child in children:
+            children_of_child = child.pop('children')
+            child['child_pid_list']= [c['pid'] for c in children_of_child]
+            list_children.append(child)
+            list_children = children_list_recovery(children_of_child,list_children)
+        return list_children
+
 if __name__=='__main__':
     results = load_results('cuckoo_results')
     # Testing
     mc = MAECMalwareSubjectCreator(results)
-    print(mc.return_malware_subject())
+    report=mc.return_malware_subject()
+    print(report)
+    import os
+    filexml=open('resultxml.txt','w')
+    filexml.write(report)
+    filexml.close()
