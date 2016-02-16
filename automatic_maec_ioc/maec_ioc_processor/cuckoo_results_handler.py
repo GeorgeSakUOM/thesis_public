@@ -357,7 +357,8 @@ class AnalysisHandler():
 
 if __name__=='__main__':
     an = AnalysisHandler(filename='cuckoo_results')
-    #nh = NetworkHandler(filename='cuckoo_results')
+    nh = NetworkHandler(filename='cuckoo_results')
+    print(nh.dictionary)
     #print(nh.key)
     #print(nh.keys)
     #print(nh.subsections)
@@ -401,8 +402,8 @@ if __name__=='__main__':
     #print(dr.get_section_simple_values())
     #print(dr.get_next_drooped())
     #print(dr.get_yara(dr.get_next_drooped()))
-    bh = BehaviorHandler(filename='cuckoo_results')
-    print(bh.dictionary['enhanced'])
+    #bh = BehaviorHandler(filename='cuckoo_results')
+    #print(bh.dictionary['enhanced'])
 
     #print(bh.key)
     #print(bh.get_section_simple_values())
@@ -424,6 +425,7 @@ if __name__=='__main__':
     #print(st.get_next_string())
     #db = DebugHandler(filename='cuckoo_results')
     #print(db.key)
+    #print(db.dictionary)
     #print(db.get_section_simple_values())
     #print(db.get_next_error())
     #vt= VirusTotalHandler(filename='cuckoo_results')
@@ -435,6 +437,7 @@ if __name__=='__main__':
     #print(vt.get_scan_analysis(vt.get_next_scan()))
     #me = MemoryHandler(filename='cuckoo_results')
     #print(me.key)
+    #print(me.dictionary)
     #print(me.subsections)
     #print(me.get_section_simple_values())
     #print(me.subsectionskeys)

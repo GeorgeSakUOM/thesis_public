@@ -20,7 +20,7 @@ from cybox.objects.win_executable_file_object import WinExecutableFile,PEExports
 from cybox.common.extracted_features import ExtractedFeatures
 from cybox.common.extracted_string import ExtractedString,ExtractedStrings
 from langdetect import detect
-import hashlib
+import hashlib,sys
 from maec.bundle import ObjectList
 from maec.bundle.process_tree import ProcessTree,ProcessTreeNode
 from cybox.objects.process_object import ChildPIDList
@@ -30,6 +30,19 @@ from maec_bundle_action import MaecBundleAction
 from cybox.core import AssociatedObject,AssociatedObjects
 from cybox.objects.win_thread_object import WinThread
 from cybox.objects.process_object import ImageInfo
+from cybox.objects.dns_query_object import DNSQuery,DNSResourceRecords,DNSQuestion
+from cybox.objects.dns_record_object import DNSRecord
+from cybox.common.properties import AnyURI
+from cybox.objects.uri_object import URI
+from cybox.objects.http_session_object import HTTPSession,HTTPRequestResponse,HTTPClientRequest,HTTPRequestHeader,\
+    HTTPRequestLine,HTTPMessage,HTTPRequestHeaderFields,HostField,HTTPServerResponse,HTTPStatusLine,HTTPResponseHeader,\
+    HTTPResponseHeaderFields
+from cybox.objects.email_message_object import EmailMessage
+from cybox.objects.network_connection_object import NetworkConnection
+from cybox.objects.socket_address_object import SocketAddress
+from cybox.objects.port_object import Port
+from cybox.objects.address_object import Address
+from cybox.objects.network_packet_object import NetworkPacket,InternetLayer,ICMPv4Packet
 
 PREFIX='ioc_generator'
 SCHEMA_LOCATION = 'schema_location'
@@ -82,6 +95,7 @@ class MAECMalwareSubjectCreator(MAECCreator):
         self.bind_virustotal()
         self.bind_dropped()
         self.bind_behavior()
+        self.bind_network()
         self.bind_analysis()
 
     def return_malware_subject(self):
@@ -428,8 +442,10 @@ class MAECMalwareSubjectCreator(MAECCreator):
         return extracted_strings
 
     def bind_debug(self):
+        #TODO after detailed analysis of debug info, if it is something special that produced
         pass
     def bind_memory(self):
+        #TODO after implementation of volatility
         pass
     def bind_targetinfo(self):
         objecttype=None
@@ -467,7 +483,153 @@ class MAECMalwareSubjectCreator(MAECCreator):
             self.bundle.add_av_classification(av_classification)
 
     def bind_network(self):
-        pass
+        network =self.analysis_handler.network.dictionary
+        if network:
+            action = MaecBundleAction()
+            action.add_context('Network Pcap file')
+            dns = network['dns']
+            if dns:
+                for query in dns:
+                    question = DNSQuestion()
+                    question.qtype = query['type']
+                    URI(value=AnyURI(value=query['request']))
+                    dns_query = action.create_associated_object(defined_object=DNSQuery())
+                    dns_query.properties.question = question
+                    dns_query.properties.answer_resource_records=DNSResourceRecords()
+                    ans = query['answers']
+                    if ans:
+                        dns_query.properties.successful = True
+                        for answer in ans:
+                            record = DNSRecord()
+                            record.record_type = answer['type']
+                            record.record_data = answer['data']
+                            record.data_length = sys.getsizeof(answer['data'])
+                            dns_query.properties.answer_resource_records.append(record)
+                    else:
+                        dns_query.properties.successful = False
+                    action.add_associated_objects(dns_query)
+
+            http = network['http']
+            if http:
+                http_req_methods= ['get','head','options','delete','trace']
+                http_res_methods =['put','post']
+                http_session = action.create_associated_object(defined_object=HTTPSession())
+                http_request_response = []
+                for entry in http:
+                    request = HTTPRequestResponse()
+                    request.ordinal_position = entry['count']
+                    if entry['method'].lower() in http_req_methods:
+                        client_req= HTTPClientRequest()
+                        message = HTTPMessage()
+                        message.message_body= entry['body']
+                        message.length = sys.getsizeof(entry['body'])
+                        client_req.http_message_body=message
+                        line = HTTPRequestLine()
+                        line.version=entry['version']
+                        line.http_method=entry['method']
+                        client_req.http_request_line=line
+                        header = HTTPRequestHeader()
+                        header.raw_header = entry['data']
+                        header_parsed= HTTPRequestHeaderFields()
+                        header_parsed.user_agent=entry['user_agent']
+                        host = HostField()
+                        host.domain_name = URI(value=AnyURI(value=entry['uri']))
+                        host.port =entry['port']
+                        header_parsed.host =host
+                        header_parsed.content_length=sys.getsizeof(entry['body'])
+                        header.parsed_header = header_parsed
+                        client_req.http_request_header=header
+                        request.http_client_request = client_req
+                    elif entry['method'].lower() in http_req_methods:
+                        server_res = HTTPServerResponse()
+                        message = HTTPMessage()
+                        message.message_body =entry['body']
+                        message.length = sys.getsizeof(entry['body'])
+                        server_res.http_message_body = message
+                        line =HTTPStatusLine()
+                        line.version=entry['version']
+                        server_res.http_status_line =line
+                        header = HTTPResponseHeader()
+                        header.raw_header = entry['data']
+                        header_parsed = HTTPResponseHeaderFields()
+                        header_parsed.content_length = sys.getsizeof(entry['body'])
+                        header.parsed_header = header_parsed
+                        request.http_server_response = server_res
+                    http_request_response.append(request)
+                http_session.properties.http_request_response=http_request_response
+                action.add_associated_objects(http_session)
+
+            smtp = network['smtp']
+            if smtp:
+                for mail in smtp:
+                    message = action.create_associated_object(defined_object=EmailMessage())
+                    message.properties.raw_body = mail['raw']
+                    message.properties.raw_dst = mail['dst']
+                    action.add_associated_objects(message)
+
+            tcp = network['tcp']
+            if tcp:
+                for flow in tcp:
+                    tcp_obj = action.create_associated_object(defined_object=NetworkConnection())
+                    tcp_obj.properties.layer4_protocol = 'TCP'
+                    dst_socket=SocketAddress()
+                    dport = Port()
+                    dport.port_value =flow['dport']
+                    dport.layer4_protocol='tcp'
+                    dst_socket.port= dport
+                    daddress = Address(address_value=flow['dst'])
+                    dst_socket.ip_address = daddress
+                    tcp_obj.properties.destination_socket_address = dst_socket
+                    src_socket=SocketAddress()
+                    sport = Port()
+                    sport.port_value =flow['sport']
+                    sport.layer4_protocol='tcp'
+                    src_socket.port= sport
+                    saddress = Address(address_value=flow['src'])
+                    src_socket.ip_address = saddress
+                    tcp_obj.properties.destination_socket_address = src_socket
+                    action.add_associated_objects(tcp_obj)
+
+            udp = network['udp']
+            if udp:
+                for flow in udp:
+                    udp_obj = action.create_associated_object(defined_object=NetworkConnection())
+                    udp_obj.properties.layer4_protocol = 'UDP'
+                    dst_socket=SocketAddress()
+                    dport = Port()
+                    dport.port_value =flow['dport']
+                    dport.layer4_protocol='udp'
+                    dst_socket.port= dport
+                    daddress = Address(address_value=flow['dst'])
+                    dst_socket.ip_address = daddress
+                    udp_obj.properties.destination_socket_address = dst_socket
+                    src_socket=SocketAddress()
+                    sport = Port()
+                    sport.port_value =flow['sport']
+                    sport.layer4_protocol='tcp'
+                    src_socket.port= sport
+                    saddress = Address(address_value=flow['src'])
+                    src_socket.ip_address = saddress
+                    udp_obj.properties.destination_socket_address = src_socket
+                    action.add_associated_objects(udp_obj)
+
+            icmp=network['icmp']
+            if icmp:
+                for entry in icmp:
+                    #TODO implementation for icmp v6
+                    packet = action.create_associated_object(defined_object=NetworkPacket())
+                    internet_layer = InternetLayer()
+                    icmpv4=ICMPv4Packet()
+                    #TODO after writing a library that parses icmp data
+                    internet_layer.icmpv4 =icmpv4
+                    packet.properties.internet_layer = internet_layer
+                    action.add_associated_objects(packet)
+
+            hosts=network['hosts']
+            domains = network['domains']
+            irc = network['irc']
+            self.bundle.add_action(action)
+
     def bind_analysis(self):
         self.analysis.set_findings_bundle(self.bundle.id_)
         self.analysis_static.set_findings_bundle(self.static_bundle.id_)
